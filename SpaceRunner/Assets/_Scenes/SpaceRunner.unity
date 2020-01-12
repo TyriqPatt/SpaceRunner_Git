@@ -26186,6 +26186,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Miner
       objectReference: {fileID: 0}
+    - target: {fileID: 1988656245319503001, guid: 347e4c1a4d9b7f74d86d2b5c2b4ae9c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3197213859826148383, guid: 347e4c1a4d9b7f74d86d2b5c2b4ae9c1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26244,32 +26249,32 @@ PrefabInstance:
     - target: {fileID: 461935256881230402, guid: 347e4c1a4d9b7f74d86d2b5c2b4ae9c1,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461935256881230402, guid: 347e4c1a4d9b7f74d86d2b5c2b4ae9c1,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461935258025751818, guid: 347e4c1a4d9b7f74d86d2b5c2b4ae9c1,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461935258025751818, guid: 347e4c1a4d9b7f74d86d2b5c2b4ae9c1,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3728826110757657827, guid: 347e4c1a4d9b7f74d86d2b5c2b4ae9c1,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3728826110757657827, guid: 347e4c1a4d9b7f74d86d2b5c2b4ae9c1,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 347e4c1a4d9b7f74d86d2b5c2b4ae9c1, type: 3}
