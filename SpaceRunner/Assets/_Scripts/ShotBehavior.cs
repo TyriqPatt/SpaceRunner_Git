@@ -26,6 +26,10 @@ public class ShotBehavior : MonoBehaviour {
         {
             canFollow = true;
         }
+        if (BulletType == State.Missile)
+        {
+            Destroy(transform.parent.gameObject, Lifetime);
+        }
         else
         {
             Destroy(gameObject, Lifetime);
@@ -40,7 +44,7 @@ public class ShotBehavior : MonoBehaviour {
         {
             if(transform.position.y <= 7)
             {
-                transform.position += transform.up * Time.deltaTime * RiseSpeed;
+                transform.parent.position += transform.up * Time.deltaTime * RiseSpeed;
             }
         }
         else if (BulletType == State.ShockWave)
@@ -107,11 +111,12 @@ public class ShotBehavior : MonoBehaviour {
                 tempObj = Instantiate(W_impact, transform.position, other.transform.rotation);
                 //tempObj.transform.SetParent(other.transform);
                 Destroy(tempObj, 2);
+                if (BulletType == State.Missile)
+                {
+                    Destroy(transform.parent.gameObject);
+                }
+
             }
         }
-        
-
-        
     }
-
 }

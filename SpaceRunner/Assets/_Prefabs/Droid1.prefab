@@ -9851,6 +9851,9 @@ MonoBehaviour:
   Turret_DMG: 8
   Missile_DMG: 20
   Explode: {fileID: 315466715871465140, guid: 6586a734a1a374747b781191ba7b96c4, type: 3}
+  PickUps:
+  - {fileID: 1442801782922368, guid: e97d38b861c7db64bb50d91030e08e7e, type: 3}
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!1 &3175003520656697565
 GameObject:
   m_ObjectHideFlags: 0
@@ -9882,21 +9885,6 @@ Transform:
   m_Father: {fileID: 3680346478417305796}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1848843040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3533157925429683586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
 --- !u!1 &3682522181542808890
 GameObject:
   m_ObjectHideFlags: 0
@@ -19624,12 +19612,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c, type: 3}
---- !u!1 &3533157925429683586 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 150008932310946212, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 3683025568331215910}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3607915391750873724 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 75822129717286490, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c,

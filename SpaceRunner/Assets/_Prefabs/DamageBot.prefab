@@ -81,6 +81,9 @@ MonoBehaviour:
   Turret_DMG: 8
   Missile_DMG: 20
   Explode: {fileID: 5284295716280921424, guid: 37a38073e2b36f44aa69500d66e135b9, type: 3}
+  PickUps:
+  - {fileID: 1442801782922368, guid: e97d38b861c7db64bb50d91030e08e7e, type: 3}
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &2716282461843157697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,22 +291,22 @@ PrefabInstance:
     - target: {fileID: 75822129717286490, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 75822129717286490, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000053197136
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 75822129717286490, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 75822129717286490, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 75822129717286490, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c,
         type: 3}

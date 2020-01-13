@@ -13,7 +13,7 @@ public class PowerUp : MonoBehaviour{
     public bool AttackPickUp;
     public bool EnergyPickUp;
     Light lit;
-    
+    float waitTime;
  
     
     void Start()
@@ -25,8 +25,15 @@ public class PowerUp : MonoBehaviour{
 
     void Update()
     {
-        transform.Rotate(0, 45 * 5 * Time.deltaTime, 0);
-        transform.parent.Translate(0, 0, -speed);
+        //transform.Rotate(0, 45 * 5 * Time.deltaTime, 0);
+        if (waitTime < 2)
+        {
+            waitTime += Time.deltaTime;
+        }
+        if(waitTime >= 2)
+        {
+            transform.parent.Translate(0, 0, speed);
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -55,6 +62,13 @@ public class PowerUp : MonoBehaviour{
             {
                 Destroy(transform.parent.gameObject);
             }
+        }
+
+        if (other.gameObject.name == "KillBox")
+        {
+
+            Destroy(transform.parent.gameObject);
+
         }
     }
 }
