@@ -8,8 +8,9 @@ public class TutorialManager : MonoBehaviour
 
     public GameObject MoveText, ShootText, AbilityText;
     public GameObject Tutorial_Asteroids, DmgBots;
+    public GameObject[] LastAsteriods;
     public Transform T_Spawner;
-    public enum State {StartState, TeachMove, Spawn_Asteriods,TeachShoot, TeachAbility, SpawnBots}
+    public enum State {StartState, TeachMove, Spawn_Asteriods, WaitForAsteroids, TeachShoot, TeachAbility, SpawnBots, WaitForBots}
     public State TutorialState;
     float input;
     public Canons C;
@@ -43,8 +44,15 @@ public class TutorialManager : MonoBehaviour
                 break;
             case State.Spawn_Asteriods:
                 MoveText.SetActive(false);
-                Instantiate(Tutorial_Asteroids, DmgBots.transform.position = new Vector3(T_Spawner.position.x, T_Spawner.position.y, T_Spawner.position.z + 350), T_Spawner.transform.rotation);
-                TutorialState = State.TeachShoot;
+                Instantiate(Tutorial_Asteroids, DmgBots.transform.position = new Vector3(T_Spawner.position.x, T_Spawner.position.y, T_Spawner.position.z + 400), T_Spawner.transform.rotation);
+                TutorialState = State.WaitForAsteroids;
+                break;
+            case State.WaitForAsteroids:
+                LastAsteriods = GameObject.FindGameObjectsWithTag("Asteroid");
+                if(LastAsteriods == null)
+                {
+                    TutorialState = State.TeachShoot;
+                }
                 break;
             case State.TeachShoot:
                 ShootText.SetActive(true);
@@ -58,7 +66,10 @@ public class TutorialManager : MonoBehaviour
                 break;
             case State.SpawnBots:
                 Instantiate(DmgBots, DmgBots.transform.position = new Vector3(T_Spawner.position.x, T_Spawner.position.y + 7, T_Spawner.position.z), T_Spawner.transform.rotation);
-                TutorialState = State.TeachShoot;
+                
+                break;
+            case State.WaitForBots:
+                
                 break;
         }
     }
@@ -74,7 +85,7 @@ public class TutorialManager : MonoBehaviour
         {
             left += Time.deltaTime;
         }
-        if(left >= 1.5f && right >= 1.5f)
+        if(left >= .5f && right >= .5f)
         {
             TutorialState = State.Spawn_Asteriods;
         }

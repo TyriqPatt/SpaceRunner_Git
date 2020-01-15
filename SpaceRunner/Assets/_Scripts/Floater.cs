@@ -31,7 +31,7 @@ public class Floater : MonoBehaviour
         {
             speed = 2;
             finalSize = Random.Range(1, 11);
-            if (finalSize > 4 && finalSize < 8)
+            if (finalSize > 2 && finalSize < 8)
             {
                 finalSize = 1;
             }

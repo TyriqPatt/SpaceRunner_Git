@@ -7,8 +7,6 @@ public class Health : MonoBehaviour
     public GameObject Explosion;
     public float Damage = 0;
     public float CurrentHealth;
-    ScoreTracker ScoreT;
-    public int Points;
     Material CurMat;
     public Material HitMat;
     public bool NormMeteor;
@@ -20,7 +18,6 @@ public class Health : MonoBehaviour
     {
         Damage = 5;
         CurrentHealth = Random.Range(30, 50);
-        ScoreT = (ScoreTracker)FindObjectOfType(typeof(ScoreTracker));
         if (NormMeteor)
         {
             CurMat = transform.GetChild(0).GetComponent<Renderer>().material;
@@ -56,25 +53,21 @@ public class Health : MonoBehaviour
         if (other.gameObject.tag == "Shootable")
         {
             DealDamage(Damage * PlayerHealth.DmgMultiplier);
-            ScoreT.Addpoints(Points);
             StartCoroutine(Hit());
         }
         if (other.gameObject.tag == "EnemyLaser")
         {
             DealDamage(Damage * PlayerHealth.DmgMultiplier);
-            ScoreT.Addpoints(Points);
             StartCoroutine(Hit());
         }
         if (other.gameObject.tag == "TurretShot")
         {
             DealDamage(Damage + 5 * PlayerHealth.DmgMultiplier);
-            ScoreT.Addpoints(Points);
             StartCoroutine(Hit());
         }
         if (other.gameObject.tag == "Missile")
         {
             DealDamage(Damage + 20);
-            ScoreT.Addpoints(Points);
             StartCoroutine(Hit());
         }
         if (other.gameObject.tag == "Debris")

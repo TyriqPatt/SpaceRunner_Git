@@ -26,17 +26,6 @@ public class Asteroids : MonoBehaviour
     {
         if(other.gameObject.name == "KillBox")
         {
-            
-            if (AFNum == 0)
-            {
-                AFS.Atrs1 = null;
-                AFS.CanSpawn1 = false;
-            }
-            else if(AFNum == 1)
-            {
-                AFS.Atrs2 = null;
-                AFS.CanSpawn2 = false;
-            }
             Destroy(gameObject);
         }
     }
