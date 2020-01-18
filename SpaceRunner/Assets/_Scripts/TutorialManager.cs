@@ -6,22 +6,27 @@ using UnityEngine.UI;
 public class TutorialManager : MonoBehaviour
 {
 
-    public GameObject MoveText, ShootText, AbilityText;
+    public GameObject MoveText, ShootText, AbilityText, BotText;
     public GameObject Tutorial_Asteroids, DmgBots;
     public GameObject[] LastAsteriods;
+    public GameObject[] Enemies;
     public Transform T_Spawner;
-    public enum State {StartState, TeachMove, Spawn_Asteriods, WaitForAsteroids, TeachShoot, TeachAbility, SpawnBots, WaitForBots}
+    public enum State {StartState, TeachMove, Spawn_Asteriods, TeachShoot, WaitForAsteroids, TeachAbility, SpawnBots, WaitForBots}
     public State TutorialState;
     float input;
     public Canons C;
     float left = 0;
     float right = 0;
+    Asteroids A;
+    public PlayerHealth PH;
 
     // Start is called before the first frame update
     void Start()
     {
         //C.enabled = false;
         StartCoroutine(Wait());
+        PH.ToggleAbility_Turret();
+        PH.ToggleAbility_Missile();
     }
 
     // Update is called once per frame
@@ -44,32 +49,47 @@ public class TutorialManager : MonoBehaviour
                 break;
             case State.Spawn_Asteriods:
                 MoveText.SetActive(false);
-                Instantiate(Tutorial_Asteroids, DmgBots.transform.position = new Vector3(T_Spawner.position.x, T_Spawner.position.y, T_Spawner.position.z + 400), T_Spawner.transform.rotation);
+                GameObject Temp;
+                Temp = Instantiate(Tutorial_Asteroids, DmgBots.transform.position = new Vector3(T_Spawner.position.x, T_Spawner.position.y, T_Spawner.position.z + 400), T_Spawner.transform.rotation);
+                A = Temp.GetComponent<Asteroids>();
+                Destroy(Temp, 19);
+                TutorialState = State.TeachShoot;
+                break;
+           case State.TeachShoot:
+                ShootText.SetActive(true);
+                C.enabled = true;
                 TutorialState = State.WaitForAsteroids;
                 break;
             case State.WaitForAsteroids:
                 LastAsteriods = GameObject.FindGameObjectsWithTag("Asteroid");
-                if(LastAsteriods == null)
+                float f = LastAsteriods.Length;
+                if (f == 0)
                 {
-                    TutorialState = State.TeachShoot;
+                    TutorialState = State.TeachAbility;
                 }
-                break;
-            case State.TeachShoot:
-                ShootText.SetActive(true);
-                C.enabled = true;
-                //Wait for player to destroy all Ateroids
                 break;
             case State.TeachAbility:
                 ShootText.SetActive(false);
                 AbilityText.SetActive(true);
+                WaitForRoll();
                 //Wait for player to activate ability
                 break;
             case State.SpawnBots:
-                Instantiate(DmgBots, DmgBots.transform.position = new Vector3(T_Spawner.position.x, T_Spawner.position.y + 7, T_Spawner.position.z), T_Spawner.transform.rotation);
-                
+                AbilityText.SetActive(false);
+                GameObject TempBots;
+                TempBots = Instantiate(DmgBots, DmgBots.transform.position = new Vector3(T_Spawner.position.x, T_Spawner.position.y + 5, T_Spawner.position.z), T_Spawner.transform.rotation);
+                TempBots.GetComponent<GroupManager>().Tutorial = true;
+                BotText.SetActive(true);
+                TutorialState = State.WaitForBots;
                 break;
             case State.WaitForBots:
-                
+                Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                float fe = Enemies.Length;
+                if (fe == 0)
+                {
+                    BotText.SetActive(false);
+                    //Complete Tutorial, Send to next level
+                }
                 break;
         }
     }
@@ -88,6 +108,21 @@ public class TutorialManager : MonoBehaviour
         if(left >= .5f && right >= .5f)
         {
             TutorialState = State.Spawn_Asteriods;
+        }
+    }
+
+    void WaitForRoll()
+    {
+        input = Input.GetAxis("Horizontal");
+        //left roll
+        if (Input.GetKeyDown(KeyCode.LeftShift) && input < 0 && PH.CurRollCdwn == PH.MaxRollCdwn)
+        {
+            TutorialState = State.SpawnBots;
+        }
+        //right roll
+        if (Input.GetKeyDown(KeyCode.LeftShift) && input > 0 && PH.CurRollCdwn == PH.MaxRollCdwn)
+        {
+            TutorialState = State.SpawnBots;
         }
     }
 

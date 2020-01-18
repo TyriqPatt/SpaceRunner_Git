@@ -19,7 +19,7 @@ public class EnemyHealthBar : MonoBehaviour {
     public float Missile_DMG;
     public GameObject Explode;
     public GameObject[] PickUps;
-
+    public bool isTutorial;
 
     // Use this for initialization
     void Start () {
@@ -75,11 +75,14 @@ public class EnemyHealthBar : MonoBehaviour {
         Destroy(transform.parent.gameObject);
         GameObject tempObj;
         tempObj = Instantiate(Explode, transform.position, transform.rotation);
-        int randSpawn = Random.Range(0, 5);
-        int randPu = Random.Range(0, PickUps.Length);
-        if (randSpawn <= 5)
+        if (!isTutorial)
         {
-            Instantiate(PickUps[randPu], transform.position, transform.parent.rotation);
+            int randSpawn = Random.Range(0, 5);
+            int randPu = Random.Range(0, PickUps.Length);
+            if (randSpawn <= 5)
+            {
+                Instantiate(PickUps[randPu], transform.position, transform.parent.rotation);
+            }
         }
         Destroy(tempObj, 3);
     }

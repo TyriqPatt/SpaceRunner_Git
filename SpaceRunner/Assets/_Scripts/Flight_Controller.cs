@@ -35,7 +35,7 @@ public class Flight_Controller : MonoBehaviour
     public enum State { Roll, Turret, Missile }
 
     public State AbilityState;
-
+    public bool isTutorial;
 
     // Start is called before the first frame update
     void Start()
@@ -197,34 +197,37 @@ public class Flight_Controller : MonoBehaviour
                     BarrageBG.enabled = false;
                     break;
             }
-            if (Input.GetKeyDown(KeyCode.W))
+            if (!isTutorial)
             {
-                A_States += 1;
-                if(A_States > 2)
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    A_States += 1;
+                    if (A_States > 2)
+                    {
+                        A_States = 0;
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    A_States -= 1;
+                    if (A_States < 0)
+                    {
+                        A_States = 2;
+                    }
+                }
+
+                if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
                     A_States = 0;
                 }
-            }
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                A_States -= 1;
-                if (A_States < 0 )
+                if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    A_States = 1;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
                     A_States = 2;
                 }
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                A_States = 0;
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                A_States = 1;
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                A_States = 2;
             }
         }
 

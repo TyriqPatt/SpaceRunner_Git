@@ -16,10 +16,13 @@ public class PlayerHealth : MonoBehaviour
     public float CurTurretCdwn;
     public Slider TurretSlider;
     public GameObject TurretFill;
+    public GameObject Turret;
+    public GameObject TurretBar;
     public float MaxMissileCdwn;
     public float CurMissileCdwn;
     public Slider MissileSlider;
-    public bool invulnerable;
+    public GameObject Missile;
+    public GameObject MissileBar;
     public float Laser_DMG;
     public float Curve_DMG;
     public float Asteroid_DMG;
@@ -225,5 +228,17 @@ public class PlayerHealth : MonoBehaviour
         AttackDet.SetActive(true);
         yield return new WaitForSeconds(1f);
         AttackDet.SetActive(false);
+    }
+
+    public void ToggleAbility_Turret()
+    {
+        Turret.SetActive(false);
+        TurretBar.SetActive(false);
+    }
+
+    public void ToggleAbility_Missile()
+    {
+        Missile.SetActive(false);
+        MissileBar.SetActive(false);
     }
 }

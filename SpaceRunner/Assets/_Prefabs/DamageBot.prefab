@@ -76,6 +76,7 @@ MonoBehaviour:
   MaxHealth: 20
   HealthSlider: {fileID: 0}
   hitDet: {fileID: 2717644093643289838}
+  Boss: 0
   invulnerable: 0
   Laser_DMG: 5
   Turret_DMG: 8
@@ -84,6 +85,7 @@ MonoBehaviour:
   PickUps:
   - {fileID: 1442801782922368, guid: e97d38b861c7db64bb50d91030e08e7e, type: 3}
   - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
+  isTutorial: 0
 --- !u!114 &2716282461843157697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +132,10 @@ PrefabInstance:
     - target: {fileID: 1458391615630120, guid: 6d18ca3ac0d2ecd4aa99a8099af486bb, type: 3}
       propertyPath: m_Name
       value: AlienFighter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458391615630120, guid: 6d18ca3ac0d2ecd4aa99a8099af486bb, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4154595508381948, guid: 6d18ca3ac0d2ecd4aa99a8099af486bb, type: 3}
       propertyPath: m_LocalPosition.x
