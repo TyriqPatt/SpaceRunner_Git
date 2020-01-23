@@ -493,6 +493,7 @@ MonoBehaviour:
   MaxHealth: 80
   HealthSlider: {fileID: 0}
   hitDet: {fileID: 1562044642}
+  Boss: 0
   invulnerable: 0
   Laser_DMG: 5
   Turret_DMG: 8
@@ -501,6 +502,7 @@ MonoBehaviour:
   PickUps:
   - {fileID: 1442801782922368, guid: e97d38b861c7db64bb50d91030e08e7e, type: 3}
   - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
+  isTutorial: 0
 --- !u!1 &7324526996933842999
 GameObject:
   m_ObjectHideFlags: 0
