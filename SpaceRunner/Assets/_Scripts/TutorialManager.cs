@@ -76,10 +76,7 @@ public class TutorialManager : MonoBehaviour
                 break;
             case State.SpawnBots:
                 AbilityText.SetActive(false);
-                GameObject TempBots;
-                TempBots = Instantiate(DmgBots, DmgBots.transform.position = new Vector3(T_Spawner.position.x, T_Spawner.position.y + 5, T_Spawner.position.z), T_Spawner.transform.rotation);
-                TempBots.GetComponent<GroupManager>().Tutorial = true;
-                BotText.SetActive(true);
+                StartCoroutine(WaitToSpawnBots());
                 TutorialState = State.WaitForBots;
                 break;
             case State.WaitForBots:
@@ -130,5 +127,14 @@ public class TutorialManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         TutorialState = State.TeachMove;
+    }
+
+    IEnumerator WaitToSpawnBots()
+    {
+        yield return new WaitForSeconds(3);
+        GameObject TempBots;
+        TempBots = Instantiate(DmgBots, DmgBots.transform.position = new Vector3(T_Spawner.position.x, T_Spawner.position.y + 5, T_Spawner.position.z), T_Spawner.transform.rotation);
+        TempBots.GetComponent<GroupManager>().Tutorial = true;
+        BotText.SetActive(true);
     }
 }
