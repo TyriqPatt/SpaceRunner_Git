@@ -17,6 +17,7 @@ TagManager:
   - Stun
   - Curvelaser
   - Missile
+  - Shield
   layers:
   - Default
   - TransparentFX

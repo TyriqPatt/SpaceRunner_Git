@@ -396,11 +396,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794758066d6ae924685c2fa36d5f3091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentHealth: 0
   MaxHealth: 100
   HealthSlider: {fileID: 82396885999670823}
   hitDet: {fileID: 7237493851962580649}
+  Boss: 0
   invulnerable: 0
   Laser_DMG: 5
+  Turret_DMG: 0
+  Missile_DMG: 0
+  Explode: {fileID: 0}
+  PickUps: []
+  isTutorial: 0
 --- !u!1 &7571398220654606759
 GameObject:
   m_ObjectHideFlags: 0
