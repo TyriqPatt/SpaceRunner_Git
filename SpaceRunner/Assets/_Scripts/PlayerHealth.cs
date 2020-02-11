@@ -28,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
     public float Asteroid_DMG;
     public float Beam_DMG;
     public float Mine_Dmg;
+    public float Gball_Dmg;
     public float HealAmount;
     public GameObject hitDet;
     public GameObject healthDet;
@@ -157,6 +158,11 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(Hit());
         }
         if (other.gameObject.tag == "Asteroid")
+        {
+            DealDamage(Asteroid_DMG);
+            StartCoroutine(Hit());
+        }
+        if (other.gameObject.tag == "G_Ball")
         {
             DealDamage(Asteroid_DMG);
             StartCoroutine(Hit());

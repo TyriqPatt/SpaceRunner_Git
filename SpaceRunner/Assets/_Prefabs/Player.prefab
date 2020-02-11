@@ -38284,6 +38284,7 @@ MonoBehaviour:
   MissileSpawn: {fileID: 1267072717}
   PH: {fileID: 0}
   AbilityState: 0
+  isTutorial: 0
 --- !u!114 &4560426748289386165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38508,15 +38509,19 @@ MonoBehaviour:
   CurTurretCdwn: 0
   TurretSlider: {fileID: 0}
   TurretFill: {fileID: 0}
+  Turret: {fileID: 0}
+  TurretBar: {fileID: 0}
   MaxMissileCdwn: 7.5
   CurMissileCdwn: 0
   MissileSlider: {fileID: 0}
-  invulnerable: 0
+  Missile: {fileID: 0}
+  MissileBar: {fileID: 0}
   Laser_DMG: 5
   Curve_DMG: 7
   Asteroid_DMG: 25
   Beam_DMG: 2
   Mine_Dmg: 20
+  Gball_Dmg: 30
   HealAmount: 10
   hitDet: {fileID: 4561031876939347179}
   healthDet: {fileID: 2058060696}
@@ -39647,6 +39652,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P_Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996886861038556350, guid: 1408d3dafec2d09498106caabd98c8b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5994449281032518966, guid: 1408d3dafec2d09498106caabd98c8b8,
         type: 3}

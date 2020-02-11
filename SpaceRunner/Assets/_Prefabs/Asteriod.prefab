@@ -126,11 +126,11 @@ MonoBehaviour:
     type: 3}
   Damage: 0
   CurrentHealth: 0
-  Points: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
   Pickup: 0
-  BuffDrop: {fileID: 0}
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!1 &8664711664784315991
 GameObject:
   m_ObjectHideFlags: 0

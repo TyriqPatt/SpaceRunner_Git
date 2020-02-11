@@ -18,6 +18,7 @@ TagManager:
   - Curvelaser
   - Missile
   - Shield
+  - G_Ball
   layers:
   - Default
   - TransparentFX

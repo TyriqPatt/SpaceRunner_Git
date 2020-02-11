@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     public Material HitMat;
     public bool NormMeteor;
     public bool Pickup;
-    public GameObject BuffDrop;
+    public GameObject[] PickUps;
 
     // Start is called before the first frame update
     void Start()
@@ -90,9 +90,12 @@ public class Health : MonoBehaviour
     {
         if (Pickup)
         {
-            GameObject PowerObj;
-            PowerObj = Instantiate(BuffDrop, transform.position, Quaternion.identity);
-            Destroy(PowerObj, 10);
+            int randSpawn = Random.Range(0, 5);
+            int randPu = Random.Range(0, PickUps.Length);
+            if (randSpawn <= 5)
+            {
+                Instantiate(PickUps[randPu], transform.position, transform.parent.rotation);
+            }
         }
         Destroy(gameObject);
         GameObject tempObj;
