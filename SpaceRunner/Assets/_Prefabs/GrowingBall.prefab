@@ -4862,7 +4862,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   growSpeed: 0.5
   finalSize: 15
-  _delay: 2
+  _delay: 1
+  _distance: 0
+  Boss: {fileID: 0}
 --- !u!114 &5955428955009714966
 MonoBehaviour:
   m_ObjectHideFlags: 0

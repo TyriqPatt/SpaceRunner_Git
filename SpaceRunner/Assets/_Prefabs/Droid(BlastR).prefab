@@ -328,6 +328,7 @@ MonoBehaviour:
   HealthSlider: {fileID: 0}
   hitDet: {fileID: 1619664884}
   Boss: 0
+  Pillar: 0
   invulnerable: 0
   Laser_DMG: 5
   Turret_DMG: 8

@@ -486,8 +486,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!54 &8946776861882636997
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -553,7 +554,7 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
+  Pickup: 1
   PickUps:
   - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!54 &7512078607568062895
@@ -621,8 +622,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!54 &2008665435274127106
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -688,8 +690,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!54 &4262491343880341371
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -737,8 +740,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &7009490934898522684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,7 +808,7 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
+  Pickup: 1
   PickUps:
   - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &3885014008735484558
@@ -981,8 +985,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!54 &2344670832805470497
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1030,8 +1035,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &5437148997977033860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1097,8 +1103,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &8563442617087284825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1164,8 +1171,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &4740907413179814293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,8 +1239,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &2600746964007522317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1316,8 +1325,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!54 &8405568628604299020
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1383,8 +1393,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!54 &9163048535260883634
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1432,8 +1443,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &2562621465373223504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1517,7 +1529,7 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
+  Pickup: 1
   PickUps:
   - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!54 &2406811856210902051
@@ -1567,7 +1579,7 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
+  Pickup: 1
   PickUps:
   - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &7500435793917098238
@@ -1635,8 +1647,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &6901729143352985775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1720,8 +1733,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!1 &9180800812773245807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,7 +1856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fd20f4f54cb73b43842d9f942c6e2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 0.75
   AFS: {fileID: 0}
   AFNum: 0
 --- !u!54 &1582540409
@@ -1921,7 +1935,7 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
+  Pickup: 1
   PickUps:
   - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &8676733867582675519
@@ -1989,7 +2003,7 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
+  Pickup: 1
   PickUps:
   - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &5707980115029289492
@@ -2057,7 +2071,7 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
+  Pickup: 1
   PickUps:
   - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &3013407653011867904
@@ -2125,8 +2139,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &5623413093070414782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2192,8 +2207,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &738293193834074261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2259,7 +2275,7 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
+  Pickup: 1
   PickUps:
   - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &1318185760596024906
@@ -2327,8 +2343,9 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
-  PickUps: []
+  Pickup: 1
+  PickUps:
+  - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &5403164350912053787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2394,7 +2411,7 @@ MonoBehaviour:
   CurrentHealth: 0
   HitMat: {fileID: 2100000, guid: 63a3da82c4c24534c897949ae62b7822, type: 2}
   NormMeteor: 0
-  Pickup: 0
+  Pickup: 1
   PickUps:
   - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
 --- !u!114 &2583885567778198875
@@ -2429,6 +2446,10 @@ PrefabInstance:
     - target: {fileID: 1851983691132684, guid: e0abd82356fb6524da87f455b9426e02, type: 3}
       propertyPath: m_TagString
       value: Asteroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851983691132684, guid: e0abd82356fb6524da87f455b9426e02, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4628273936357252, guid: e0abd82356fb6524da87f455b9426e02, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2597,6 +2618,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Asteroid
       objectReference: {fileID: 0}
+    - target: {fileID: 1857193490896124, guid: 9fc0e2fffa54de14ab9e9839c761cc1f, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4117429352186582, guid: 9fc0e2fffa54de14ab9e9839c761cc1f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -40.89966
@@ -2687,6 +2712,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Asteroid
       objectReference: {fileID: 0}
+    - target: {fileID: 1857193490896124, guid: 9fc0e2fffa54de14ab9e9839c761cc1f, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4117429352186582, guid: 9fc0e2fffa54de14ab9e9839c761cc1f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 55.7
@@ -2776,6 +2805,10 @@ PrefabInstance:
     - target: {fileID: 1238246797911008, guid: 5e8a2db0622b63e48905b9b28f80f90b, type: 3}
       propertyPath: m_TagString
       value: Asteroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238246797911008, guid: 5e8a2db0622b63e48905b9b28f80f90b, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4605639587827802, guid: 5e8a2db0622b63e48905b9b28f80f90b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2937,6 +2970,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Asteroid
       objectReference: {fileID: 0}
+    - target: {fileID: 1434215796535848, guid: 81242b437a2594a40a3f74772e51931d, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4942596885261224, guid: 81242b437a2594a40a3f74772e51931d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.454601
@@ -3027,6 +3064,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Asteroid
       objectReference: {fileID: 0}
+    - target: {fileID: 1392832899432374, guid: d4c3c7cc0364df24585e3c581e0977f8, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4601683006472332, guid: d4c3c7cc0364df24585e3c581e0977f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 52.50027
@@ -3099,6 +3140,10 @@ PrefabInstance:
     - target: {fileID: 1434215796535848, guid: 81242b437a2594a40a3f74772e51931d, type: 3}
       propertyPath: m_TagString
       value: Asteroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434215796535848, guid: 81242b437a2594a40a3f74772e51931d, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4942596885261224, guid: 81242b437a2594a40a3f74772e51931d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3190,6 +3235,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Asteroid
       objectReference: {fileID: 0}
+    - target: {fileID: 1797247800199256, guid: c724e32ca6742b54fb26f7c36add3ac3, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4601189284658612, guid: c724e32ca6742b54fb26f7c36add3ac3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -59
@@ -3267,6 +3316,10 @@ PrefabInstance:
     - target: {fileID: 1762338643171276, guid: 1f895472cbfe44944a9149e088aa980a, type: 3}
       propertyPath: m_TagString
       value: Asteroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762338643171276, guid: 1f895472cbfe44944a9149e088aa980a, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4648723886427402, guid: 1f895472cbfe44944a9149e088aa980a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3346,6 +3399,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Asteroid
       objectReference: {fileID: 0}
+    - target: {fileID: 1418810523693724, guid: f2da90603657be74cbaa8c0f7bf69ed5, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4820156986076470, guid: f2da90603657be74cbaa8c0f7bf69ed5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 69.9
@@ -3423,6 +3480,10 @@ PrefabInstance:
     - target: {fileID: 1581323623909028, guid: 972abbb75e59b9d4197c935f4054130a, type: 3}
       propertyPath: m_TagString
       value: Asteroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581323623909028, guid: 972abbb75e59b9d4197c935f4054130a, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4782098361563454, guid: 972abbb75e59b9d4197c935f4054130a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3508,6 +3569,10 @@ PrefabInstance:
     - target: {fileID: 1491407261460684, guid: 4769e9166a9ebc24d8b361bb5d3e60b2, type: 3}
       propertyPath: m_TagString
       value: Asteroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491407261460684, guid: 4769e9166a9ebc24d8b361bb5d3e60b2, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4278763380117224, guid: 4769e9166a9ebc24d8b361bb5d3e60b2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3777,6 +3842,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Asteroid
       objectReference: {fileID: 0}
+    - target: {fileID: 1870533537087504, guid: 3d75efea2d4394f41836d50671b13ecd, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4737729252328472, guid: 3d75efea2d4394f41836d50671b13ecd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -52.999733
@@ -3849,6 +3918,10 @@ PrefabInstance:
     - target: {fileID: 1491407261460684, guid: 4769e9166a9ebc24d8b361bb5d3e60b2, type: 3}
       propertyPath: m_TagString
       value: Asteroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491407261460684, guid: 4769e9166a9ebc24d8b361bb5d3e60b2, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4278763380117224, guid: 4769e9166a9ebc24d8b361bb5d3e60b2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3934,6 +4007,10 @@ PrefabInstance:
     - target: {fileID: 1797247800199256, guid: c724e32ca6742b54fb26f7c36add3ac3, type: 3}
       propertyPath: m_TagString
       value: Asteroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797247800199256, guid: c724e32ca6742b54fb26f7c36add3ac3, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4601189284658612, guid: c724e32ca6742b54fb26f7c36add3ac3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4101,6 +4178,10 @@ PrefabInstance:
     - target: {fileID: 1906796027868932, guid: 93a80dcc42393d14fa2d153407811771, type: 3}
       propertyPath: m_TagString
       value: Asteroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906796027868932, guid: 93a80dcc42393d14fa2d153407811771, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4208723775065174, guid: 93a80dcc42393d14fa2d153407811771, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4420,6 +4501,10 @@ PrefabInstance:
     - target: {fileID: 1857193490896124, guid: 9fc0e2fffa54de14ab9e9839c761cc1f, type: 3}
       propertyPath: m_TagString
       value: Asteroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857193490896124, guid: 9fc0e2fffa54de14ab9e9839c761cc1f, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4117429352186582, guid: 9fc0e2fffa54de14ab9e9839c761cc1f, type: 3}
       propertyPath: m_LocalPosition.x

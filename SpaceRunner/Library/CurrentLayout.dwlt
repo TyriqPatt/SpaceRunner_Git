@@ -42,8 +42,8 @@ MonoBehaviour:
     y: 0
     width: 279
     height: 897
-  m_MinSize: {x: 279, y: 72}
-  m_MaxSize: {x: 4004, y: 4022}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -72,8 +72,8 @@ MonoBehaviour:
     y: 30
     width: 1646
     height: 897
-  m_MinSize: {x: 685, y: 494}
-  m_MaxSize: {x: 14006, y: 14044}
+  m_MinSize: {x: 681, y: 494}
+  m_MaxSize: {x: 14002, y: 14044}
   vertical: 0
   controlID: 34
 --- !u!114 &4
@@ -775,9 +775,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 6878feff56d1feff58d1feff66d1feffde0cffffe20cffffec0cffffee23fffff223fffffc23ffffe430ffffe830fffff230ffff1a71ffffc488ffff8efbffff
+      m_SelectedIDs: 8af0ffff
+      m_LastClickedID: -3958
+      m_ExpandedIDs: 8efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -837,9 +837,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 10.191109, y: 6.1036453, z: 66.474754}
+    m_Target: {x: 19.857452, y: 17.700539, z: 31.583784}
     speed: 2
-    m_Value: {x: 10.191109, y: 6.1036453, z: 66.474754}
+    m_Value: {x: 19.857452, y: 17.700539, z: 31.583784}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -868,13 +868,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.22891884, y: -0.073731065, z: 0.017525055, w: 0.97054726}
+    m_Target: {x: -0.06293542, y: 0.14146613, z: -0.009193803, w: -0.98795545}
     speed: 2
-    m_Value: {x: 0.22890633, y: -0.07372704, z: 0.017524097, w: 0.9704943}
+    m_Value: {x: -0.062931836, y: 0.14145806, z: -0.00919328, w: -0.9878992}
   m_Size:
-    m_Target: 49.674812
+    m_Target: 30.73799
     speed: 2
-    m_Value: 49.674812
+    m_Value: 30.73799
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1034,20 +1034,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sci-Fi Texture Pack 1/Textures
+    - Assets/_Scripts
   m_ViewMode: 1
   m_StartGridSize: 78
   m_LastFolders:
-  - Assets/Sci-Fi Texture Pack 1/Textures
+  - Assets/_Scripts
   m_LastFoldersGridSize: 78
   m_LastProjectPath: C:\Users\Tyriq\Documents\GitHub\SpaceRunner_Git\SpaceRunner
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 420}
-    m_SelectedIDs: a2ea0000
-    m_LastClickedID: 60066
-    m_ExpandedIDs: 0000000044300000c03000007432000074340000ac3400005c430000724300004c44000060480000c64800002e490000464f000088570000c2570000aa5b0000fc5b0000065e00009a7c00009c7c00009e7c0000a07c0000a27c0000a47c0000a67c0000a87c0000aa7c0000ac7c0000ae7c000092ea000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 56430000
+    m_LastClickedID: 17238
+    m_ExpandedIDs: 00000000a82e00001c2f00009e3000006a3200009a320000b8400000cc400000984100004e4500000c460000e04b0000a8530000e05300009e570000ee570000c4590000027900000479000006790000087900000a7900000c7900000e790000107900001279000014790000167900001879000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1075,7 +1075,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000044300000c03000005831000074320000c032000074340000ac3400005c430000724300004c44000060480000c64800002e490000c4490000464f000088570000c2570000aa5b0000fc5b0000565d0000065e00009a7c00009c7c00009e7c0000a07c0000a27c0000a47c0000a67c0000a87c0000aa7c0000ac7c0000ae7c0000
+    m_ExpandedIDs: 00000000a82e00001c2f00009e3000006a3200009a320000b8400000cc400000984100004e4500000c460000e04b0000a8530000e05300009e570000ee570000c4590000027900000479000006790000087900000a7900000c7900000e7900001079000012790000147900001679000018790000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1127,7 +1127,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 14}
+    m_ScrollPosition: {x: 0, y: 60.5}
     m_GridSize: 78
   m_DirectoriesAreaWidth: 235
 --- !u!114 &19
@@ -1184,7 +1184,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -36636
+  m_LastSelectedObjectID: -1628
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52

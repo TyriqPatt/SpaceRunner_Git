@@ -8,6 +8,8 @@ public class GrowingBall : MonoBehaviour
     Vector3 size;
     public float finalSize;
     public float _delay;
+    public float _distance;
+    public Transform Boss;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,11 @@ public class GrowingBall : MonoBehaviour
             size.y += Time.deltaTime * growSpeed;
             size.z += Time.deltaTime * growSpeed;
             transform.localScale = size;
+        }
+        _distance = Vector3.Distance(Boss.transform.position, transform.position);
+        if(_distance >= 140)
+        {
+            GetComponent<ShotBehavior>().speed = 35;
         }
     }
 

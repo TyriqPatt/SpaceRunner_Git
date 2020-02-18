@@ -27,7 +27,6 @@ public class Stunner : MonoBehaviour
     EnemyHealthBar EHB;
     public bool hitplayer;
     bool canEvade = true;
-    public Transform leadplayer;
     public GameObject Echo;
     public enum State { MoveRight, MoveLeft, ChooseDir }
 
@@ -39,7 +38,6 @@ public class Stunner : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         fc = player.GetComponentInParent<Flight_Controller>();
         smoothpos = transform.parent.position;
-        //leadplayer = player;
         SeekerState = State.ChooseDir;
 
         ShootDelay = StartDelay;

@@ -13,6 +13,7 @@ public class EnemyHealthBar : MonoBehaviour {
     public Slider HealthSlider;
     public GameObject hitDet;
     public bool Boss;
+    public bool Pillar;
     public bool invulnerable;
     public float Laser_DMG;
     public float Turret_DMG;
@@ -72,7 +73,14 @@ public class EnemyHealthBar : MonoBehaviour {
     void Die()
     {
         CurrentHealth = 0;
-        Destroy(transform.parent.gameObject);
+        if (!Pillar)
+        {
+            Destroy(transform.parent.gameObject);
+        }
+        else
+        {
+            Destroy(transform.gameObject);
+        }
         GameObject tempObj;
         tempObj = Instantiate(Explode, transform.position, transform.rotation);
         if (!isTutorial)

@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         Damage = 5;
-        CurrentHealth = Random.Range(30, 50);
+        CurrentHealth = 30;
         if (NormMeteor)
         {
             CurMat = transform.GetChild(0).GetComponent<Renderer>().material;
@@ -67,7 +67,7 @@ public class Health : MonoBehaviour
         }
         if (other.gameObject.tag == "Missile")
         {
-            DealDamage(Damage + 20);
+            DealDamage(Damage + 25);
             StartCoroutine(Hit());
         }
         if (other.gameObject.tag == "Debris")

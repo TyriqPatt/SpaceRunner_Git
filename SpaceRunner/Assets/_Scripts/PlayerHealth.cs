@@ -25,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject MissileBar;
     public float Laser_DMG;
     public float Curve_DMG;
+    public float DOT_DMG;
     public float Asteroid_DMG;
     public float Beam_DMG;
     public float Mine_Dmg;
@@ -95,6 +96,7 @@ public class PlayerHealth : MonoBehaviour
     {
         CurrentHealth -= DamageValue;
         HealthSlider.value = CalculatedHealth();
+        StartCoroutine(Hit());
         if (CurrentHealth <= 0)
         {
             Die();
@@ -141,31 +143,22 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.tag == "EnemyLaser")
         {
             DealDamage(Laser_DMG);
-            StartCoroutine(Hit());
         }
         if (other.gameObject.tag == "Curvelaser")
         {
             DealDamage(Curve_DMG);
-            StartCoroutine(Hit());
         }
         if (other.gameObject.tag == "SpaceMine")
         {
             DealDamage(Mine_Dmg);
-            StartCoroutine(Hit());
         }
         if (other.gameObject.tag == "Stun")
         {
-            StartCoroutine(Hit());
+            StartCoroutine(DOT(3));
         }
         if (other.gameObject.tag == "Asteroid")
         {
             DealDamage(Asteroid_DMG);
-            StartCoroutine(Hit());
-        }
-        if (other.gameObject.tag == "G_Ball")
-        {
-            DealDamage(Asteroid_DMG);
-            StartCoroutine(Hit());
         }
         if (other.gameObject.tag == "Pickup")
         {
@@ -186,9 +179,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 StartCoroutine(ShieldsPowerUp());
             }
-            
         }
-
     }
 
     void OnTriggerStay(Collider other)
@@ -196,7 +187,11 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.tag == "Beam")
         {
             DealDamage(Beam_DMG);
-            StartCoroutine(Hit());
+        }
+
+        if (other.gameObject.tag == "G_Ball")
+        {
+            DealDamage(Gball_Dmg);
         }
     }
 
@@ -205,6 +200,21 @@ public class PlayerHealth : MonoBehaviour
         hitDet.SetActive(true);
         yield return new WaitForSeconds(.15f);
         hitDet.SetActive(false);
+
+    }
+
+    IEnumerator DOT(float TotalTime)
+    {
+        DealDamage(DOT_DMG);
+        yield return new WaitForSeconds(.4f);
+        if (TotalTime > 0)
+        {
+            if (TotalTime > 1)
+            {
+                StartCoroutine(DOT(TotalTime -= 1));
+            }
+            
+        }
 
     }
 

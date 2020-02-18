@@ -16,6 +16,7 @@ public class GroupManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SpawnEnemies(G_ManagerState);
         if (Tutorial)
         {
             foreach (GameObject enemy in Children)

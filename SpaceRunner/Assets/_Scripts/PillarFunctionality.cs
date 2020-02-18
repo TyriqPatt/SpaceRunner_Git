@@ -6,13 +6,14 @@ public class PillarFunctionality : MonoBehaviour
 {
 
     public GameObject[] Sections;
+    public GameObject[] HealthBars;
     Vector3 smoothpos;
     float Dir = 5;
     public float speed;
     public float ExpandSpeed;
     public float TilNextExpand;
     float delay;
-    public enum State {Positioning, SetAllActive, Expandp1, Expandp2, Connect1, Connect2, TurnOnLasers, MoveRight, MoveLeft}
+    public enum State {Positioning, SetAllActive, Expandp1, Expandp2, Connect1, Connect2, TurnOnLasers, MoveRight, MoveLeft, ChooseDir }
 
     public State PillarState;
 
@@ -78,6 +79,9 @@ public class PillarFunctionality : MonoBehaviour
                 }
                 break;
             case State.Expandp2:
+                //rotate 1 & 3 up
+                Sections[1].transform.Rotate(0, -2.14285f, 0);
+                Sections[3].transform.Rotate(0, -2.14285f, 0);
                 if (Sections[2].transform.localPosition.y >= -4)
                 {
                     Sections[2].transform.localPosition -= transform.right * ExpandSpeed;
@@ -100,15 +104,27 @@ public class PillarFunctionality : MonoBehaviour
                 }
                 if (delay >= TilNextExpand)
                 {
+                    EnableHealth();
                     StartSpin();
                     EnableLaser();
-                    PillarState = State.MoveRight;
+                    PillarState = State.ChooseDir;
                     delay = 0;
                 }
                 break;
+            case State.ChooseDir:
+                float Randnum;
+                Randnum = Random.Range(0, 2);
+                if (Randnum == 0)
+                {
+                    PillarState = State.MoveRight;
+                }
+                else if (Randnum == 1)
+                {
+                    PillarState = State.MoveLeft;
+                }
+                break;
             case State.MoveRight:
-
-
+                DisableHealthBars();
                 if (transform.position.x >= 50)
                 {
                     PillarState = State.MoveLeft;
@@ -121,7 +137,7 @@ public class PillarFunctionality : MonoBehaviour
                 }
                 break;
             case State.MoveLeft:
-
+                DisableHealthBars();
                 if (transform.position.x <= -50)
                 {
                     PillarState = State.MoveRight;
@@ -135,6 +151,21 @@ public class PillarFunctionality : MonoBehaviour
                 break;
 
         }
+    }
+
+    void EnableHealth()
+    {
+        HealthBars[0].transform.localPosition = new Vector3(Sections[0].transform.localPosition.x + 1.5f, Sections[0].transform.localPosition.y, Sections[0].transform.localPosition.z);
+        HealthBars[1].transform.localPosition = new Vector3(Sections[1].transform.localPosition.x + 1.5f, Sections[1].transform.localPosition.y, Sections[1].transform.localPosition.z);
+        HealthBars[2].transform.localPosition = new Vector3(Sections[2].transform.localPosition.x + 1.5f, Sections[2].transform.localPosition.y, Sections[2].transform.localPosition.z);
+        HealthBars[3].transform.localPosition = new Vector3(Sections[3].transform.localPosition.x + 1.5f, Sections[3].transform.localPosition.y, Sections[3].transform.localPosition.z);
+        HealthBars[4].transform.localPosition = new Vector3(Sections[4].transform.localPosition.x + 1.5f, Sections[4].transform.localPosition.y, Sections[4].transform.localPosition.z);
+
+        HealthBars[0].SetActive(true);
+        HealthBars[1].SetActive(true);
+        HealthBars[2].SetActive(true);
+        HealthBars[3].SetActive(true);
+        HealthBars[4].SetActive(true);
     }
 
     void StartSpin()
@@ -159,5 +190,33 @@ public class PillarFunctionality : MonoBehaviour
         Sections[4].transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
         Sections[4].transform.GetChild(1).GetChild(1).gameObject.SetActive(true);
         
+    }
+
+    void DisableHealthBars()
+    {
+        if(Sections[0] == null)
+        {
+            HealthBars[0].SetActive(false);
+        }
+
+        if (Sections[1] == null)
+        {
+            HealthBars[1].SetActive(false);
+        }
+
+        if (Sections[2] == null)
+        {
+            HealthBars[2].SetActive(false);
+        }
+
+        if (Sections[3] == null)
+        {
+            HealthBars[3].SetActive(false);
+        }
+
+        if (Sections[4] == null)
+        {
+            HealthBars[4].SetActive(false);
+        }
     }
 }
