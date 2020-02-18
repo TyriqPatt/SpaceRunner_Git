@@ -9,7 +9,7 @@ public class DroidBoss : MonoBehaviour
     public GameObject bulletSpawn;
     public GameObject Pillar;
     public GameObject Grav;
-    public Transform GravTarget;
+    public Transform[] GravTarget;
     float ShootDelay;
     public float StartDelay = 5;
     public float speed;
@@ -22,6 +22,7 @@ public class DroidBoss : MonoBehaviour
     float Dir = 5;
     EnemyHealthBar EHB;
     public GameObject Echo;
+    int RanGravTarget;
     public enum State { MoveRight, MoveLeft, ChooseDir, BtwnPhases, OffsetPhaseGrav, OffsetPhase, OffsetPhasePillar }
     public State BossState;
 
@@ -49,7 +50,7 @@ public class DroidBoss : MonoBehaviour
         }
         if (ShootDelay <= 0)
         {
-            StartCoroutine(shoot());
+            //StartCoroutine(shootOrbs());
             ShootDelay = StartDelay;
             Ammo = MaxAmmo;
         }
@@ -74,6 +75,8 @@ public class DroidBoss : MonoBehaviour
                 else if (transform.position.y <= 50)
                 {
                     BossState = State.OffsetPhaseGrav;
+                    RanGravTarget = Random.Range(0, GravTarget.Length);
+                    StartCoroutine(shootBlackHole(1));
                     //smoothpos = Vector3.Lerp(transform.parent.position,
                     //    transform.parent.position = new Vector3(transform.parent.position.x,
                     //    transform.parent.position.y - Dir, transform.parent.position.z), speed * Time.deltaTime);
@@ -86,6 +89,8 @@ public class DroidBoss : MonoBehaviour
                 }
                 break;
             case State.OffsetPhaseGrav:
+                //transform.LookAt(GravTarget[RanGravTarget].transform);
+                //transform.parent.rotation = Quaternion.LookRotation(transform.forward, GravTarget[RanGravTarget].transform.position);
 
                 break;
             case State.OffsetPhase:
@@ -151,7 +156,7 @@ public class DroidBoss : MonoBehaviour
 
     }
 
-    IEnumerator shoot()
+    IEnumerator shootOrbs()
     {
         GameObject bulletprefab;
         yield return new WaitForSeconds(TimeBtwShots);
@@ -161,9 +166,23 @@ public class DroidBoss : MonoBehaviour
         {
             if (Ammo > 1)
             {
-                StartCoroutine(shoot());
+                StartCoroutine(shootOrbs());
             }
             Ammo -= 1;
         }
+    }
+
+
+    IEnumerator shootBlackHole(float time)
+    {
+        //GameObject bulletprefab;
+        yield return new WaitForSeconds(time);
+        //bulletprefab = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
+        Instantiate(Grav, GravTarget[RanGravTarget].position, GravTarget[RanGravTarget].rotation);
+        Grav.transform.position = GravTarget[RanGravTarget].position;
+        Grav.GetComponent<BlackHole>().enabled = true;
+        Grav.GetComponent<MeshRenderer>().enabled = true;
+        RanGravTarget = Random.Range(0, GravTarget.Length);
+        StartCoroutine(shootBlackHole(5));
     }
 }
