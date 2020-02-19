@@ -66,13 +66,13 @@ public class DroidBoss : MonoBehaviour
         switch (BossState)
         {
             case State.BtwnPhases:
-                if(transform.position.y > 50)
+                if(transform.position.y > 30)
                 {
                     smoothpos = Vector3.Lerp(transform.parent.position,
                         transform.parent.position = new Vector3(transform.parent.position.x,
                         transform.parent.position.y - Dir, transform.parent.position.z), speed * Time.deltaTime);
                 }
-                else if (transform.position.y <= 50)
+                else if (transform.position.y <= 30)
                 {
                     BossState = State.OffsetPhaseGrav;
                     RanGravTarget = Random.Range(0, GravTarget.Length);
@@ -91,7 +91,9 @@ public class DroidBoss : MonoBehaviour
             case State.OffsetPhaseGrav:
                 //transform.LookAt(GravTarget[RanGravTarget].transform);
                 //transform.parent.rotation = Quaternion.LookRotation(transform.forward, GravTarget[RanGravTarget].transform.position);
-
+                Vector3 targetDirection = GravTarget[RanGravTarget].transform.position - transform.position;
+                Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 1 * Time.deltaTime, 0.0f);
+                transform.rotation = Quaternion.LookRotation(newDirection);
                 break;
             case State.OffsetPhase:
 
@@ -178,11 +180,12 @@ public class DroidBoss : MonoBehaviour
         //GameObject bulletprefab;
         yield return new WaitForSeconds(time);
         //bulletprefab = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
-        Instantiate(Grav, GravTarget[RanGravTarget].position, GravTarget[RanGravTarget].rotation);
+        //Instantiate(Grav, GravTarget[RanGravTarget].position, GravTarget[RanGravTarget].rotation);
         Grav.transform.position = GravTarget[RanGravTarget].position;
         Grav.GetComponent<BlackHole>().enabled = true;
-        Grav.GetComponent<MeshRenderer>().enabled = true;
+        Grav.transform.GetChild(0).gameObject.SetActive(true);
+        Grav.transform.GetChild(1).gameObject.SetActive(false);
         RanGravTarget = Random.Range(0, GravTarget.Length);
-        StartCoroutine(shootBlackHole(5));
+        StartCoroutine(shootBlackHole(8));
     }
 }

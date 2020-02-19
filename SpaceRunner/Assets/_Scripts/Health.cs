@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     public Material HitMat;
     public bool NormMeteor;
     public bool Pickup;
+    public bool Hitplayer;
     public GameObject[] PickUps;
 
     // Start is called before the first frame update
@@ -77,7 +78,9 @@ public class Health : MonoBehaviour
         }
         if (other.gameObject.tag == "Player")
         {
+            Hitplayer = true;
             Die();
+            
         }
         if (other.gameObject.tag == "Beam")
         {
@@ -88,13 +91,16 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        if (Pickup)
+        if (!Hitplayer)
         {
-            int randSpawn = Random.Range(0, 5);
-            int randPu = Random.Range(0, PickUps.Length);
-            if (randSpawn <= 5)
+            if (Pickup)
             {
-                Instantiate(PickUps[randPu], transform.position, transform.parent.rotation);
+                int randSpawn = Random.Range(0, 5);
+                int randPu = Random.Range(0, PickUps.Length);
+                if (randSpawn <= 5)
+                {
+                    Instantiate(PickUps[randPu], transform.position, transform.parent.rotation);
+                }
             }
         }
         Destroy(gameObject);
