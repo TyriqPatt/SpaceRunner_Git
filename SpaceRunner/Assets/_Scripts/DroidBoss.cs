@@ -90,7 +90,6 @@ public class DroidBoss : MonoBehaviour
                 break;
             case State.OffsetPhaseGrav:
                 //transform.LookAt(GravTarget[RanGravTarget].transform);
-                //transform.parent.rotation = Quaternion.LookRotation(transform.forward, GravTarget[RanGravTarget].transform.position);
                 Vector3 targetDirection = GravTarget[RanGravTarget].transform.position - transform.position;
                 Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 1 * Time.deltaTime, 0.0f);
                 transform.rotation = Quaternion.LookRotation(newDirection);

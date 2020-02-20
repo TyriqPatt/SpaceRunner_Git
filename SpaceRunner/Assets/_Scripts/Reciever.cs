@@ -5,7 +5,7 @@ using UnityEngine;
 public class Reciever : MonoBehaviour
 {
     public GameObject player;
-    public GameObject bullet;
+    public GameObject _Blackhole;
     public GameObject bulletSpawn;
     float ShootDelay;
     public float StartDelay = 5;
@@ -17,7 +17,10 @@ public class Reciever : MonoBehaviour
     public Vector3 offset;
     float Dir = 5;
     EnemyHealthBar EHB;
-    public enum State { MoveRight, MoveLeft, ChooseDir }
+    bool doOnce;
+    public float healthThreshold;
+    bool canEvade = true;
+    public enum State { MoveRight, MoveLeft, ChooseDir, ActivateBlackHole }
 
     public State SeekerState;
 
@@ -26,13 +29,14 @@ public class Reciever : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         smoothpos = transform.parent.position;
-
+        
         SeekerState = State.ChooseDir;
 
         ShootDelay = StartDelay;
         StartCoroutine(RandomDir());
         EHB = GetComponent<EnemyHealthBar>();
         Ammo = MaxAmmo;
+        healthThreshold = EHB.CurrentHealth;
     }
 
     // Update is called once per frame
@@ -47,7 +51,7 @@ public class Reciever : MonoBehaviour
         }
         if (ShootDelay <= 0)
         {
-            StartCoroutine(shoot());
+            //StartCoroutine(shoot());
             ShootDelay = StartDelay;
             Ammo = MaxAmmo;
         }
@@ -71,8 +75,7 @@ public class Reciever : MonoBehaviour
 
                 break;
             case State.MoveRight:
-
-
+                CheckHealth();
                 if (transform.parent.position.x >= 50)
                 {
                     SeekerState = State.MoveLeft;
@@ -85,7 +88,7 @@ public class Reciever : MonoBehaviour
                 }
                 break;
             case State.MoveLeft:
-
+                CheckHealth();
                 if (transform.parent.position.x <= -50)
                 {
                     SeekerState = State.MoveRight;
@@ -98,8 +101,33 @@ public class Reciever : MonoBehaviour
                 }
 
                 break;
+            case State.ActivateBlackHole:
 
+                //SeekerState = State.ChooseDir;
+                break;
         }
+    }
+
+    void CheckHealth()
+    {
+        if (EHB.CurrentHealth <= healthThreshold - 25 && !doOnce)
+        {
+            StartCoroutine(shoot());
+            doOnce = true;
+        }
+
+    }
+
+    IEnumerator Evade()
+    {
+        
+        speed = 50;
+        EHB.invulnerable = true;
+        canEvade = false;
+        yield return new WaitForSeconds(.2f);
+        speed = 5;
+        EHB.invulnerable = false;
+        canEvade = true;
     }
 
     IEnumerator RandomDir()
@@ -115,23 +143,26 @@ public class Reciever : MonoBehaviour
         {
             SeekerState = State.MoveLeft;
         }
-
         StartCoroutine(RandomDir());
-
     }
 
     IEnumerator shoot()
     {
-        GameObject bulletprefab;
+        
+        SeekerState = State.ActivateBlackHole;
+        StopCoroutine(RandomDir());
         yield return new WaitForSeconds(.2f);
-        bulletprefab = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
-        if (Ammo > 0)
-        {
-            if (Ammo > 1)
-            {
-                StartCoroutine(shoot());
-            }
-            Ammo -= 1;
-        }
+        //bulletprefab = Instantiate(Blackhole, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
+        _Blackhole.transform.position = transform.position;
+        _Blackhole.GetComponent<BlackHole>().enabled = true;
+        _Blackhole.transform.GetChild(0).gameObject.SetActive(true);
+        _Blackhole.transform.GetChild(1).gameObject.SetActive(false);
+        _Blackhole.transform.parent = null;
+        yield return new WaitForSeconds(4f);
+        SeekerState = State.ChooseDir;
+        StartCoroutine(Evade());
+        healthThreshold = EHB.CurrentHealth;
+        doOnce = false;
+        //_Blackhole.transform.parent = this.transform;
     }
 }
