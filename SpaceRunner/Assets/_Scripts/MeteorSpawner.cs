@@ -7,7 +7,7 @@ public class MeteorSpawner : MonoBehaviour
     public float FirstSpawnTime;
     public Transform[] Spawners;
     public GameObject[] Meteors;
-
+    public GameObject WarningSign;
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -22,6 +22,7 @@ public class MeteorSpawner : MonoBehaviour
 
     public IEnumerator Spawn(float _NextSpawn)
     {
+        WarningSign.SetActive(true);
         int astr = Random.Range(0, Meteors.Length);
         yield return new WaitForSeconds(_NextSpawn);
         Transform spnr = Spawners[Random.Range(0, Spawners.Length)];
@@ -30,6 +31,7 @@ public class MeteorSpawner : MonoBehaviour
         //Instantiate(Meteors[Random.Range(0, Meteors.Length)], spnr.transform.position, spnr.rotation);
         //Instantiate(Meteors[Random.Range(0, Meteors.Length)], spnr2.transform.position, spnr.rotation);
         Instantiate(Meteors[Random.Range(0, Meteors.Length)], Spawners[0].transform.position, Spawners[0].rotation);
+        WarningSign.SetActive(false);
 
 
         //StartCoroutine(Spawn(6));

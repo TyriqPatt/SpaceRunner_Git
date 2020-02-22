@@ -14,7 +14,8 @@ public class JR_LevelDesign : MonoBehaviour
     private int HowManyDroidsAdded = 0;
     private bool inStartCases = true;
     public GameObject LastBoss;
-    private Transform SpawnerLocation; 
+    private Transform SpawnerLocation;
+   
 
     // Start is called before the first frame update
     void Start()

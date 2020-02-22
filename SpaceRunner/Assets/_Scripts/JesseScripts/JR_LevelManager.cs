@@ -36,18 +36,22 @@ public class JR_LevelManager : MonoBehaviour
         {
             SceneManager.LoadScene("Level_3");
         }
-        //Determine if in level three
         else if (m_Level.Level == 3)
+        {
+            SceneManager.LoadScene("Level_4");
+        }
+        //Determine if in level three
+        else if (m_Level.Level == 4)
         {
             SceneManager.LoadScene("BossFight");
         }
         //Determine if in level four
-        else if (m_Level.Level == 4)
+        else if (m_Level.Level == 5)
         {
             SceneManager.LoadScene("Credits");
         }
         //Determine if in level five
-        else if (m_Level.Level == 5)
+        else if (m_Level.Level == 6)
         {
             SceneManager.LoadScene("StartMenu");
         }

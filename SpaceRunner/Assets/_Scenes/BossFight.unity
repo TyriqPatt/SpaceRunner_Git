@@ -21769,7 +21769,7 @@ PrefabInstance:
     - target: {fileID: 2270510675915865876, guid: 559cbd7a86b9cfd4cb56f5d0a77cbdac,
         type: 3}
       propertyPath: Level
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 559cbd7a86b9cfd4cb56f5d0a77cbdac, type: 3}
@@ -23039,6 +23039,14 @@ MonoBehaviour:
   - {fileID: 3682522181542808890, guid: 5de64729713832f44b93d67b64a5e454, type: 3}
   - {fileID: 1370094952894922683, guid: c1bfaf7c5b78a564f9762a46a50ce1aa, type: 3}
   - {fileID: 3408836963626778167, guid: 6198ac9fd9c5b434ab2706914f6ad0b8, type: 3}
+  amount_of_BasicDroids: 0
+  amount_of_SecondDroids: 0
+  amount_of_ThirdDroids: 0
+  amount_of_FourthDroids: 0
+  BasicDroidObject: {fileID: 0}
+  SecondDroidObject: {fileID: 0}
+  ThirdDroidObject: {fileID: 0}
+  FourthDroidObject: {fileID: 0}
 --- !u!4 &1715786692
 Transform:
   m_ObjectHideFlags: 0
