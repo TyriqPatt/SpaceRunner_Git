@@ -4780,7 +4780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714698795}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.0468001, y: -0.6436801, z: -12.498367}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 4034902299598126568}
@@ -5655,7 +5655,7 @@ Transform:
   m_GameObject: {fileID: 6281393604454903767}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5535249934433574084}
   - {fileID: 6286667236238591721}
@@ -5720,7 +5720,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6281393604454903767}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4b3071d113f87f24fb37f0b071ab1c7a, type: 3}
   m_Controller: {fileID: 9100000, guid: abe41865abe4f1f4aaa3a47171c703e3, type: 2}
   m_CullingMode: 0
@@ -5781,6 +5781,7 @@ MonoBehaviour:
   MaxAmmo: 3
   smoothpos: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: 0}
+  healthThreshold: 0
   SeekerState: 0
 --- !u!114 &5474409199195058432
 MonoBehaviour:
@@ -5944,7 +5945,7 @@ Transform:
   m_GameObject: {fileID: 7558074031618431366}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.3}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7558074032095787573}
   - {fileID: 7558074032238663515}

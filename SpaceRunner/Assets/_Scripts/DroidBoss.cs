@@ -29,11 +29,12 @@ public class DroidBoss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // set y 10 and z to 105
         player = GameObject.FindGameObjectWithTag("Player");
         smoothpos = transform.parent.position;
-        BossState = State.OffsetPhaseGrav;
+        BossState = State.ChooseDir;
         ShootDelay = StartDelay;
-        //StartCoroutine(RandomDir());
+        StartCoroutine(RandomDir());
         EHB = GetComponent<EnemyHealthBar>();
         Ammo = MaxAmmo;
     }
@@ -50,7 +51,7 @@ public class DroidBoss : MonoBehaviour
         }
         if (ShootDelay <= 0)
         {
-            //StartCoroutine(shootOrbs());
+            StartCoroutine(shootOrbs());
             ShootDelay = StartDelay;
             Ammo = MaxAmmo;
         }
