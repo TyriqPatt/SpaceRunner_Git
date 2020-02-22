@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JR_PauseMenu : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class JR_PauseMenu : MonoBehaviour
     }
 
     //Call pause dscreen function
-    private void PauseGame()
+    public void PauseGame()
     {
         //Set the pause canvas true
         PauseMenu.SetActive(true);
@@ -46,11 +47,21 @@ public class JR_PauseMenu : MonoBehaviour
         isPaused = true;
     }
     //Remove pause screen
-    private void UnpauseGame()
+    public void UnpauseGame()
     {
         //Set the pause canvas as false 
         PauseMenu.SetActive(false);
         //To create the switch on and off feature
         isPaused = false;
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
+
+    public void QuitTheGame()
+    {
+        Application.Quit(); 
     }
 }

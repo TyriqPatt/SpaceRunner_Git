@@ -1012,7 +1012,7 @@ Transform:
   - {fileID: 1684004124}
   - {fileID: 1833459725}
   m_Father: {fileID: 0}
-  m_RootOrder: 38
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &240001474
 GameObject:
@@ -1107,7 +1107,7 @@ GameObject:
   - component: {fileID: 243587814}
   - component: {fileID: 243587813}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ResumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1175,7 +1175,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 243587814}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 541683953}
+        m_MethodName: UnpauseGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &243587814
@@ -7017,12 +7028,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541683952}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.400767, y: 12.299096, z: 53.355255}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &550693289
 PrefabInstance:
@@ -7187,7 +7198,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 1, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
 --- !u!1001 &652959623
 PrefabInstance:
@@ -8816,7 +8827,7 @@ RectTransform:
   - {fileID: 892176840}
   - {fileID: 71524801}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9120,7 +9131,7 @@ Transform:
   m_LocalScale: {x: 2.5, y: 2, z: 2.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &818370571
 GameObject:
@@ -14765,7 +14776,7 @@ GameObject:
   - component: {fileID: 1032237163}
   - component: {fileID: 1032237162}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: MainMenuButton (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14833,7 +14844,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1032237163}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 541683953}
+        m_MethodName: GoToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1032237163
@@ -21545,7 +21567,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 1, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
 --- !u!1001 &1359185784
 PrefabInstance:
@@ -23039,7 +23061,7 @@ GameObject:
   - component: {fileID: 1669583058}
   - component: {fileID: 1669583057}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: QuitButton (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23107,7 +23129,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1669583058}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 541683953}
+        m_MethodName: QuitTheGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1669583058
@@ -23639,7 +23672,7 @@ Transform:
   - {fileID: 56763855}
   - {fileID: 974215802}
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1766656905
 MonoBehaviour:
@@ -24900,7 +24933,7 @@ PrefabInstance:
     - target: {fileID: 3714131911679255427, guid: dc9178ee7804dd24ba70d38db7634fb4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 32
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 3714131911679255427, guid: dc9178ee7804dd24ba70d38db7634fb4,
         type: 3}
@@ -25001,7 +25034,7 @@ PrefabInstance:
     - target: {fileID: 2120124635038157523, guid: b041732f2ed42234c80d4ed645512c1e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 2120124635038157523, guid: b041732f2ed42234c80d4ed645512c1e,
         type: 3}
@@ -25591,7 +25624,7 @@ PrefabInstance:
     - target: {fileID: 7492557338969139036, guid: fc8ceb5bdca2e984686666e9838baf38,
         type: 3}
       propertyPath: m_RootOrder
-      value: 39
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 7492557338969139036, guid: fc8ceb5bdca2e984686666e9838baf38,
         type: 3}
@@ -26049,7 +26082,7 @@ PrefabInstance:
     - target: {fileID: 4976317208083154182, guid: 4965132c522a9df489f0c1500b05311f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 33
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 4976317208083154182, guid: 4965132c522a9df489f0c1500b05311f,
         type: 3}
