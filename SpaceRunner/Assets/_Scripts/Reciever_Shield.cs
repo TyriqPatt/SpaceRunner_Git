@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Reciever : MonoBehaviour
+public class Reciever_Shield : MonoBehaviour
 {
     public GameObject player;
     public GameObject _Blackhole;
@@ -29,7 +29,7 @@ public class Reciever : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         smoothpos = transform.parent.position;
-        
+
         SeekerState = State.ChooseDir;
 
         ShootDelay = StartDelay;
@@ -120,7 +120,7 @@ public class Reciever : MonoBehaviour
 
     IEnumerator Evade()
     {
-        
+
         speed = 50;
         EHB.invulnerable = true;
         canEvade = false;
