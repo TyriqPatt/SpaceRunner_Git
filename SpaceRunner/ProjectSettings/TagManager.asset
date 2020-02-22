@@ -19,6 +19,7 @@ TagManager:
   - Missile
   - Shield
   - G_Ball
+  - SupportBox
   layers:
   - Default
   - TransparentFX
