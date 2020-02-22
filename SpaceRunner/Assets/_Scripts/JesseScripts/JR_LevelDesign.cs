@@ -65,6 +65,7 @@ public class JR_LevelDesign : MonoBehaviour
             case 4:
                 StartCoroutine(m_metorSpawner.Spawn(m_metorSpawner.FirstSpawnTime));
                 LevelOnePhases = 5;
+                StartCoroutine(WaitForAstroids());
                 print("Astroids");
                 break;
             case 5:
@@ -78,6 +79,7 @@ public class JR_LevelDesign : MonoBehaviour
                 HowManyDroidsAdded = 0; 
                 StartCoroutine(m_metorSpawner.Spawn(m_metorSpawner.FirstSpawnTime));
                 LevelOnePhases = 7;
+                StartCoroutine(WaitForAstroids());
                 print("Astroids");
                 break;
             case 7:
@@ -114,11 +116,21 @@ public class JR_LevelDesign : MonoBehaviour
         }
         else
         {
+            LevelOneSystems();
 
         }
 
     }
 
-   
+    IEnumerator WaitForAstroids()
+    {
+
+        yield return new WaitForSeconds(8);
+        LevelOneSystems();
+
+
+    }
+
+
 
 }
