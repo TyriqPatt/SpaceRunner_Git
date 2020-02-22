@@ -12,7 +12,9 @@ public class JR_LevelDesign : MonoBehaviour
     private float SpawnDelay;
     private int WavePhase = 0;
     private int HowManyDroidsAdded = 0;
-    private bool inStartCases = true;  
+    private bool inStartCases = true;
+    public GameObject LastBoss;
+    private Transform SpawnerLocation; 
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class JR_LevelDesign : MonoBehaviour
         m_metorSpawner = GameObject.FindObjectOfType<MeteorSpawner>();
         LevelOnePhases = 1;
         LevelOneSystems();
+        SpawnerLocation = GameObject.FindObjectOfType<EnemySpawner>().transform;  
 
     }
 
@@ -96,7 +99,7 @@ public class JR_LevelDesign : MonoBehaviour
                 print("Second half of 20 phase");
                 break;
             case 8:
-                m_enemySpawner.SpawnEnemies(0, 1, 0, 0);
+                Instantiate(LastBoss, SpawnerLocation.position, SpawnerLocation.rotation); 
                 print("NewEnemy");
                 break;
             default:
@@ -133,7 +136,7 @@ public class JR_LevelDesign : MonoBehaviour
     IEnumerator WaitForAstroids()
     {
 
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(13);
         LevelOneSystems();
 
 

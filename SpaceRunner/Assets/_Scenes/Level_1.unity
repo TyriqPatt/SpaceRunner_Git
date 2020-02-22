@@ -6697,7 +6697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelOnePhases: 0
   enemiesInLevel: []
-  inCombat: 1
+  LastBoss: {fileID: 466435875804888625, guid: 469553047bc0489439136ee6ef0f9372, type: 3}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
