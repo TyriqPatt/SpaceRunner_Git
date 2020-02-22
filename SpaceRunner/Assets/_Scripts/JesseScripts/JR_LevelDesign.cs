@@ -11,7 +11,8 @@ public class JR_LevelDesign : MonoBehaviour
     private bool inCombat = true;
     private float SpawnDelay;
     private int WavePhase = 0;
-    public int HowManyDroidsAdded = 0;  
+    private int HowManyDroidsAdded = 0;
+    private bool inStartCases = true;  
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,11 @@ public class JR_LevelDesign : MonoBehaviour
         if (enemiesInLevel.Length <= 0)
         {
             inCombat = false;
+            if(inStartCases)
+            {
+                LevelOneSystems();
+
+            }
         }
         if (WavePhase == 1)
         {
@@ -63,6 +69,7 @@ public class JR_LevelDesign : MonoBehaviour
                 print("Spawn Three Enemies");
                 break;
             case 4:
+                inStartCases = false;
                 StartCoroutine(m_metorSpawner.Spawn(m_metorSpawner.FirstSpawnTime));
                 LevelOnePhases = 5;
                 StartCoroutine(WaitForAstroids());
