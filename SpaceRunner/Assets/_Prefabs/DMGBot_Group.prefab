@@ -56,7 +56,7 @@ MonoBehaviour:
   - {fileID: 4162448686404503948}
   Tutorial: 0
   EnemyCount: 0
-  G_ManagerState: 0
+  G_ManagerState: 1
 --- !u!1001 &2049649684103838834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,6 +68,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DamageBot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716282460471415690, guid: 6f79fec54ccc7954191d4165c60d1232,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2716282460471415691, guid: 6f79fec54ccc7954191d4165c60d1232,
         type: 3}
@@ -139,6 +144,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5158844924234652164, guid: 6f79fec54ccc7954191d4165c60d1232,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158844924234652164, guid: 6f79fec54ccc7954191d4165c60d1232,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f79fec54ccc7954191d4165c60d1232, type: 3}
 --- !u!1 &4162448685667839992 stripped
@@ -164,6 +179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DamageBot (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716282460471415690, guid: 6f79fec54ccc7954191d4165c60d1232,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2716282460471415691, guid: 6f79fec54ccc7954191d4165c60d1232,
         type: 3}
@@ -235,6 +255,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5158844924234652164, guid: 6f79fec54ccc7954191d4165c60d1232,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158844924234652164, guid: 6f79fec54ccc7954191d4165c60d1232,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f79fec54ccc7954191d4165c60d1232, type: 3}
 --- !u!1 &4162448686404503948 stripped
@@ -260,6 +290,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DamageBot (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716282460471415690, guid: 6f79fec54ccc7954191d4165c60d1232,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2716282460471415691, guid: 6f79fec54ccc7954191d4165c60d1232,
         type: 3}
@@ -331,6 +366,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5158844924234652164, guid: 6f79fec54ccc7954191d4165c60d1232,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158844924234652164, guid: 6f79fec54ccc7954191d4165c60d1232,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f79fec54ccc7954191d4165c60d1232, type: 3}
 --- !u!1 &4162448686268543097 stripped
@@ -356,6 +401,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DamageBot (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716282460471415690, guid: 6f79fec54ccc7954191d4165c60d1232,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2716282460471415691, guid: 6f79fec54ccc7954191d4165c60d1232,
         type: 3}
@@ -427,6 +477,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5158844924234652164, guid: 6f79fec54ccc7954191d4165c60d1232,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158844924234652164, guid: 6f79fec54ccc7954191d4165c60d1232,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f79fec54ccc7954191d4165c60d1232, type: 3}
 --- !u!1 &4162448686209428417 stripped
@@ -452,6 +512,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DamageBot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716282460471415690, guid: 6f79fec54ccc7954191d4165c60d1232,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2716282460471415691, guid: 6f79fec54ccc7954191d4165c60d1232,
         type: 3}
@@ -521,6 +586,16 @@ PrefabInstance:
     - target: {fileID: 2716282460471415691, guid: 6f79fec54ccc7954191d4165c60d1232,
         type: 3}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158844924234652164, guid: 6f79fec54ccc7954191d4165c60d1232,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158844924234652164, guid: 6f79fec54ccc7954191d4165c60d1232,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
