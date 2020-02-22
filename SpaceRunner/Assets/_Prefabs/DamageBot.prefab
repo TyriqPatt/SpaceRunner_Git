@@ -77,6 +77,7 @@ MonoBehaviour:
   HealthSlider: {fileID: 0}
   hitDet: {fileID: 2717644093643289838}
   Boss: 0
+  Pillar: 0
   invulnerable: 0
   Laser_DMG: 5
   Turret_DMG: 8
@@ -86,6 +87,9 @@ MonoBehaviour:
   - {fileID: 1442801782922368, guid: e97d38b861c7db64bb50d91030e08e7e, type: 3}
   - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
   isTutorial: 0
+  hit: 0
+  hitTime: 2
+  shielded: 0
 --- !u!114 &2716282461843157697
 MonoBehaviour:
   m_ObjectHideFlags: 0

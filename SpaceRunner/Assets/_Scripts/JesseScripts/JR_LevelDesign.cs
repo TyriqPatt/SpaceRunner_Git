@@ -7,19 +7,32 @@ public class JR_LevelDesign : MonoBehaviour
     EnemySpawner m_enemySpawner;
     MeteorSpawner m_metorSpawner;
     public int LevelOnePhases;
-    public GameObject[] enemiesInLevel; 
+    public GameObject[] enemiesInLevel;
+    private bool inCombat = false;  
 
     // Start is called before the first frame update
     void Start()
     {
         m_enemySpawner = GameObject.FindObjectOfType<EnemySpawner>();
-        m_metorSpawner = GameObject.FindObjectOfType<MeteorSpawner>(); 
+        m_metorSpawner = GameObject.FindObjectOfType<MeteorSpawner>();
+        LevelOnePhases = 1;
+        LevelOneSystems();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         enemiesInLevel = GameObject.FindGameObjectsWithTag("Enemy"); 
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            LevelOneSystems(); 
+        }
+
+        if(inCombat)
+        {
+            CheckifAllEneiesDead();
+        }
     }
 
     void LevelOneSystems()
@@ -54,6 +67,16 @@ public class JR_LevelDesign : MonoBehaviour
             default:
                 print("No LevelOnePhase Int");
                 break;
+        }
+    }
+
+
+    void CheckifAllEneiesDead()
+    {
+        if(enemiesInLevel[0]) 
+        {
+            inCombat = false; 
+            LevelOnePhases++; 
         }
     }
 

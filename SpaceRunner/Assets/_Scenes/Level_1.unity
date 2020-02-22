@@ -6677,6 +6677,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adc8a98e73ca77a41b7d79a6beec2ccb, type: 3}
+--- !u!1 &530223237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2270510675915865879, guid: 559cbd7a86b9cfd4cb56f5d0a77cbdac,
+    type: 3}
+  m_PrefabInstance: {fileID: 2270510676457492455}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &530223241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530223237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f229d28a4a7bd4abfbcfb0313c46e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelOnePhases: 0
+  enemiesInLevel: []
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -6786,7 +6806,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2270510676457492455}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 530223237}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 621dadfadccf81848b3a0db702b0bcc9, type: 3}
@@ -22727,10 +22747,10 @@ MonoBehaviour:
   - {fileID: 3682522181542808890, guid: 5de64729713832f44b93d67b64a5e454, type: 3}
   - {fileID: 1370094952894922683, guid: c1bfaf7c5b78a564f9762a46a50ce1aa, type: 3}
   - {fileID: 3408836963626778167, guid: 6198ac9fd9c5b434ab2706914f6ad0b8, type: 3}
-  amount_of_BasicDroids: 4
-  amount_of_SecondDroids: 2
-  amount_of_ThirdDroids: 3
-  amount_of_FourthDroids: 1
+  amount_of_BasicDroids: 3
+  amount_of_SecondDroids: 0
+  amount_of_ThirdDroids: 0
+  amount_of_FourthDroids: 0
   BasicDroidObject: {fileID: 2716282460471415690, guid: 6f79fec54ccc7954191d4165c60d1232,
     type: 3}
   SecondDroidObject: {fileID: 466435875804888625, guid: 1bbd3d4b3a51d6f4d9baaa97395f6202,

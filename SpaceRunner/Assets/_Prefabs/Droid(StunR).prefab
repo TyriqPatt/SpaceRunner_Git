@@ -474,7 +474,6 @@ MonoBehaviour:
   smoothpos: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: 0}
   hitplayer: 0
-  leadplayer: {fileID: 0}
   Echo: {fileID: 660063063213641355, guid: 15ff5eaf5f988b147810d9be1a7204bf, type: 3}
   SeekerState: 0
 --- !u!114 &6958203620082710240
@@ -494,6 +493,7 @@ MonoBehaviour:
   HealthSlider: {fileID: 0}
   hitDet: {fileID: 1562044642}
   Boss: 0
+  Pillar: 0
   invulnerable: 0
   Laser_DMG: 5
   Turret_DMG: 8
@@ -503,6 +503,9 @@ MonoBehaviour:
   - {fileID: 1442801782922368, guid: e97d38b861c7db64bb50d91030e08e7e, type: 3}
   - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
   isTutorial: 0
+  hit: 0
+  hitTime: 2
+  shielded: 0
 --- !u!1 &7324526996933842999
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7324526996933842992}
   m_Layer: 11
-  m_Name: Droid3
+  m_Name: Droid(StunR)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -150,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 466435875804888638}
   m_Layer: 11
-  m_Name: Droid2
+  m_Name: Droid(BlastR)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,6 +338,9 @@ MonoBehaviour:
   - {fileID: 1442801782922368, guid: e97d38b861c7db64bb50d91030e08e7e, type: 3}
   - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
   isTutorial: 0
+  hit: 0
+  hitTime: 2
+  shielded: 0
 --- !u!1001 &466435875854870452
 PrefabInstance:
   m_ObjectHideFlags: 0

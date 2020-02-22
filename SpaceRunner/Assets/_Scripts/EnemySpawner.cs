@@ -29,11 +29,11 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        /*if (Input.GetKeyDown(KeyCode.K))
         {
             //Spawn();
             SpawnEnemies(amount_of_BasicDroids, amount_of_SecondDroids, amount_of_ThirdDroids, amount_of_FourthDroids);  
-        }
+        }*/ 
     }
 
     void Spawn()
