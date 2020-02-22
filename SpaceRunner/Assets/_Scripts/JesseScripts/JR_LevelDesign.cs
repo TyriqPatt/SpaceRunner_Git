@@ -8,9 +8,10 @@ public class JR_LevelDesign : MonoBehaviour
     MeteorSpawner m_metorSpawner;
     public int LevelOnePhases;
     public GameObject[] enemiesInLevel;
-    public bool inCombat = true;
-
-    int WavePhase = 0;  
+    private bool inCombat = true;
+    private float SpawnDelay;
+    private int WavePhase = 0;
+    public int HowManyDroidsAdded = 0;  
 
     // Start is called before the first frame update
     void Start()
@@ -36,9 +37,9 @@ public class JR_LevelDesign : MonoBehaviour
         {
             inCombat = false;
         }
-        if(WavePhase == 1)
+        if (WavePhase == 1)
         {
-            FirstHalfPhase(); 
+            WavePhaseFunction();
         }
     }
 
@@ -67,16 +68,26 @@ public class JR_LevelDesign : MonoBehaviour
                 print("Astroids");
                 break;
             case 5:
-                m_enemySpawner.SpawnEnemies(3, 0, 0, 0);
-                WavePhase = 1; 
+                m_enemySpawner.SpawnEnemies(2, 0, 0, 0);
+                WavePhase = 1;
+                LevelOnePhases = 6;
                 print("First half of 20 phase");
                 break;
             case 6:
+                WavePhase = 0;
+                HowManyDroidsAdded = 0; 
                 StartCoroutine(m_metorSpawner.Spawn(m_metorSpawner.FirstSpawnTime));
+                LevelOnePhases = 7;
                 print("Astroids");
                 break;
             case 7:
+                m_enemySpawner.SpawnEnemies(2, 0, 0, 0);
+                WavePhase = 1;
+                LevelOnePhases = 8;
                 print("Second half of 20 phase");
+                break;
+            case 8:
+                print("NewEnemy");
                 break;
             default:
                 print("No LevelOnePhase Int");
@@ -85,15 +96,29 @@ public class JR_LevelDesign : MonoBehaviour
     }
 
 
-   void FirstHalfPhase()
+    void WavePhaseFunction()
     {
-
-        if(enemiesInLevel.Length <= 2)
+        if (HowManyDroidsAdded < 15)
         {
-            m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
+            if (enemiesInLevel.Length <= 2)
+            {
+                SpawnDelay += 1 * Time.deltaTime;
+                if (SpawnDelay >= 3)
+                {
+                    m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
+                    HowManyDroidsAdded += 1;
+                    SpawnDelay = 0;
+                }
+
+            }
+        }
+        else
+        {
 
         }
 
     }
+
+   
 
 }
