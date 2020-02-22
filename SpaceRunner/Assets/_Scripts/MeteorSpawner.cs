@@ -20,7 +20,7 @@ public class MeteorSpawner : MonoBehaviour
         
     }
 
-    IEnumerator Spawn(float _NextSpawn)
+    public IEnumerator Spawn(float _NextSpawn)
     {
         int astr = Random.Range(0, Meteors.Length);
         yield return new WaitForSeconds(_NextSpawn);
