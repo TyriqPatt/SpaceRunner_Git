@@ -96,6 +96,7 @@ public class JR_LevelDesign : MonoBehaviour
                 print("Second half of 20 phase");
                 break;
             case 8:
+                m_enemySpawner.SpawnEnemies(0, 1, 0, 0);
                 print("NewEnemy");
                 break;
             default:
