@@ -1101,14 +1101,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 769860956}
     m_Modifications:
-    - target: {fileID: 1642630444709314, guid: 74b7965456014ac479ed89fe9fda4745, type: 3}
-      propertyPath: m_Name
-      value: HitBox
-      objectReference: {fileID: 0}
-    - target: {fileID: 1642630444709314, guid: 74b7965456014ac479ed89fe9fda4745, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4179766040331934, guid: 74b7965456014ac479ed89fe9fda4745, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1164,6 +1156,14 @@ PrefabInstance:
     - target: {fileID: 4179766040331934, guid: 74b7965456014ac479ed89fe9fda4745, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642630444709314, guid: 74b7965456014ac479ed89fe9fda4745, type: 3}
+      propertyPath: m_Name
+      value: HitBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642630444709314, guid: 74b7965456014ac479ed89fe9fda4745, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23515212695290560, guid: 74b7965456014ac479ed89fe9fda4745,
         type: 3}
@@ -14190,6 +14190,9 @@ MonoBehaviour:
   Explode: {fileID: 0}
   PickUps: []
   isTutorial: 0
+  hit: 0
+  hitTime: 2
+  shielded: 0
 --- !u!54 &1002530178
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24189,6 +24192,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2270510675915865878, guid: 559cbd7a86b9cfd4cb56f5d0a77cbdac,
+        type: 3}
+      propertyPath: PauseMenu
+      value: 
+      objectReference: {fileID: 692126640}
     - target: {fileID: 2270510675915865877, guid: 559cbd7a86b9cfd4cb56f5d0a77cbdac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24244,11 +24252,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2270510675915865878, guid: 559cbd7a86b9cfd4cb56f5d0a77cbdac,
-        type: 3}
-      propertyPath: PauseMenu
-      value: 
-      objectReference: {fileID: 692126640}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 559cbd7a86b9cfd4cb56f5d0a77cbdac, type: 3}
 --- !u!1001 &2693883062409368118

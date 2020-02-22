@@ -18,7 +18,10 @@ public class JR_LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            CheckLevel(); 
+        }
     }
     //Check which scene will be next
     public void CheckLevel()
