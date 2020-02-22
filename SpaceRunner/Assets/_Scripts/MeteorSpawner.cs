@@ -11,7 +11,7 @@ public class MeteorSpawner : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        StartCoroutine(Spawn(FirstSpawnTime));
+       // StartCoroutine(Spawn(FirstSpawnTime));
     }
 
     // Update is called once per frame

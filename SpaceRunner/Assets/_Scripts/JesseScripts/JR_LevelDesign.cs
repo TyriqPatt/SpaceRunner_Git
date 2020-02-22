@@ -8,7 +8,7 @@ public class JR_LevelDesign : MonoBehaviour
     MeteorSpawner m_metorSpawner;
     public int LevelOnePhases;
     public GameObject[] enemiesInLevel;
-    private bool inCombat = false;  
+    public bool inCombat = true;
 
     // Start is called before the first frame update
     void Start()
@@ -23,15 +23,16 @@ public class JR_LevelDesign : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemiesInLevel = GameObject.FindGameObjectsWithTag("Enemy"); 
-        if(Input.GetKeyDown(KeyCode.K))
+        enemiesInLevel = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            LevelOneSystems(); 
+            LevelOneSystems();
         }
 
-        if(inCombat)
+        if (enemiesInLevel.Length <= 0)
         {
-            CheckifAllEneiesDead();
+            inCombat = false;
         }
     }
 
@@ -40,19 +41,22 @@ public class JR_LevelDesign : MonoBehaviour
         switch (LevelOnePhases)
         {
             case 1:
-                m_enemySpawner.SpawnEnemies(1,0,0,0); 
+                m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
+                LevelOnePhases = 2;
                 print("Spawn One Enemy");
                 break;
             case 2:
                 m_enemySpawner.SpawnEnemies(2, 0, 0, 0);
+                LevelOnePhases = 3;
                 print("Spawn Two Enemies");
                 break;
             case 3:
                 m_enemySpawner.SpawnEnemies(3, 0, 0, 0);
+                LevelOnePhases = 4;
                 print("Spawn Three Enemies");
                 break;
             case 4:
-               StartCoroutine(m_metorSpawner.Spawn(m_metorSpawner.FirstSpawnTime));   
+                StartCoroutine(m_metorSpawner.Spawn(m_metorSpawner.FirstSpawnTime));
                 print("Astroids");
                 break;
             case 5:
@@ -73,12 +77,10 @@ public class JR_LevelDesign : MonoBehaviour
 
     void CheckifAllEneiesDead()
     {
-        if(enemiesInLevel[0]) 
-        {
-            inCombat = false; 
-            LevelOnePhases++; 
-        }
+
+
+
+
     }
 
-   
 }
