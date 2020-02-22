@@ -32,7 +32,7 @@ public class MeteorSpawner : MonoBehaviour
         Instantiate(Meteors[Random.Range(0, Meteors.Length)], Spawners[0].transform.position, Spawners[0].rotation);
 
 
-        StartCoroutine(Spawn(6));
+        //StartCoroutine(Spawn(6));
     }
 
     private void OnDisable()

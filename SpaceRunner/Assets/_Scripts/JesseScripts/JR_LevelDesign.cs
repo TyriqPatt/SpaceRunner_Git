@@ -10,6 +10,8 @@ public class JR_LevelDesign : MonoBehaviour
     public GameObject[] enemiesInLevel;
     public bool inCombat = true;
 
+    int WavePhase = 0;  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,10 @@ public class JR_LevelDesign : MonoBehaviour
         {
             inCombat = false;
         }
+        if(WavePhase == 1)
+        {
+            FirstHalfPhase(); 
+        }
     }
 
     void LevelOneSystems()
@@ -57,12 +63,16 @@ public class JR_LevelDesign : MonoBehaviour
                 break;
             case 4:
                 StartCoroutine(m_metorSpawner.Spawn(m_metorSpawner.FirstSpawnTime));
+                LevelOnePhases = 5;
                 print("Astroids");
                 break;
             case 5:
+                m_enemySpawner.SpawnEnemies(3, 0, 0, 0);
+                WavePhase = 1; 
                 print("First half of 20 phase");
                 break;
             case 6:
+                StartCoroutine(m_metorSpawner.Spawn(m_metorSpawner.FirstSpawnTime));
                 print("Astroids");
                 break;
             case 7:
@@ -75,11 +85,14 @@ public class JR_LevelDesign : MonoBehaviour
     }
 
 
-    void CheckifAllEneiesDead()
+   void FirstHalfPhase()
     {
 
+        if(enemiesInLevel.Length <= 2)
+        {
+            m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
 
-
+        }
 
     }
 
