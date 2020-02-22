@@ -18,10 +18,10 @@ public class Reciever : MonoBehaviour
     float Dir = 5;
     EnemyHealthBar EHB;
     bool doOnce;
-    float healthThreshold;
+    public float healthThreshold;
     bool canEvade = true;
-    bool BHActive;
     public enum State { MoveRight, MoveLeft, ChooseDir, ActivateBlackHole }
+
     public State SeekerState;
 
     // Start is called before the first frame update
@@ -133,14 +133,13 @@ public class Reciever : MonoBehaviour
     IEnumerator RandomDir()
     {
         yield return new WaitForSeconds(Random.Range(5, 8));
-        Debug.Log("chandedir");
         float Randnum;
         Randnum = Random.Range(0, 5);
-        if (Randnum == 0 && !BHActive)
+        if (Randnum == 0)
         {
             SeekerState = State.MoveRight;
         }
-        else if (Randnum == 1 && !BHActive)
+        else if (Randnum == 1)
         {
             SeekerState = State.MoveLeft;
         }
@@ -149,8 +148,9 @@ public class Reciever : MonoBehaviour
 
     IEnumerator shoot()
     {
-        BHActive = true;
+        
         SeekerState = State.ActivateBlackHole;
+        StopCoroutine(RandomDir());
         yield return new WaitForSeconds(.2f);
         //bulletprefab = Instantiate(Blackhole, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
         _Blackhole.transform.position = transform.position;
@@ -163,7 +163,6 @@ public class Reciever : MonoBehaviour
         StartCoroutine(Evade());
         healthThreshold = EHB.CurrentHealth;
         doOnce = false;
-        BHActive = false;
         //_Blackhole.transform.parent = this.transform;
     }
 }
