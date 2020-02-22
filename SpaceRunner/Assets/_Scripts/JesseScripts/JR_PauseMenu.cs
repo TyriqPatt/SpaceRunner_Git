@@ -45,6 +45,8 @@ public class JR_PauseMenu : MonoBehaviour
         PauseMenu.SetActive(true);
         //To create the switch on and off feature
         isPaused = true;
+        //Stops all gameplay movement
+        Time.timeScale = 0; 
     }
     //Remove pause screen
     public void UnpauseGame()
@@ -53,6 +55,8 @@ public class JR_PauseMenu : MonoBehaviour
         PauseMenu.SetActive(false);
         //To create the switch on and off feature
         isPaused = false;
+        //Make everything move again
+        Time.timeScale = 1;
     }
 
     public void GoToMainMenu()
