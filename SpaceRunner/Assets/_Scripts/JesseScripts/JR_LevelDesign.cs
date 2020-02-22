@@ -99,6 +99,8 @@ public class JR_LevelDesign : MonoBehaviour
                 print("Second half of 20 phase");
                 break;
             case 8:
+                WavePhase = 0;
+                HowManyDroidsAdded = 0;
                 Instantiate(LastBoss, SpawnerLocation.position, SpawnerLocation.rotation); 
                 print("NewEnemy");
                 break;
