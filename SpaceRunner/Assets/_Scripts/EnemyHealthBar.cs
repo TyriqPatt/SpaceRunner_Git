@@ -21,6 +21,9 @@ public class EnemyHealthBar : MonoBehaviour {
     public GameObject Explode;
     public GameObject[] PickUps;
     public bool isTutorial;
+    public bool hit;
+    public float hitTime = 2;
+    public bool shielded;
 
     // Use this for initialization
     void Start () {
@@ -41,10 +44,13 @@ public class EnemyHealthBar : MonoBehaviour {
 	void Update () {
 
         //For testing
-        if (Input.GetKeyDown(KeyCode.L))
+        if (hit)
         {
-            //This is how you call the method
-            //DealDamage(10);
+            hitTime -= Time.deltaTime;
+            if (hitTime <= 0)
+            {
+                hit = false;
+            }
         }
 	}
 
@@ -117,11 +123,41 @@ public class EnemyHealthBar : MonoBehaviour {
             DealDamage(Missile_DMG);
             StartCoroutine(Hit());
         }
+        if (other.gameObject.tag == "SupportBox")
+        {
+            //shielded = true;
+            Laser_DMG = Laser_DMG / 2;
+            Turret_DMG = Turret_DMG / 2;
+            Missile_DMG = Missile_DMG / 2;
+            if (!Boss)
+            {
+                transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(true);
+
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "SupportBox")
+        {
+            //shielded = false;
+            Laser_DMG = Laser_DMG * 2;
+            Turret_DMG = Turret_DMG * 2;
+            Missile_DMG = Missile_DMG * 2;
+            if (!Boss)
+            {
+                transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(false);
+
+            }
+        }
     }
 
     IEnumerator Hit()
     {
         hitDet.SetActive(true);
+        hit = true;
+        hitTime = 2;
         yield return new WaitForSeconds(.1f);
         hitDet.SetActive(false);
 
