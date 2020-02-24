@@ -38518,10 +38518,11 @@ MonoBehaviour:
   MissileBar: {fileID: 0}
   Laser_DMG: 5
   Curve_DMG: 7
+  DOT_DMG: 2
   Asteroid_DMG: 25
   Beam_DMG: 2
   Mine_Dmg: 20
-  Gball_Dmg: 5
+  Gball_Dmg: 0.15
   HealAmount: 10
   hitDet: {fileID: 4561031876939347179}
   healthDet: {fileID: 2058060696}

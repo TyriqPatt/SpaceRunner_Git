@@ -15,6 +15,9 @@ public class JR_LevelDesign : MonoBehaviour
     private bool inStartCases = true;
     public GameObject LastBoss;
     private Transform SpawnerLocation;
+
+    public GameObject WarningBoss;
+    public GameObject WarningEnemies; 
    
 
     // Start is called before the first frame update
@@ -102,7 +105,13 @@ public class JR_LevelDesign : MonoBehaviour
             case 8:
                 WavePhase = 0;
                 HowManyDroidsAdded = 0;
-                Instantiate(LastBoss, SpawnerLocation.position, SpawnerLocation.rotation); 
+                StartCoroutine(WaitForBoss());
+                LevelOnePhases = 9;
+                print("Warning Boss");
+                break;
+            case 9:
+                
+                Instantiate(LastBoss, SpawnerLocation.position, SpawnerLocation.rotation);
                 print("NewEnemy");
                 break;
             default:
@@ -139,12 +148,25 @@ public class JR_LevelDesign : MonoBehaviour
     IEnumerator WaitForAstroids()
     {
 
-        yield return new WaitForSeconds(13);
+        yield return new WaitForSeconds(10);
+        WarningEnemies.SetActive(true); 
+        yield return new WaitForSeconds(5);
+        WarningEnemies.SetActive(false);
         LevelOneSystems();
 
 
     }
 
+    IEnumerator WaitForBoss()
+    {
+        WarningBoss.SetActive(true); 
 
+        yield return new WaitForSeconds(7);
+        WarningBoss.SetActive(false); 
+
+        LevelOneSystems();
+
+
+    }
 
 }

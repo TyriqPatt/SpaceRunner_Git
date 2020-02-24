@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentHealth: 0
-  MaxHealth: 500
+  MaxHealth: 600
   HealthSlider: {fileID: 0}
   hitDet: {fileID: 1619664884}
   Boss: 0
@@ -606,7 +606,7 @@ PrefabInstance:
     - target: {fileID: 75624204834243236, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -8.8618
+      value: -8.861786
       objectReference: {fileID: 0}
     - target: {fileID: 75624204834243236, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c,
         type: 3}
