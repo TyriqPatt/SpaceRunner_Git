@@ -16,7 +16,8 @@ public class JR_LevelTwoDesign : MonoBehaviour
     public GameObject LastBoss;
     private Transform SpawnerLocation;
 
-
+    public GameObject WarningBoss;
+    public GameObject WarningEnemies;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +59,7 @@ public class JR_LevelTwoDesign : MonoBehaviour
         switch (LevelOnePhases)
         {
             case 1:
-                m_enemySpawner.SpawnEnemies(1, 1, 0, 0);
+                m_enemySpawner.SpawnEnemies(0, 1, 0, 0);
                 LevelOnePhases = 2;
                 print("Spawn One Enemy");
                 break;
@@ -102,6 +103,12 @@ public class JR_LevelTwoDesign : MonoBehaviour
             case 8:
                 WavePhase = 0;
                 HowManyDroidsAdded = 0;
+                StartCoroutine(WaitForBoss());
+                LevelOnePhases = 9;
+                print("Warning Boss");
+                break;
+            case 9:
+
                 Instantiate(LastBoss, SpawnerLocation.position, SpawnerLocation.rotation);
                 print("NewEnemy");
                 break;
@@ -123,8 +130,7 @@ public class JR_LevelTwoDesign : MonoBehaviour
                 SpawnDelay += 1 * Time.deltaTime;
                 if (SpawnDelay >= 3)
                 {
-                    Ran = Random.RandomRange(0, 2);
-                    m_enemySpawner.SpawnEnemies(0, 1, 0, 0);
+                    Ran = Random.RandomRange(0, 5);
                     HowManyDroidsAdded += 1;
                     SpawnDelay = 0;
 
@@ -133,7 +139,7 @@ public class JR_LevelTwoDesign : MonoBehaviour
                         m_enemySpawner.SpawnEnemies(0, 1, 0, 0);
 
                     }
-                    else
+                    else if(Ran > 0)
                     {
                         m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
                     }
@@ -152,12 +158,24 @@ public class JR_LevelTwoDesign : MonoBehaviour
     IEnumerator WaitForAstroids()
     {
 
-        yield return new WaitForSeconds(14);
+        yield return new WaitForSeconds(10);
+        WarningEnemies.SetActive(true);
+        yield return new WaitForSeconds(5);
+        WarningEnemies.SetActive(false);
+        LevelOneSystems();
+
+    }
+
+    IEnumerator WaitForBoss()
+    {
+        WarningBoss.SetActive(true);
+
+        yield return new WaitForSeconds(7);
+        WarningBoss.SetActive(false);
+
         LevelOneSystems();
 
 
     }
-
-
 
 }
