@@ -6822,13 +6822,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 530223237}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9098685f50480a47acba97b8120654b, type: 3}
+  m_Script: {fileID: 11500000, guid: b1d105aac1f869840b5cf85528cbe484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LevelOnePhases: 0
   enemiesInLevel: []
-  LastBoss: {fileID: 7324526996933842999, guid: d1381e40fb1dbac46951e2133ceca1a4,
-    type: 3}
+  LastBoss: {fileID: 466435875804888625, guid: 469553047bc0489439136ee6ef0f9372, type: 3}
   WarningBoss: {fileID: 303717775}
   WarningEnemies: {fileID: 1020126920}
 --- !u!1 &534669902
