@@ -12368,11 +12368,6 @@ PrefabInstance:
       propertyPath: MissileBar
       value: 
       objectReference: {fileID: 1544524939}
-    - target: {fileID: 4561031876939347179, guid: 80aa0f9399189234caea08314aa24ddf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80aa0f9399189234caea08314aa24ddf, type: 3}
 --- !u!1001 &4779334029480579960

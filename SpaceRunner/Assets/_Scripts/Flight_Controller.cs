@@ -30,11 +30,8 @@ public class Flight_Controller : MonoBehaviour
     public GameObject Turret;
     public GameObject Missile;
     public Transform MissileSpawn;
-    int A_States;
     public PlayerHealth PH;
-    public enum State { Roll, Turret, Missile }
 
-    public State AbilityState;
     public bool isTutorial;
 
     // Start is called before the first frame update
@@ -42,10 +39,6 @@ public class Flight_Controller : MonoBehaviour
     {
         PH = transform.GetChild(1).GetComponent<PlayerHealth>();
         Turret.SetActive(false);
-        RollBG.enabled = true;
-        AllyBG.enabled = false;
-        BarrageBG.enabled = false;
-        AbilityState = State.Roll;
     }
 
     // Update is called once per frame
@@ -133,104 +126,8 @@ public class Flight_Controller : MonoBehaviour
                 break;
         }
 
-        if(!isDisrupted)
-        {
-            switch (AbilityState)
-            {
-                case State.Roll:
-                    //left roll
-                    if (Input.GetKeyDown(KeyCode.LeftShift) && input < 0 && PH.CurRollCdwn == PH.MaxRollCdwn)
-                    {
-                        States = 1;
-                        StartCoroutine(Barrel_Roll());
-                        PH.CurRollCdwn -= PH.CurRollCdwn;
-                        PH.RollSlider.value = PH.RollCooldown();
-                    }
-                    //right roll
-                    if (Input.GetKeyDown(KeyCode.LeftShift) && input > 0 && PH.CurRollCdwn == PH.MaxRollCdwn)
-                    {
-                        States = 2;
-                        StartCoroutine(Barrel_Roll());
-                        PH.CurRollCdwn -= PH.CurRollCdwn;
-                        PH.RollSlider.value = PH.RollCooldown();
-                    }
-                    break;
-                case State.Turret:
-                    if (Input.GetKeyDown(KeyCode.LeftShift) && PH.CurTurretCdwn == PH.MaxTurretCdwn)
-                    {
-                        Turret.SetActive(false);
-                        StartCoroutine(ActivateTurret());
-                    }
-                    break;
-                case State.Missile:
-                    if (Input.GetKeyDown(KeyCode.LeftShift) && PH.CurMissileCdwn == PH.MaxMissileCdwn)
-                    {
-                        StartCoroutine(Missiles());
-                        PH.CurMissileCdwn -= PH.MaxMissileCdwn;
-                        PH.MissileSlider.value = PH.MissileCooldown();
-                    }
-                    break;
-            }
 
-            switch (A_States)
-            {
-                case 1:
-                    //Ally Selected
-                    AbilityState = State.Turret;
-                    RollBG.enabled = false;
-                    AllyBG.enabled = true;
-                    BarrageBG.enabled = false;
-                    break;
-                case 2:
-                    //Barrage Selected
-                    AbilityState = State.Missile;
-                    RollBG.enabled = false;
-                    AllyBG.enabled = false;
-                    BarrageBG.enabled = true;
-                    break;
-
-                default:
-                    //Roll Selected
-                    AbilityState = State.Roll;
-                    RollBG.enabled = true;
-                    AllyBG.enabled = false;
-                    BarrageBG.enabled = false;
-                    break;
-            }
-            if (!isTutorial)
-            {
-                if (Input.GetKeyDown(KeyCode.W))
-                {
-                    A_States += 1;
-                    if (A_States > 2)
-                    {
-                        A_States = 0;
-                    }
-                }
-                if (Input.GetKeyDown(KeyCode.S))
-                {
-                    A_States -= 1;
-                    if (A_States < 0)
-                    {
-                        A_States = 2;
-                    }
-                }
-
-                if (Input.GetKeyDown(KeyCode.Alpha1))
-                {
-                    A_States = 0;
-                }
-                if (Input.GetKeyDown(KeyCode.Alpha2))
-                {
-                    A_States = 1;
-                }
-                if (Input.GetKeyDown(KeyCode.Alpha3))
-                {
-                    A_States = 2;
-                }
-            }
-        }
-
+        Abilities();
         //Boundaries
         if (transform.position.x >= clamppos)
         {
@@ -240,6 +137,48 @@ public class Flight_Controller : MonoBehaviour
         if (transform.position.x <= -clamppos)
         {
             transform.position = new Vector3(-clamppos, 5, 0);
+        }
+    }
+
+    void Abilities()
+    {
+        if (!isDisrupted)
+        {
+
+            //left roll
+            if (Input.GetKeyDown(KeyCode.LeftShift) && input < 0 && PH.CurRollCdwn == PH.MaxRollCdwn)
+            {
+                StartCoroutine(RollTime());
+                States = 1;
+                StartCoroutine(Barrel_Roll());
+                PH.CurRollCdwn -= PH.CurRollCdwn;
+                PH.RollSlider.value = PH.RollCooldown();
+            }
+            //right roll
+            if (Input.GetKeyDown(KeyCode.LeftShift) && input > 0 && PH.CurRollCdwn == PH.MaxRollCdwn)
+            {
+                StartCoroutine(RollTime());
+                States = 2;
+                StartCoroutine(Barrel_Roll());
+                PH.CurRollCdwn -= PH.CurRollCdwn;
+                PH.RollSlider.value = PH.RollCooldown();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2) && PH.CurTurretCdwn == PH.MaxTurretCdwn || Input.GetKeyDown(KeyCode.W) && PH.CurTurretCdwn == PH.MaxTurretCdwn)
+            {
+                StartCoroutine(turretTime());
+                Turret.SetActive(false);
+                StartCoroutine(ActivateTurret());
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha3) && PH.CurMissileCdwn == PH.MaxMissileCdwn || Input.GetKeyDown(KeyCode.S) && PH.CurMissileCdwn == PH.MaxMissileCdwn)
+            {
+                StartCoroutine(MissileTime());
+                StartCoroutine(Missiles());
+                PH.CurMissileCdwn -= PH.MaxMissileCdwn;
+                PH.MissileSlider.value = PH.MissileCooldown();
+            }
+
         }
     }
 
@@ -291,5 +230,26 @@ public class Flight_Controller : MonoBehaviour
         isDisrupted = false;
         Thruster.SetActive(true);
         Electricity.SetActive(false);
+    }
+
+    IEnumerator RollTime()
+    {
+        RollBG.enabled = true;
+        yield return new WaitForSeconds(.6f);
+        RollBG.enabled = false;
+    }
+
+    IEnumerator turretTime()
+    {
+        AllyBG.enabled = true;
+        yield return new WaitForSeconds(10);
+        AllyBG.enabled = false;
+    }
+
+    IEnumerator MissileTime()
+    {
+        BarrageBG.enabled = true;
+        yield return new WaitForSeconds(2);
+        BarrageBG.enabled = false;
     }
 }

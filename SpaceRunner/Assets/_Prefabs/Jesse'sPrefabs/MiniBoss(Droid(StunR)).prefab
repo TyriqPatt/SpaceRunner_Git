@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentHealth: 0
-  MaxHealth: 500
+  MaxHealth: 600
   HealthSlider: {fileID: 0}
   hitDet: {fileID: 1562044642}
   Boss: 0
@@ -585,7 +585,6 @@ MonoBehaviour:
   isTutorial: 0
   hit: 0
   hitTime: 2
-  shielded: 0
 --- !u!114 &3743027019721526583
 MonoBehaviour:
   m_ObjectHideFlags: 0
