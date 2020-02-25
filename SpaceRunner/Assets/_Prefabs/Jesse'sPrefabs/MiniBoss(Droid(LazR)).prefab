@@ -9750,6 +9750,7 @@ GameObject:
   - component: {fileID: 118454775396213472}
   - component: {fileID: 118454775396213471}
   - component: {fileID: 1390379849063655428}
+  - component: {fileID: 5146939027981504357}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Enemy
@@ -9860,6 +9861,18 @@ MonoBehaviour:
   hit: 0
   hitTime: 2
   shielded: 0
+--- !u!114 &5146939027981504357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118454775396213470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831342bc2f4115845a4ffa1831e50fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3004719469956618199
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,23 +4,24 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class JR_LoseConditions : MonoBehaviour
+public class JR_WinCondition : MonoBehaviour
 {
-    PlayerHealth m_playerHealth;
-
     // Start is called before the first frame update
     void Start()
     {
-        m_playerHealth = GameObject.FindObjectOfType<PlayerHealth>(); 
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (m_playerHealth.CurrentHealth <= 0)
-        {
-            SceneManager.LoadScene("LoseScene");
-        }
         
+    }
+
+    
+
+    private void OnDestroy()
+    {
+        SceneManager.LoadScene("WinScene");
     }
 }
