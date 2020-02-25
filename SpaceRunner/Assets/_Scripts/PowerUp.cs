@@ -8,12 +8,13 @@ public class PowerUp : MonoBehaviour{
     Rigidbody Pup;
     GameObject PUP;
     public float speed;
+    public float waitTime;
     public bool HealthPickUp;
     public bool ShieldPickup;
     public bool AttackPickUp;
     public bool EnergyPickUp;
     Light lit;
-    float waitTime;
+    float _waitTime;
  
     
     void Start()
@@ -26,11 +27,11 @@ public class PowerUp : MonoBehaviour{
     void Update()
     {
         //transform.Rotate(0, 45 * 5 * Time.deltaTime, 0);
-        if (waitTime < 2)
+        if (_waitTime < waitTime)
         {
-            waitTime += Time.deltaTime;
+            _waitTime += Time.deltaTime;
         }
-        if(waitTime >= 2)
+        if(_waitTime >= waitTime)
         {
             transform.parent.Translate(0, 0, speed);
         }

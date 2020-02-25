@@ -23,7 +23,6 @@ public class EnemyHealthBar : MonoBehaviour {
     public bool isTutorial;
     public bool hit;
     public float hitTime = 2;
-    public bool shielded;
 
     // Use this for initialization
     void Start () {
@@ -135,6 +134,11 @@ public class EnemyHealthBar : MonoBehaviour {
 
             }
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        
     }
 
     private void OnTriggerExit(Collider other)

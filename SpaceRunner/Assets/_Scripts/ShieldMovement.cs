@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class ShieldMovement : MonoBehaviour
 {
-
-
+    public Transform player;
     public GameObject DodgePoint;
     public float speed;
+    public float dis;
     Vector3 movepos;
     Vector3 smoothpos;
     float Dir = 5;
     EnemyHealthBar EHB;
     bool canEvade = true;
     public GameObject Echo;
-    public enum State { MoveRight, MoveLeft, ChooseDir, Shield, Health }
-    public LayerMask layer;
+    public enum State { FollowPlayer, MoveRight, MoveLeft, ChooseDir}
     public State RecieverState;
-    public State SupportState;
+
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         smoothpos = transform.parent.position;
-        SupportState = State.Shield;
-        RecieverState = State.ChooseDir;
-        StartCoroutine(RandomDir());
+        RecieverState = State.FollowPlayer;
+
+        //StartCoroutine(RandomDir());
         EHB = GetComponent<EnemyHealthBar>();
     }
 
@@ -36,7 +36,7 @@ public class ShieldMovement : MonoBehaviour
         if (canEvade)
         {
             RaycastHit hit;
-            if (Physics.SphereCast(DodgePoint.transform.position, 7, transform.forward, out hit, 10))
+            if (Physics.SphereCast(DodgePoint.transform.position, 5, transform.forward, out hit, 10))
             {
                 if (hit.transform.tag == "Shootable")
                 {
@@ -91,6 +91,11 @@ public class ShieldMovement : MonoBehaviour
                         transform.parent.position.y, transform.parent.position.z), speed * Time.deltaTime);
                 }
                 break;
+            case State.FollowPlayer:
+                dis = Vector3.Distance(transform.parent.position, player.position);
+                Vector3 desiredPostion = new Vector3(player.position.x, transform.position.y, transform.position.z);
+                smoothpos = Vector3.Lerp(transform.parent.position, desiredPostion, speed * Time.deltaTime);
+                break;
         }
     }
 
@@ -112,24 +117,25 @@ public class ShieldMovement : MonoBehaviour
 
     IEnumerator Evade()
     {
-
         float Randnum;
         Randnum = Random.Range(0, 10);
         if (Randnum == 0)
         {
+            RecieverState = State.ChooseDir;
             speed = 50;
             EHB.invulnerable = true;
             canEvade = false;
             yield return new WaitForSeconds(.2f);
-            speed = 5;
+            speed = 1;
             EHB.invulnerable = false;
             canEvade = true;
+            RecieverState = State.FollowPlayer;
         }
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(DodgePoint.transform.position, 7);
+        Gizmos.DrawWireSphere(DodgePoint.transform.position, 5);
     }
 }
