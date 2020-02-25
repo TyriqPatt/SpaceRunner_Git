@@ -10109,8 +10109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f25761343049d543a9f7d8d41ae34ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_nextButton: {fileID: 0}
-  m_quitButton: {fileID: 0}
+  m_nextButton: {fileID: 1485882086}
+  m_quitButton: {fileID: 1467889393}
 --- !u!1 &976460251
 GameObject:
   m_ObjectHideFlags: 0
@@ -24642,7 +24642,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Retry
+  m_Text: Next Level
 --- !u!222 &1221816206
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24956,7 +24956,7 @@ GameObject:
   - component: {fileID: 1485882087}
   - component: {fileID: 1485882086}
   m_Layer: 5
-  m_Name: RetryButton
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
