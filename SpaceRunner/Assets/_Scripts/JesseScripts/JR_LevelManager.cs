@@ -18,10 +18,7 @@ public class JR_LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.N))
-        {
-            CheckLevel(); 
-        }
+      
     }
     //Check which scene will be next
     public void CheckLevel()
@@ -57,9 +54,5 @@ public class JR_LevelManager : MonoBehaviour
         }
     }
 
-    public void RestartLevel()
-    {
-        Scene loadedLevel = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(loadedLevel.buildIndex); 
-    }
+   
 }
