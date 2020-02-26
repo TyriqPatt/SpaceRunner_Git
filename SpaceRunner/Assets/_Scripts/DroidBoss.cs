@@ -7,7 +7,6 @@ public class DroidBoss : MonoBehaviour
     public GameObject player;
     public GameObject bullet;
     public GameObject bulletSpawn;
-    public GameObject Pillar;
     public GameObject Grav;
     public Transform[] GravTarget;
     float ShootDelay;
@@ -31,8 +30,8 @@ public class DroidBoss : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         smoothpos = transform.parent.position;
-        BossState = State.OffsetPhaseGrav;
-        ShootDelay = StartDelay;
+        BossState = State.BtwnPhases;
+        //ShootDelay = StartDelay;
         //StartCoroutine(RandomDir());
         EHB = GetComponent<EnemyHealthBar>();
         Ammo = MaxAmmo;
@@ -41,7 +40,7 @@ public class DroidBoss : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.LookAt(player.transform);
+        //transform.LookAt(player.transform);
         BossStates();
         transform.parent.position = smoothpos;
         if (ShootDelay > 0)
@@ -66,7 +65,8 @@ public class DroidBoss : MonoBehaviour
         switch (BossState)
         {
             case State.BtwnPhases:
-                if(transform.position.y > 30)
+                transform.LookAt(player.transform);
+                if (transform.position.y > 30)
                 {
                     smoothpos = Vector3.Lerp(transform.parent.position,
                         transform.parent.position = new Vector3(transform.parent.position.x,
@@ -177,6 +177,7 @@ public class DroidBoss : MonoBehaviour
     IEnumerator shootBlackHole(float time)
     {
         //GameObject bulletprefab;
+        RanGravTarget = Random.Range(0, GravTarget.Length);
         yield return new WaitForSeconds(time);
         //bulletprefab = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
         //Instantiate(Grav, GravTarget[RanGravTarget].position, GravTarget[RanGravTarget].rotation);
@@ -184,7 +185,7 @@ public class DroidBoss : MonoBehaviour
         Grav.GetComponent<BlackHole>().enabled = true;
         Grav.transform.GetChild(0).gameObject.SetActive(true);
         Grav.transform.GetChild(1).gameObject.SetActive(false);
-        RanGravTarget = Random.Range(0, GravTarget.Length);
+        //GravTarget = player.transform.position;
         StartCoroutine(shootBlackHole(8));
     }
 }

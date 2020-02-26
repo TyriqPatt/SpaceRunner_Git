@@ -10,7 +10,10 @@ public class Canons : MonoBehaviour
     public ParticleSystem Leftps, Rightps;
     public float Firerate = 15f;
     public float nextTimeToFire = 0f;
+    public float heavyCanonDur;
     Flight_Controller FC;
+    public bool HeavyCanons;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,24 @@ public class Canons : MonoBehaviour
             nextTimeToFire = Time.time + 1f / Firerate;
             shoot();
         }
+        if (HeavyCanons)
+        {
+            heavyCanonDur += Time.deltaTime;
+            if(heavyCanonDur >= 5)
+            {
+                HeavyCanons = false;
+            }
+            CurLaser = HeavyLaser;
+            Firerate = 2.5f;
+            PlayerHealth.DmgMultiplier = 2;
+        }
+        else
+        {
+            CurLaser = laser;
+            PlayerHealth.DmgMultiplier = 1;
+            Firerate = 4f;
+            heavyCanonDur = 0;
+        }
     }
 
     void shoot()
@@ -35,21 +56,5 @@ public class Canons : MonoBehaviour
         Instantiate(CurLaser, LeftCanon.position, LeftCanon.rotation);
         Rightps.Play();
         Leftps.Play();
-    }
-
-    public void DmgPowerUp()
-    {
-        StartCoroutine(HeavyShot());
-    }
-
-    public IEnumerator HeavyShot()
-    {
-        CurLaser = HeavyLaser;
-        Firerate = 2.5f;
-        PlayerHealth.DmgMultiplier = 2;
-        yield return new WaitForSeconds(5);
-        CurLaser = laser;
-        PlayerHealth.DmgMultiplier = 1;
-        Firerate = 4f;
     }
 }

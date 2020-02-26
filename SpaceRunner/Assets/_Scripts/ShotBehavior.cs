@@ -6,6 +6,7 @@ public class ShotBehavior : MonoBehaviour {
     public float speed;
     public float RiseSpeed;
     public float RotSpeed;
+    public float PincerRotSpeed;
     public float Lifetime;
     public Meteor Meteor;
     public GameObject W_impact;
@@ -14,15 +15,16 @@ public class ShotBehavior : MonoBehaviour {
     public bool IsEnemy;
     [HideInInspector]public bool curvein;
     public Transform Player;
+    public Transform target;
     float dist;
     bool canFollow;
-    public enum State { Default, ShockWave, CurveShot, Missile }
+    public enum State { Default, ShockWave, CurveShot, Missile, PincerMissile }
 
     public State BulletType;
 
     // Use this for initialization
     void Start () {
-        if (BulletType == State.ShockWave)
+        if (BulletType == State.ShockWave || BulletType == State.PincerMissile)
         {
             canFollow = true;
         }
@@ -52,6 +54,7 @@ public class ShotBehavior : MonoBehaviour {
             if (canFollow)
             {
                 dist = Vector3.Distance(Player.position, transform.position);
+               
                 if (dist <= 35)
                 {
                     canFollow = false;
@@ -73,6 +76,28 @@ public class ShotBehavior : MonoBehaviour {
             else
             {
                 transform.Rotate(0, -RotSpeed, 0);
+            }
+        }
+        else if (BulletType == State.PincerMissile)
+        {
+            transform.GetChild(0).Rotate(0, 0, -5);
+            if (canFollow)
+            {
+                Vector3 targetDirection = target.transform.position - transform.position;
+                Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, PincerRotSpeed * Time.deltaTime, 0.0f);
+                transform.rotation = Quaternion.LookRotation(newDirection);
+                //dist = Vector3.Distance(Player.position, transform.position);
+
+                if (dist <= 35)
+                {
+                    //canFollow = false;
+                }
+
+                
+            }
+            else
+            {
+               // Destroy(gameObject, 2);
             }
         }
     }

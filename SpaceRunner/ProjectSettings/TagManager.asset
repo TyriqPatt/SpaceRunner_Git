@@ -20,6 +20,7 @@ TagManager:
   - Shield
   - G_Ball
   - SupportBox
+  - Pincer
   layers:
   - Default
   - TransparentFX

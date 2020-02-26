@@ -117,6 +117,7 @@ MonoBehaviour:
   speed: 250
   RiseSpeed: 0
   RotSpeed: 2
+  PincerRotSpeed: 0
   Lifetime: 1.5
   Meteor: {fileID: 0}
   W_impact: {fileID: 1600961877520376530, guid: 81e09e6fa0698a0498c3c67cf70a9948,
@@ -126,6 +127,7 @@ MonoBehaviour:
   IsEnemy: 1
   curvein: 0
   Player: {fileID: 0}
+  target: {fileID: 0}
   BulletType: 2
 --- !u!108 &4618094780610462417
 Light:

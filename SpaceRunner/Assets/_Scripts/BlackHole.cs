@@ -6,7 +6,6 @@ public class BlackHole : MonoBehaviour
 {
     public GameObject[] Asteriods;
     public List<GameObject> a = new List<GameObject>();
-    public GameObject Asteriod;
     public LayerMask layer;
     public bool IsPulling;
     float duration;
@@ -27,7 +26,8 @@ public class BlackHole : MonoBehaviour
             {
                 GetComponent<BlackHole>().enabled = false;
                 transform.GetChild(0).gameObject.SetActive(false); 
-                transform.GetChild(1).gameObject.SetActive(true); 
+                transform.GetChild(1).gameObject.SetActive(true);
+                
             }
             RaycastHit[] hits = Physics.SphereCastAll(transform.position, 75, Vector3.forward, 10, layer);
             if (hits.Length > 0)

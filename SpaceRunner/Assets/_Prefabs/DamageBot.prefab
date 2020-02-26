@@ -119,7 +119,6 @@ MonoBehaviour:
   isTutorial: 0
   hit: 0
   hitTime: 2
-  shielded: 0
 --- !u!114 &2716282461843157697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,6 +431,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 75951034197560522, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75951034197560522, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c, type: 3}

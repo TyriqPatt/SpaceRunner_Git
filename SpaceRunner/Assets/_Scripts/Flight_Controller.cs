@@ -249,7 +249,7 @@ public class Flight_Controller : MonoBehaviour
     IEnumerator MissileTime()
     {
         BarrageBG.enabled = true;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         BarrageBG.enabled = false;
     }
 }

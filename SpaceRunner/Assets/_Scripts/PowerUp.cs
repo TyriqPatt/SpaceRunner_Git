@@ -45,8 +45,8 @@ public class PowerUp : MonoBehaviour{
             if (AttackPickUp)
             {
                 Canons C = other.GetComponentInParent<Canons>();
-                StopCoroutine(C.HeavyShot());
-                C.DmgPowerUp();
+                C.HeavyCanons = true;
+                C.heavyCanonDur = 0;
                 Destroy(transform.parent.gameObject);
             }
             else if (EnergyPickUp)
