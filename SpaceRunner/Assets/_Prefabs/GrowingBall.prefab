@@ -4880,7 +4880,8 @@ MonoBehaviour:
   speed: 35
   RiseSpeed: 0
   RotSpeed: 0
-  Lifetime: 15
+  PincerRotSpeed: 0
+  Lifetime: 7
   Meteor: {fileID: 0}
   W_impact: {fileID: 0}
   FC: {fileID: 0}
@@ -4888,6 +4889,7 @@ MonoBehaviour:
   IsEnemy: 1
   curvein: 0
   Player: {fileID: 0}
+  target: {fileID: 0}
   BulletType: 0
 --- !u!1 &9156961176142125031
 GameObject:

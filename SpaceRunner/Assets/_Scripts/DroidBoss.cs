@@ -7,9 +7,10 @@ public class DroidBoss : MonoBehaviour
     public GameObject player;
     public GameObject bullet;
     public GameObject bulletSpawn;
+    public GameObject AstrSpawner;
     public GameObject Grav;
     public Transform[] GravTarget;
-    float ShootDelay;
+    public float ShootDelay;
     public float StartDelay = 5;
     public float speed;
     public float MaxAmmo = 3;
@@ -17,24 +18,27 @@ public class DroidBoss : MonoBehaviour
     float Ammo;
     Vector3 movepos;
     public Vector3 smoothpos;
-    public Vector3 offset;
     float Dir = 5;
     EnemyHealthBar EHB;
     public GameObject Echo;
     int RanGravTarget;
-    public enum State { MoveRight, MoveLeft, ChooseDir, BtwnPhases, OffsetPhaseGrav, OffsetPhase, OffsetPhasePillar }
+    public enum State { MoveRight, MoveLeft, ChooseDir, StartingMovePhase, MoveToLevelPos, MoveToOffsetPos, OffsetPhase, OffScreenIdle }
     public State BossState;
+    bool LookingAtPlayer;
+    float wait;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         smoothpos = transform.parent.position;
-        BossState = State.BtwnPhases;
-        //ShootDelay = StartDelay;
+        BossState = State.OffScreenIdle;
+        ShootDelay = StartDelay;
         //StartCoroutine(RandomDir());
+        StartCoroutine(StartBossFight());
         EHB = GetComponent<EnemyHealthBar>();
         Ammo = MaxAmmo;
+        LookingAtPlayer = true;
     }
 
     // Update is called once per frame
@@ -42,16 +46,17 @@ public class DroidBoss : MonoBehaviour
     {
         //transform.LookAt(player.transform);
         BossStates();
+        FacingTarget();
         transform.parent.position = smoothpos;
-        if (ShootDelay > 0)
+        if (ShootDelay > 0 && ShootDelay <= 5)
         {
             ShootDelay -= Time.deltaTime;
         }
         if (ShootDelay <= 0)
         {
-            //StartCoroutine(shootOrbs());
-            ShootDelay = StartDelay;
+            ShootDelay = 5;
             Ammo = MaxAmmo;
+            StartCoroutine(shootOrbs());
         }
         if (EHB.invulnerable)
         {
@@ -64,8 +69,8 @@ public class DroidBoss : MonoBehaviour
     {
         switch (BossState)
         {
-            case State.BtwnPhases:
-                transform.LookAt(player.transform);
+            case State.StartingMovePhase:
+                LookingAtPlayer = true;
                 if (transform.position.y > 30)
                 {
                     smoothpos = Vector3.Lerp(transform.parent.position,
@@ -74,9 +79,11 @@ public class DroidBoss : MonoBehaviour
                 }
                 else if (transform.position.y <= 30)
                 {
-                    BossState = State.OffsetPhaseGrav;
+                    
                     RanGravTarget = Random.Range(0, GravTarget.Length);
+                    //transform.parent.position = new Vector3(transform.parent.position.x, 30, transform.parent.position.z);
                     StartCoroutine(shootBlackHole(1));
+                    BossState = State.OffsetPhase;
                     //smoothpos = Vector3.Lerp(transform.parent.position,
                     //    transform.parent.position = new Vector3(transform.parent.position.x,
                     //    transform.parent.position.y - Dir, transform.parent.position.z), speed * Time.deltaTime);
@@ -88,16 +95,57 @@ public class DroidBoss : MonoBehaviour
                     //   transform.parent.position.y + Dir, transform.parent.position.z), speed * Time.deltaTime);
                 }
                 break;
-            case State.OffsetPhaseGrav:
-                //transform.LookAt(GravTarget[RanGravTarget].transform);
-                Vector3 targetDirection = GravTarget[RanGravTarget].transform.position - transform.position;
-                Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 1 * Time.deltaTime, 0.0f);
-                transform.rotation = Quaternion.LookRotation(newDirection);
-                break;
             case State.OffsetPhase:
-
+                wait += Time.deltaTime;
+                if(wait >= 5)
+                {
+                    BossState = State.MoveToLevelPos;
+                    StopAllCoroutines();
+                }
+               
                 break;
-            case State.OffsetPhasePillar:
+            case State.MoveToLevelPos:
+                LookingAtPlayer = true;
+                if (transform.position.y > 10)
+                {
+                    smoothpos = Vector3.Lerp(transform.parent.position,
+                      transform.parent.position = new Vector3(transform.parent.position.x,
+                      transform.parent.position.y - .5f, transform.parent.position.z), speed * Time.deltaTime);
+                }
+                if (transform.position.z > 146)
+                {
+                    smoothpos = Vector3.Lerp(transform.parent.position,
+                       transform.parent.position = new Vector3(transform.parent.position.x,
+                       transform.parent.position.y, transform.parent.position.z - Dir), speed * Time.deltaTime);
+                }
+                if (transform.position.z <= 146)
+                {
+                    BossState = State.ChooseDir;
+                    wait = 0;
+                    ShootDelay = 5;
+                }
+                break;
+            case State.MoveToOffsetPos:
+                LookingAtPlayer = true;
+                if (transform.position.z < 200)
+                {
+                    smoothpos = Vector3.Lerp(transform.parent.position,
+                       transform.parent.position = new Vector3(transform.parent.position.x,
+                       transform.parent.position.y, transform.parent.position.z + 1), speed * Time.deltaTime);
+                }
+                if (transform.position.y < 30)
+                {
+                    smoothpos = Vector3.Lerp(transform.parent.position,
+                      transform.parent.position = new Vector3(transform.parent.position.x,
+                      transform.parent.position.y + 1f, transform.parent.position.z), speed * Time.deltaTime);
+                }
+                if (transform.position.y >= 30)
+                {
+                    BossState = State.OffsetPhase;
+                    StartCoroutine(shootBlackHole(4));
+                }
+                break;
+            case State.OffScreenIdle:
 
                 break;
             case State.ChooseDir:
@@ -113,6 +161,7 @@ public class DroidBoss : MonoBehaviour
                 }
                 break;
             case State.MoveRight:
+                transform.LookAt(player.transform);
                 if (transform.parent.position.x >= 50)
                 {
                     BossState = State.MoveLeft;
@@ -125,6 +174,7 @@ public class DroidBoss : MonoBehaviour
                 }
                 break;
             case State.MoveLeft:
+                transform.LookAt(player.transform);
                 if (transform.parent.position.x <= -50)
                 {
                     BossState = State.MoveRight;
@@ -136,6 +186,22 @@ public class DroidBoss : MonoBehaviour
                         transform.parent.position.y, transform.parent.position.z), speed * Time.deltaTime);
                 }
                 break;
+        }
+    }
+
+    void FacingTarget()
+    {
+        if (LookingAtPlayer)
+        {
+            Vector3 targetDirection = player.transform.position - transform.position;
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 1 * Time.deltaTime, 0.0f);
+            transform.rotation = Quaternion.LookRotation(newDirection);
+        }
+        else
+        {
+            Vector3 targetDirection = GravTarget[RanGravTarget].transform.position - transform.position;
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 1 * Time.deltaTime, 0.0f);
+            transform.rotation = Quaternion.LookRotation(newDirection);
         }
     }
 
@@ -160,9 +226,10 @@ public class DroidBoss : MonoBehaviour
     IEnumerator shootOrbs()
     {
         GameObject bulletprefab;
-        yield return new WaitForSeconds(TimeBtwShots);
+        yield return new WaitForSeconds(0);
         bulletprefab = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
         bulletprefab.GetComponent<GrowingBall>().Boss = transform.parent;
+
         if (Ammo > 0)
         {
             if (Ammo > 1)
@@ -177,6 +244,7 @@ public class DroidBoss : MonoBehaviour
     IEnumerator shootBlackHole(float time)
     {
         //GameObject bulletprefab;
+        LookingAtPlayer = false;
         RanGravTarget = Random.Range(0, GravTarget.Length);
         yield return new WaitForSeconds(time);
         //bulletprefab = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
@@ -186,6 +254,14 @@ public class DroidBoss : MonoBehaviour
         Grav.transform.GetChild(0).gameObject.SetActive(true);
         Grav.transform.GetChild(1).gameObject.SetActive(false);
         //GravTarget = player.transform.position;
-        StartCoroutine(shootBlackHole(8));
+        LookingAtPlayer = true;
+        yield return new WaitForSeconds(6);
+        StartCoroutine(shootBlackHole(2));
+    }
+
+    IEnumerator StartBossFight()
+    {
+        yield return new WaitForSeconds(1);//7
+        BossState = State.StartingMovePhase;
     }
 }
