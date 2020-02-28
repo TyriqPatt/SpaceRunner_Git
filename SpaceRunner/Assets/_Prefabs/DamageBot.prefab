@@ -135,7 +135,7 @@ MonoBehaviour:
   bullet: {fileID: 1476654553834640954, guid: 7bc98db06d4461d4ca9a92dc84274be7, type: 3}
   bulletSpawn: {fileID: 2646938069288019792}
   StartDelay: 0.5
-  speed: 5
+  speed: 6
   MaxAmmo: 1
   smoothpos: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: 0}

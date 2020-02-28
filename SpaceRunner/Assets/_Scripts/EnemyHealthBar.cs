@@ -92,7 +92,7 @@ public class EnemyHealthBar : MonoBehaviour {
         {
             int randSpawn = Random.Range(0, 5);
             int randPu = Random.Range(0, PickUps.Length);
-            if (randSpawn <= 5)
+            if (randSpawn <= 1)
             {
                 Instantiate(PickUps[randPu], transform.position, transform.parent.rotation);
             }
@@ -134,11 +134,6 @@ public class EnemyHealthBar : MonoBehaviour {
 
             }
         }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        
     }
 
     private void OnTriggerExit(Collider other)

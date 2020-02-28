@@ -16,7 +16,6 @@ public class Bot_Dmg : MonoBehaviour
     public Vector3 smoothpos;
     public Vector3 offset;
     float Dir = 5;
-    //EnemyHealthBar EHB;
     public enum State { MoveRight, MoveLeft, ChooseDir }
 
     public State SeekerState;
@@ -31,7 +30,6 @@ public class Bot_Dmg : MonoBehaviour
 
         ShootDelay = StartDelay;
         StartCoroutine(RandomDir());
-        //EHB = GetComponent<EnemyHealthBar>();
         Ammo = MaxAmmo;
     }
 
@@ -69,12 +67,8 @@ public class Bot_Dmg : MonoBehaviour
                 {
                     SeekerState = State.MoveLeft;
                 }
-
-
                 break;
             case State.MoveRight:
-
-
                 if (transform.parent.position.x >= 50)
                 {
                     SeekerState = State.MoveLeft;
@@ -98,7 +92,6 @@ public class Bot_Dmg : MonoBehaviour
                         transform.parent.position = new Vector3(transform.parent.position.x - Dir,
                         transform.parent.position.y, transform.parent.position.z), speed * Time.deltaTime);
                 }
-
                 break;
 
         }
@@ -117,14 +110,11 @@ public class Bot_Dmg : MonoBehaviour
         {
             SeekerState = State.MoveLeft;
         }
-
         StartCoroutine(RandomDir());
-
     }
 
     IEnumerator shoot()
     {
-
         GameObject bulletprefab;
         yield return new WaitForSeconds(.2f);
         bulletprefab = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
