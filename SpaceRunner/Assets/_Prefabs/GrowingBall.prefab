@@ -4881,7 +4881,7 @@ MonoBehaviour:
   RiseSpeed: 0
   RotSpeed: 0
   PincerRotSpeed: 0
-  Lifetime: 7
+  Lifetime: 10
   Meteor: {fileID: 0}
   W_impact: {fileID: 0}
   FC: {fileID: 0}

@@ -10,6 +10,8 @@ public class GrowingBall : MonoBehaviour
     public float _delay;
     public float _distance;
     public Transform Boss;
+    public DroidBoss db;
+    bool doOnce = true;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +33,12 @@ public class GrowingBall : MonoBehaviour
         _distance = Vector3.Distance(Boss.transform.position, transform.position);
         if(_distance >= 140)
         {
-            GetComponent<ShotBehavior>().speed = 35;
+            if (doOnce)
+            {
+                GetComponent<ShotBehavior>().speed = 35;
+                StartCoroutine(db.SpreadShot());
+                doOnce = false;
+            }
         }
     }
 
@@ -39,6 +46,6 @@ public class GrowingBall : MonoBehaviour
     {
         yield return new WaitForSeconds(_delay);
         growSpeed = 6;
-        GetComponent<ShotBehavior>().speed = 15;
+        GetComponent<ShotBehavior>().speed = 20;
     }
 }
