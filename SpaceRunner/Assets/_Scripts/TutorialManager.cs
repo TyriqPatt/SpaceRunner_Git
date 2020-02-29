@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -74,6 +75,18 @@ public class TutorialManager : MonoBehaviour
                 WaitForRoll();
                 //Wait for player to activate ability
                 break;
+           /* case State.TeachAbilityTwo:
+                AbilityText.SetActive(false);
+                AbilityTextTwo.SetActive(true);
+                StartCoroutine(WaitForTurret());
+                //Wait for player to activate ability
+                break;
+            case State.TeachAbilityThree:
+                AbilityTextTwo.SetActive(false);
+                AbilityTextThree.SetActive(true);
+                StartCoroutine(WaitForMissles()); 
+                //Wait for player to activate ability
+                break;*/
             case State.SpawnBots:
                 AbilityText.SetActive(false);
                 StartCoroutine(WaitToSpawnBots());
@@ -85,6 +98,7 @@ public class TutorialManager : MonoBehaviour
                 if (fe == 0)
                 {
                     BotText.SetActive(false);
+                    SceneManager.LoadScene("WinScene"); 
                     //Complete Tutorial, Send to next level
                 }
                 break;
@@ -136,5 +150,27 @@ public class TutorialManager : MonoBehaviour
         TempBots = Instantiate(DmgBots, DmgBots.transform.position = new Vector3(T_Spawner.position.x, T_Spawner.position.y + 5, T_Spawner.position.z), T_Spawner.transform.rotation);
         TempBots.GetComponent<GroupManager>().Tutorial = true;
         BotText.SetActive(true);
+    }
+
+    IEnumerator WaitForTurret()
+    {
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            yield return new WaitForSeconds(3);
+
+           // TutorialState = State.TeachAbilityThree;
+
+        }
+    }
+
+    IEnumerator WaitForMissles()
+    {
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            yield return new WaitForSeconds(3);
+
+            TutorialState = State.SpawnBots; 
+
+        }
     }
 }

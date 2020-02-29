@@ -14,6 +14,10 @@ public class JR_RestLevel : MonoBehaviour
     void Start()
     {
         m_Level = GameObject.FindObjectOfType<JR_Level>();
+        if(m_Level == null)
+        {
+            return;
+        }
         currentLevel = m_Level.Level;
         DetermineLevel();
 
