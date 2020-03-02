@@ -62,10 +62,14 @@ public class JR_PauseMenu : MonoBehaviour
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("StartMenu");
+        Time.timeScale = 1;
+
     }
 
     public void QuitTheGame()
     {
-        Application.Quit(); 
+        Application.Quit();
+        Time.timeScale = 1;
+
     }
 }

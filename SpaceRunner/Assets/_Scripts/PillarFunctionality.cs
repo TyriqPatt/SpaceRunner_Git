@@ -218,5 +218,10 @@ public class PillarFunctionality : MonoBehaviour
         {
             HealthBars[4].SetActive(false);
         }
+
+        if(Sections[0] == null && Sections[1] == null && Sections[2] == null && Sections[3] == null && Sections[4] == null)
+        {
+            Destroy(gameObject, 2); 
+        }
     }
 }
