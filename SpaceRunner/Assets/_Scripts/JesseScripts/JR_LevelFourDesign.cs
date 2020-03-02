@@ -69,7 +69,7 @@ public class JR_LevelFourDesign : MonoBehaviour
                 print("Spawn Two Enemies");
                 break;
             case 3:
-                m_enemySpawner.SpawnEnemies(0, 1, 1, 1);
+                m_enemySpawner.SpawnEnemies(1, 0, 1, 1);
                 LevelOnePhases = 4;
                 print("Spawn Three Enemies");
                 break;
