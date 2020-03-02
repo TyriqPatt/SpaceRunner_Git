@@ -25,10 +25,13 @@ public class Canons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && Time.time >= nextTimeToFire & !FC.isDisrupted)
+        if (Time.timeScale != 0)
         {
-            nextTimeToFire = Time.time + 1f / Firerate;
-            shoot();
+            if (Input.GetKey(KeyCode.Space) && Time.time >= nextTimeToFire & !FC.isDisrupted)
+            {
+                nextTimeToFire = Time.time + 1f / Firerate;
+                shoot();
+            }
         }
         if (HeavyCanons)
         {

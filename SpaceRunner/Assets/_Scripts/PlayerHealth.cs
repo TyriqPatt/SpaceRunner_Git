@@ -160,6 +160,11 @@ public class PlayerHealth : MonoBehaviour
         {
             DealDamage(Asteroid_DMG);
         }
+        if (other.gameObject.tag == "G_Ball")
+        {
+            transform.parent.GetComponent<Flight_Controller>()._speed = .5f;
+            transform.parent.GetComponent<Flight_Controller>()._RollSpeed = 5f;
+        }
         if (other.gameObject.tag == "Pickup")
         {
             PowerUp PU = other.GetComponent<PowerUp>();
@@ -192,6 +197,15 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.tag == "G_Ball")
         {
             DealDamage(Gball_Dmg);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "G_Ball")
+        {
+            transform.parent.GetComponent<Flight_Controller>()._speed = 1f;
+            transform.parent.GetComponent<Flight_Controller>()._RollSpeed = 10f;
         }
     }
 

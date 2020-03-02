@@ -11,6 +11,7 @@ public class Flight_Controller : MonoBehaviour
     public float clamppos = 50f;
     public float rotspeed;
     public float _speed;
+    public float _RollSpeed;
     public float rotResetSpeed;
     public float input;
     public float DisruptLength = 1.3f;
@@ -69,14 +70,14 @@ public class Flight_Controller : MonoBehaviour
                 
             case 2:
                 //right roll
-                Vector3 Rmove = Vector3.Lerp(transform.position, transform.position = new Vector3(transform.position.x + 10, transform.position.y, transform.position.z), Dashspeed * Time.deltaTime);
+                Vector3 Rmove = Vector3.Lerp(transform.position, transform.position = new Vector3(transform.position.x + _RollSpeed, transform.position.y, transform.position.z), Dashspeed * Time.deltaTime);
                 transform.position = Rmove;
                 Child.transform.Rotate(0.0f, 0.0f, -Rollspeed);
                 break;
 
             case 1:
                 //left roll
-                Vector3 Lmove = Vector3.Lerp(transform.position, transform.position = new Vector3(transform.position.x - 10, transform.position.y, transform.position.z), Dashspeed * Time.deltaTime);
+                Vector3 Lmove = Vector3.Lerp(transform.position, transform.position = new Vector3(transform.position.x - _RollSpeed, transform.position.y, transform.position.z), Dashspeed * Time.deltaTime);
                 transform.position = Lmove;
                 Child.transform.Rotate(0.0f, 0.0f, Rollspeed);
                 break;
@@ -142,44 +143,48 @@ public class Flight_Controller : MonoBehaviour
 
     void Abilities()
     {
-        if (!isDisrupted)
+        if(Time.timeScale != 0)
         {
-
-            //left roll
-            if (Input.GetKeyDown(KeyCode.LeftShift) && input < 0 && PH.CurRollCdwn == PH.MaxRollCdwn)
+            if (!isDisrupted)
             {
-                StartCoroutine(RollTime());
-                States = 1;
-                StartCoroutine(Barrel_Roll());
-                PH.CurRollCdwn -= PH.CurRollCdwn;
-                PH.RollSlider.value = PH.RollCooldown();
-            }
-            //right roll
-            if (Input.GetKeyDown(KeyCode.LeftShift) && input > 0 && PH.CurRollCdwn == PH.MaxRollCdwn)
-            {
-                StartCoroutine(RollTime());
-                States = 2;
-                StartCoroutine(Barrel_Roll());
-                PH.CurRollCdwn -= PH.CurRollCdwn;
-                PH.RollSlider.value = PH.RollCooldown();
-            }
 
-            if (Input.GetKeyDown(KeyCode.Alpha2) && PH.CurTurretCdwn == PH.MaxTurretCdwn || Input.GetKeyDown(KeyCode.W) && PH.CurTurretCdwn == PH.MaxTurretCdwn)
-            {
-                StartCoroutine(turretTime());
-                Turret.SetActive(false);
-                StartCoroutine(ActivateTurret());
-            }
+                //left roll
+                if (Input.GetKeyDown(KeyCode.LeftShift) && input < 0 && PH.CurRollCdwn == PH.MaxRollCdwn)
+                {
+                    StartCoroutine(RollTime());
+                    States = 1;
+                    StartCoroutine(Barrel_Roll());
+                    PH.CurRollCdwn -= PH.CurRollCdwn;
+                    PH.RollSlider.value = PH.RollCooldown();
+                }
+                //right roll
+                if (Input.GetKeyDown(KeyCode.LeftShift) && input > 0 && PH.CurRollCdwn == PH.MaxRollCdwn)
+                {
+                    StartCoroutine(RollTime());
+                    States = 2;
+                    StartCoroutine(Barrel_Roll());
+                    PH.CurRollCdwn -= PH.CurRollCdwn;
+                    PH.RollSlider.value = PH.RollCooldown();
+                }
 
-            if (Input.GetKeyDown(KeyCode.Alpha3) && PH.CurMissileCdwn == PH.MaxMissileCdwn || Input.GetKeyDown(KeyCode.S) && PH.CurMissileCdwn == PH.MaxMissileCdwn)
-            {
-                StartCoroutine(MissileTime());
-                StartCoroutine(Missiles());
-                PH.CurMissileCdwn -= PH.MaxMissileCdwn;
-                PH.MissileSlider.value = PH.MissileCooldown();
-            }
+                if (Input.GetKeyDown(KeyCode.Alpha2) && PH.CurTurretCdwn == PH.MaxTurretCdwn || Input.GetKeyDown(KeyCode.W) && PH.CurTurretCdwn == PH.MaxTurretCdwn)
+                {
+                    StartCoroutine(turretTime());
+                    Turret.SetActive(false);
+                    StartCoroutine(ActivateTurret());
+                }
 
+                if (Input.GetKeyDown(KeyCode.Alpha3) && PH.CurMissileCdwn == PH.MaxMissileCdwn || Input.GetKeyDown(KeyCode.S) && PH.CurMissileCdwn == PH.MaxMissileCdwn)
+                {
+                    StartCoroutine(MissileTime());
+                    StartCoroutine(Missiles());
+                    PH.CurMissileCdwn -= PH.MaxMissileCdwn;
+                    PH.MissileSlider.value = PH.MissileCooldown();
+                }
+
+            }
         }
+        
     }
 
     IEnumerator Missiles()
@@ -192,8 +197,11 @@ public class Flight_Controller : MonoBehaviour
     IEnumerator Barrel_Roll()
     {
         yield return new WaitForSeconds(.5f);
-        States = 0;
-        Child.transform.rotation = new Quaternion(0, 0, 0, 0);
+        if (!isDisrupted)
+        {
+            States = 0;
+            Child.transform.rotation = new Quaternion(0, 0, 0, 0);
+        }
     }
 
     IEnumerator ActivateTurret()
