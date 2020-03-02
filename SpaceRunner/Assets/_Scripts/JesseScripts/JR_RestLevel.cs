@@ -42,6 +42,10 @@ public class JR_RestLevel : MonoBehaviour
 
     public void GoToNextLevel()
     {
+        if(CurrentLevelName == null)
+        {
+            CurrentLevelName = "Level_1"; 
+        }
         currentLevel += 1;
         DetermineLevel();
         SceneManager.LoadScene(CurrentLevelName);
@@ -70,6 +74,7 @@ public class JR_RestLevel : MonoBehaviour
         {
             CurrentLevelName = "BossFight";
         }
+       
 
     }
 

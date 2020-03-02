@@ -5,10 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class JR_StartMenu : MonoBehaviour
 {
+
+    public GameObject buttonStart;
+    public GameObject buttonYesNo;
+
+    public GameObject DestroyObject;
     // Start is called before the first frame update
     void Start()
     {
-        
+        DestroyObject = GameObject.Find("DontDestroyOnLoad");
+        if(DestroyObject != null)
+        {
+            Destroy(DestroyObject); 
+            
+        }
     }
 
     // Update is called once per frame
@@ -20,6 +30,18 @@ public class JR_StartMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Level_1"); 
+        buttonStart.SetActive(false);
+        buttonYesNo.SetActive(true);  
+
+    }
+
+    public void PlayTutorial()
+    {
+        SceneManager.LoadScene("SpaceRunner");
+    }
+    public void SkipTutorial()
+    {
+        SceneManager.LoadScene("Level_1");
+
     }
 }
