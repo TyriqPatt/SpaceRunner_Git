@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Seeker : MonoBehaviour
+public class BossSeeker : MonoBehaviour
 {
 
     public GameObject player;
@@ -19,9 +19,6 @@ public class Seeker : MonoBehaviour
     EnemyHealthBar EHB;
     bool canEvade = true;
     public GameObject Echo;
-    public enum State {MoveRight, MoveLeft, ChooseDir}
-
-    public State SeekerState;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +26,7 @@ public class Seeker : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         smoothpos = transform.parent.position;
 
-        SeekerState = State.ChooseDir;
-
         ShootDelay = StartDelay;
-        StartCoroutine(RandomDir());
         EHB = GetComponent<EnemyHealthBar>();
         Ammo = MaxAmmo;
     }
@@ -41,9 +35,7 @@ public class Seeker : MonoBehaviour
     void LateUpdate()
     {
         transform.LookAt(player.transform);
-        SeekerStates();
 
-        
         transform.parent.position = smoothpos;
         if (ShootDelay > 0)
         {
@@ -73,77 +65,10 @@ public class Seeker : MonoBehaviour
         }
     }
 
-    void SeekerStates()
-    {
-        switch (SeekerState)
-        {
-            case State.ChooseDir:
-                float Randnum;
-                Randnum = Random.Range(0, 2);
-                if(Randnum == 0)
-                {
-                    SeekerState = State.MoveRight;
-                }
-                else if (Randnum == 1)
-                {
-                    SeekerState = State.MoveLeft;
-                }
-
-
-                break;
-            case State.MoveRight:
-
-
-                if (transform.parent.position.x >= 50)
-                {
-                    SeekerState = State.MoveLeft;
-                }
-                else
-                {
-                    smoothpos = Vector3.Lerp(transform.parent.position, 
-                        transform.parent.position = new Vector3(transform.parent.position.x + Dir, 
-                        transform.parent.position.y, transform.parent.position.z), speed * Time.deltaTime);
-                }
-                break;
-            case State.MoveLeft:
-
-                if (transform.parent.position.x <= -50)
-                {
-                    SeekerState = State.MoveRight;
-                }
-                else
-                {
-                    smoothpos = Vector3.Lerp(transform.parent.position, 
-                        transform.parent.position = new Vector3(transform.parent.position.x - Dir, 
-                        transform.parent.position.y, transform.parent.position.z), speed * Time.deltaTime);
-                }
-               
-                break;
-
-        }
-    }
-
-    IEnumerator RandomDir()
-    {
-        yield return new WaitForSeconds(Random.Range(5, 8));
-        float Randnum;
-        Randnum = Random.Range(0, 5);
-        if (Randnum == 0)
-        {
-            SeekerState = State.MoveRight;
-        }
-        else if (Randnum == 1)
-        {
-            SeekerState = State.MoveLeft;
-        }
-
-        StartCoroutine(RandomDir());
-
-    }
 
     IEnumerator shoot()
     {
-        
+
         GameObject bulletprefab;
         yield return new WaitForSeconds(.2f);
         bulletprefab = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
@@ -157,11 +82,11 @@ public class Seeker : MonoBehaviour
         }
     }
 
-    
+
 
     IEnumerator Evade()
     {
-        
+
         float Randnum;
         Randnum = Random.Range(0, 10);
         if (Randnum == 0)
@@ -181,5 +106,4 @@ public class Seeker : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(DodgePoint.transform.position, 7);
     }
-
 }

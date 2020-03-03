@@ -164,6 +164,7 @@ public class PlayerHealth : MonoBehaviour
         {
             transform.parent.GetComponent<Flight_Controller>()._speed = .5f;
             transform.parent.GetComponent<Flight_Controller>()._RollSpeed = 5f;
+            other.transform.parent.GetComponent<ShotBehavior>().speed = 20;
         }
         if (other.gameObject.tag == "Pickup")
         {
@@ -206,6 +207,7 @@ public class PlayerHealth : MonoBehaviour
         {
             transform.parent.GetComponent<Flight_Controller>()._speed = 1f;
             transform.parent.GetComponent<Flight_Controller>()._RollSpeed = 10f;
+            other.transform.parent.GetComponent<ShotBehavior>().speed = 35;
         }
     }
 

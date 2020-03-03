@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shielder : MonoBehaviour
+public class BossLaser : MonoBehaviour
 {
     public GameObject player;
     public GameObject beam;
@@ -12,7 +12,6 @@ public class Shielder : MonoBehaviour
     public float ShootDelay;
     public float StartDelay = 5;
     public float speed;
-    public float rotspeed;
     Vector3 smoothpos;
     float Dir = 5;
     EnemyHealthBar EHB;
@@ -22,7 +21,7 @@ public class Shielder : MonoBehaviour
     bool canBeam;
     bool canEvade = true;
     public Transform MineSpawn, MineSpawn2, MineSpawn3;
-    public enum State { MoveRight, MoveLeft, ChooseDir, ShootBeam, Charge, idle}
+    public enum State {ShootBeam, Charge, idle }
 
     public State SeekerState;
 
@@ -32,7 +31,7 @@ public class Shielder : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         smoothpos = transform.parent.position;
 
-        SeekerState = State.ChooseDir;
+
 
         ShootDelay = StartDelay;
         EHB = GetComponent<EnemyHealthBar>();
@@ -42,7 +41,6 @@ public class Shielder : MonoBehaviour
     void LateUpdate()
     {
         SeekerStates();
-
 
         transform.parent.position = smoothpos;
         if (ShootDelay > 0)
@@ -66,6 +64,12 @@ public class Shielder : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            smoothpos = Vector3.Lerp(transform.parent.position,
+                        transform.parent.position = new Vector3(transform.parent.position.x + Dir,
+                        transform.parent.position.y, transform.parent.position.z), speed * Time.deltaTime);
+        }
         if (EHB.invulnerable)
         {
             GameObject temp = Instantiate(Echo, transform.position, Quaternion.identity);
@@ -77,50 +81,6 @@ public class Shielder : MonoBehaviour
     {
         switch (SeekerState)
         {
-            case State.ChooseDir:
-                float Randnum;
-                Randnum = Random.Range(0, 2);
-                if (Randnum == 0)
-                {
-                    SeekerState = State.MoveRight;
-                }
-                else if (Randnum == 1)
-                {
-                    SeekerState = State.MoveLeft;
-                }
-
-
-                break;
-            case State.MoveRight:
-
-
-                if (transform.parent.position.x >= 50)
-                {
-                    SeekerState = State.MoveLeft;
-                }
-                else
-                {
-                    smoothpos = Vector3.Lerp(transform.parent.position,
-                        transform.parent.position = new Vector3(transform.parent.position.x + Dir,
-                        transform.parent.position.y, transform.parent.position.z), speed * Time.deltaTime);
-                   
-                }
-                break;
-            case State.MoveLeft:
-
-                if (transform.parent.position.x <= -50)
-                {
-                    SeekerState = State.MoveRight;
-                }
-                else
-                {
-                    smoothpos = Vector3.Lerp(transform.parent.position,
-                        transform.parent.position = new Vector3(transform.parent.position.x - Dir,
-                        transform.parent.position.y, transform.parent.position.z), speed * Time.deltaTime);
-                    
-                }
-
-                break;
 
             case State.Charge:
 
@@ -128,49 +88,11 @@ public class Shielder : MonoBehaviour
                 //Move that direction when shootng beam
                 Chargebeam.SetActive(true);
                 StartCoroutine(shoot());
-                SeekerState = State.ChooseDir;
+
                 break;
 
             case State.idle:
 
-               
-
-                break;
-
-            case State.ShootBeam:
-
-                //Store player position relative to this.position on x (if left or right) when charging or at beginning of charge
-                //Move that direction when shootng beam
-                Vector3 tempPos;
-                tempPos = transform.parent.position;
-                if (tempPos.x <= player.transform.position.x)//Right
-                {
-                    if (transform.parent.position.x >= 50)
-                    {
-                        
-                    }
-                    else
-                    {
-                        smoothpos = Vector3.Lerp(transform.parent.position,
-                            transform.parent.position = new Vector3(transform.parent.position.x + Dir,
-                            transform.parent.position.y, transform.parent.position.z), speed * Time.deltaTime);
-                    }
-                }
-                else if (tempPos.x >= player.transform.position.x)//Left
-                {
-                    if (transform.parent.position.x <= -50)
-                    {
-                        SeekerState = State.MoveRight;
-                    }
-                    else
-                    {
-                        smoothpos = Vector3.Lerp(transform.parent.position,
-                            transform.parent.position = new Vector3(transform.parent.position.x - Dir,
-                            transform.parent.position.y, transform.parent.position.z), speed * Time.deltaTime);
-                    }
-                }
-                //Chargebeam.SetActive(false);
-                //beam.SetActive(true);
                 break;
         }
     }
@@ -193,7 +115,6 @@ public class Shielder : MonoBehaviour
         yield return new WaitForSeconds(2f);
         beam.SetActive(false);
         BeamOn = false;
-        SeekerState = State.ChooseDir;
         speed = 0;
         ShootDelay = StartDelay;
         canBeam = false;

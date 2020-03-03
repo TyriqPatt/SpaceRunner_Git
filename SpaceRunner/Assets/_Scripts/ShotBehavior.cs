@@ -18,13 +18,13 @@ public class ShotBehavior : MonoBehaviour {
     public Transform target;
     float dist;
     bool canFollow;
-    public enum State { Default, ShockWave, CurveShot, Missile, PincerMissile }
+    public enum State { Default, ShockWave, CurveShot, Missile, PincerMissile, GrowingBall }
 
     public State BulletType;
 
     // Use this for initialization
     void Start () {
-        if (BulletType == State.ShockWave || BulletType == State.PincerMissile)
+        if (BulletType == State.ShockWave || BulletType == State.PincerMissile|| BulletType == State.GrowingBall)
         {
             canFollow = true;
         }
@@ -98,6 +98,20 @@ public class ShotBehavior : MonoBehaviour {
             else
             {
                // Destroy(gameObject, 2);
+            }
+        }
+        if (BulletType == State.GrowingBall)
+        {
+            if (canFollow)
+            {
+                dist = Vector3.Distance(Player.position, transform.position);
+
+                if (dist <= 35)
+                {
+                    canFollow = false;
+                }
+
+                transform.LookAt(Player);
             }
         }
     }

@@ -72,13 +72,13 @@ public class DroidBoss : MonoBehaviour
         {
             case State.StartingMovePhase:
                 LookingAtPlayer = true;
-                if (transform.position.y > 10)
+                if (transform.position.y > 13)
                 {
                     smoothpos = Vector3.Lerp(transform.parent.position,
                         transform.parent.position = new Vector3(transform.parent.position.x,
                         transform.parent.position.y - Dir, transform.parent.position.z), speed * Time.deltaTime);
                 }
-                else if (transform.position.y <= 10)
+                else if (transform.position.y <= 13)
                 {
                     
                     //RanGravTarget = Random.Range(0, GravTarget.Length);
@@ -100,7 +100,7 @@ public class DroidBoss : MonoBehaviour
                 break;
             case State.MoveToLevelPos:
                 LookingAtPlayer = true;
-                if (transform.position.y > 10)
+                if (transform.position.y > 13)
                 {
                     smoothpos = Vector3.Lerp(transform.parent.position,
                       transform.parent.position = new Vector3(transform.parent.position.x,
@@ -224,6 +224,7 @@ public class DroidBoss : MonoBehaviour
         bulletprefab = Instantiate(Orb, orbSpawn.transform.position, orbSpawn.transform.rotation);
         bulletprefab.GetComponent<GrowingBall>().Boss = transform.parent;
         bulletprefab.GetComponent<GrowingBall>().db = this.GetComponent<DroidBoss>();
+        bulletprefab.GetComponent<ShotBehavior>().Player = player.transform;
     }
 
     public IEnumerator SpreadShot()

@@ -35,7 +35,6 @@ public class GrowingBall : MonoBehaviour
         {
             if (doOnce)
             {
-                GetComponent<ShotBehavior>().speed = 35;
                 StartCoroutine(db.SpreadShot());
                 doOnce = false;
             }
@@ -46,6 +45,6 @@ public class GrowingBall : MonoBehaviour
     {
         yield return new WaitForSeconds(_delay);
         growSpeed = 6;
-        GetComponent<ShotBehavior>().speed = 20;
+        //GetComponent<ShotBehavior>().speed = 20;
     }
 }

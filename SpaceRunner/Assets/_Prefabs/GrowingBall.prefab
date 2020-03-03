@@ -4891,7 +4891,7 @@ MonoBehaviour:
   curvein: 0
   Player: {fileID: 0}
   target: {fileID: 0}
-  BulletType: 0
+  BulletType: 5
 --- !u!1 &9156961176142125031
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,16 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stunner : MonoBehaviour
+public class BossStunner : MonoBehaviour
 {
-
     public Transform player;
     public Flight_Controller fc;
     public GameObject bullet;
-    public GameObject bullet2;
     public GameObject bulletSpawn;
-    public Transform CurveSpawn, CurveSpawn2, CurveSpawn3, CurveSpawn4, CurveSpawn5, CurveSpawn6;
-    Transform curSpawnr, curSpawnl;
     public GameObject DodgePoint;
     float ShootDelay;
     public float StartDelay = 5;
@@ -170,34 +166,8 @@ public class Stunner : MonoBehaviour
     IEnumerator AltFire()
     {
 
-        GameObject bulletprefab;
-        GameObject bulletprefab2;
-        curSpawnr = CurveSpawn4;
-        curSpawnl = CurveSpawn;
         yield return new WaitForSeconds(.2f);
-        bulletprefab = Instantiate(bullet2, curSpawnl.position, curSpawnl.transform.rotation);
-        bulletprefab2 = Instantiate(bullet2, curSpawnr.position, curSpawnr.transform.rotation);
-        bulletprefab2.GetComponent<ShotBehavior>().curvein = true;
-        hitplayer = false;
-        if (AltAmmo > 0)
-        {
-            if (AltAmmo > 1)
-            {
-                StartCoroutine(AltFire());
-
-            }
-            if (AltAmmo == 2)
-            {
-                curSpawnr = CurveSpawn5;
-                curSpawnl = CurveSpawn2;
-            }
-            if (AltAmmo == 1)
-            {
-                curSpawnr = CurveSpawn6;
-                curSpawnl = CurveSpawn3;
-            }
-            AltAmmo -= 1;
-        }
+ 
     }
 
     public IEnumerator Delay()
