@@ -109,7 +109,7 @@ public class JR_LevelFourDesign : MonoBehaviour
                 break;
             case 9:
 
-                Instantiate(LastBoss, SpawnerLocation.position, SpawnerLocation.rotation);
+                Instantiate(LastBoss, LastBoss.transform.position = new Vector3(0,10,50), Quaternion.Euler(0,0,90));
                 print("NewEnemy");
                 break;
             default:

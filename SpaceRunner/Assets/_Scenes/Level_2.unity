@@ -5956,9 +5956,10 @@ MonoBehaviour:
   - {fileID: 167561238}
   - {fileID: 776895597}
   Meteors:
-  - {fileID: 1299592503481774993, guid: 0c4708c15b804cd48ba1c3cc4b0fc175, type: 3}
+  - {fileID: 9180800812773245807, guid: a7202a0b6e6a17a48ae826b879a13eb4, type: 3}
   - {fileID: 1299592503481774993, guid: 0c4708c15b804cd48ba1c3cc4b0fc175, type: 3}
   WarningSign: {fileID: 688170958}
+  ForBossFight: 0
 --- !u!4 &807923680
 Transform:
   m_ObjectHideFlags: 0
