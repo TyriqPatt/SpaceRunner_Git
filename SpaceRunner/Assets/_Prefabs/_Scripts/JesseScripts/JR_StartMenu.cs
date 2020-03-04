@@ -6,19 +6,14 @@ using UnityEngine.SceneManagement;
 public class JR_StartMenu : MonoBehaviour
 {
 
-    public GameObject buttonStart;
+    //public GameObject buttonStart;
     public GameObject buttonYesNo;
 
-    public GameObject DestroyObject;
+    //public GameObject DestroyObject;
     // Start is called before the first frame update
     void Start()
     {
-        DestroyObject = GameObject.Find("DontDestroyOnLoad");
-        if(DestroyObject != null)
-        {
-            Destroy(DestroyObject); 
-            
-        }
+       
     }
 
     // Update is called once per frame
@@ -30,7 +25,7 @@ public class JR_StartMenu : MonoBehaviour
 
     public void StartGame()
     {
-        buttonStart.SetActive(false);
+       // buttonStart.SetActive(false);
         buttonYesNo.SetActive(true);  
 
     }
