@@ -99,9 +99,9 @@ public class Bot_Dmg : MonoBehaviour
 
     IEnumerator RandomDir()
     {
-        yield return new WaitForSeconds(Random.Range(5, 8));
+        yield return new WaitForSeconds(Random.Range(3, 8));
         float Randnum;
-        Randnum = Random.Range(0, 5);
+        Randnum = Random.Range(0, 3);
         if (Randnum == 0)
         {
             SeekerState = State.MoveRight;

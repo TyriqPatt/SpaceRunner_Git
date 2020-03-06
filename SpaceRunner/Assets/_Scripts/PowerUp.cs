@@ -46,7 +46,8 @@ public class PowerUp : MonoBehaviour{
             {
                 Canons C = other.GetComponentInParent<Canons>();
                 C.HeavyCanons = true;
-                C.heavyCanonDur = 0;
+                C.ToggleDmgSlider(true);
+                C.heavyCanonDur = C.MaxheavyCanonDur;
                 Destroy(transform.parent.gameObject);
             }
             else if (EnergyPickUp)

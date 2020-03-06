@@ -42,7 +42,6 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         CurrentHealth = MaxHealth;
         HealthSlider.value = CalculatedHealth();
 
@@ -54,7 +53,6 @@ public class PlayerHealth : MonoBehaviour
 
         CurMissileCdwn = MaxMissileCdwn;
         MissileSlider.value = MissileCooldown();
-
     }
 
     private void Update()
