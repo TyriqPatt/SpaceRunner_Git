@@ -6,33 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Prefabs/_Scenes/StartMenu.unity
+    path: Assets/_Scenes/StartMenu.unity
     guid: 3d8b5b49c0b23854894eb706fcd9075e
   - enabled: 1
-    path: Assets/_Prefabs/_Scenes/SpaceRunner.unity
+    path: Assets/_Scenes/SpaceRunner.unity
     guid: 34c9dbb147d1d9040838b8aef25609e2
   - enabled: 1
-    path: Assets/_Prefabs/_Scenes/Level_1.unity
+    path: Assets/_Scenes/Level_1.unity
     guid: 5ab1c8cf5947334489ef218d5ee7cdc7
   - enabled: 1
-    path: Assets/_Prefabs/_Scenes/Level_2.unity
+    path: Assets/_Scenes/Level_2.unity
     guid: 9367719396032734c8252e850a8ebcba
   - enabled: 1
-    path: Assets/_Prefabs/_Scenes/Level_3.unity
+    path: Assets/_Scenes/Level_3.unity
     guid: d19bea97f8ccf79468533f36efd66d97
   - enabled: 1
-    path: Assets/_Prefabs/_Scenes/Level_4.unity
+    path: Assets/_Scenes/Level_4.unity
     guid: 699e6b1ef336d7a4bb150065b8f21e02
   - enabled: 1
-    path: Assets/_Prefabs/_Scenes/BossFight.unity
+    path: Assets/_Scenes/BossFight.unity
     guid: e6ba07da807739648aadd249f9e3c2ef
   - enabled: 1
-    path: Assets/_Prefabs/_Scenes/Credits.unity
+    path: Assets/_Scenes/Credits.unity
     guid: aeadb597dc4808542a780ea730f35aee
   - enabled: 1
-    path: Assets/_Prefabs/_Scenes/LoseScene.unity
+    path: Assets/_Scenes/LoseScene.unity
     guid: 3e0a74dcf0ccf974db425b4b34c2be07
   - enabled: 1
-    path: Assets/_Prefabs/_Scenes/WinScene.unity
+    path: Assets/_Scenes/WinScene.unity
     guid: 562fce9cdd09ba24aa2e447e425de576
   m_configObjects: {}
