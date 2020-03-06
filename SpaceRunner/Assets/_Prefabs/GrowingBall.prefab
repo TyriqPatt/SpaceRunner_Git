@@ -4863,7 +4863,6 @@ MonoBehaviour:
   growSpeed: 0.5
   finalSize: 15
   _delay: 1
-  _distance: 0
   Boss: {fileID: 0}
   db: {fileID: 0}
 --- !u!114 &5955428955009714966
@@ -4891,6 +4890,8 @@ MonoBehaviour:
   curvein: 0
   Player: {fileID: 0}
   target: {fileID: 0}
+  dist: 0
+  canFollow: 0
   BulletType: 5
 --- !u!1 &9156961176142125031
 GameObject:
@@ -4909,7 +4910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2687624095878934531
 Transform:
   m_ObjectHideFlags: 0

@@ -16,8 +16,8 @@ public class ShotBehavior : MonoBehaviour {
     [HideInInspector]public bool curvein;
     public Transform Player;
     public Transform target;
-    float dist;
-    bool canFollow;
+    public float dist;
+    public bool canFollow;
     public enum State { Default, ShockWave, CurveShot, Missile, PincerMissile, GrowingBall }
 
     public State BulletType;

@@ -1020,6 +1020,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240001474}
   m_CullTransparentMesh: 0
+--- !u!114 &249442588 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1002530183, guid: ee51b6825a961f348a255d5288393d60,
+    type: 3}
+  m_PrefabInstance: {fileID: 3652135522889062715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674e182b78ee2d045963bbc4dd6681f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &343747232
 GameObject:
   m_ObjectHideFlags: 0
@@ -7676,6 +7688,8 @@ MonoBehaviour:
   - {fileID: 1299592503481774993, guid: 0c4708c15b804cd48ba1c3cc4b0fc175, type: 3}
   WarningSign: {fileID: 0}
   ForBossFight: 1
+  Waves: 0
+  DB: {fileID: 249442588}
 --- !u!4 &807923680
 Transform:
   m_ObjectHideFlags: 0
@@ -22203,6 +22217,10 @@ PrefabInstance:
       propertyPath: GravTarget.Array.data[2]
       value: 
       objectReference: {fileID: 1833459725}
+    - target: {fileID: 1002530183, guid: ee51b6825a961f348a255d5288393d60, type: 3}
+      propertyPath: AstrSpawner
+      value: 
+      objectReference: {fileID: 807923678}
     - target: {fileID: 3880471262024569435, guid: ee51b6825a961f348a255d5288393d60,
         type: 3}
       propertyPath: m_AnchorMax.x

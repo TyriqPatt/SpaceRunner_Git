@@ -9,6 +9,8 @@ public class MeteorSpawner : MonoBehaviour
     public GameObject[] Meteors;
     public GameObject WarningSign;
     public bool ForBossFight;
+    public float Waves;
+    public DroidBoss DB;
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -38,6 +40,12 @@ public class MeteorSpawner : MonoBehaviour
         if (ForBossFight)
         {
             StartCoroutine(Spawn(6));
+            Waves += 1;
+            if(Waves == 5)
+            {
+                DB.BackToLevelPos();
+                Waves = 0;
+            }
         }
         else
         {

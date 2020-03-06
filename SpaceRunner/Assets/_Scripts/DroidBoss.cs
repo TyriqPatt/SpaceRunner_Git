@@ -21,11 +21,12 @@ public class DroidBoss : MonoBehaviour
     EnemyHealthBar EHB;
     public GameObject Echo;
     int RanGravTarget;
-    public enum State { MoveRight, MoveLeft, ChooseDir, StartingMovePhase, MoveToLevelPos, MoveToOffsetPos, OffsetPhase, OffScreenIdle }
+    public enum State { MoveRight, MoveLeft, ChooseDir, StartingMovePhase, MoveToLevelPos, MoveToOffsetPos, MoveToOffsetPosp2, OffsetPhase, OffScreenIdle }
     public State BossState;
     bool LookingAtPlayer;
     float wait;
     bool canShoot;
+    float ThresLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,7 @@ public class DroidBoss : MonoBehaviour
     {
         BossStates();
         FacingTarget();
+        HealthThresholds();
         transform.parent.position = smoothpos;
         if (canShoot)
         {
@@ -72,13 +74,13 @@ public class DroidBoss : MonoBehaviour
         {
             case State.StartingMovePhase:
                 LookingAtPlayer = true;
-                if (transform.position.y > 13)
+                if (transform.parent.position.y > 13)
                 {
                     smoothpos = Vector3.Lerp(transform.parent.position,
                         transform.parent.position = new Vector3(transform.parent.position.x,
                         transform.parent.position.y - Dir, transform.parent.position.z), speed * Time.deltaTime);
                 }
-                else if (transform.position.y <= 13)
+                else if (transform.parent.position.y <= 13)
                 {
                     
                     //RanGravTarget = Random.Range(0, GravTarget.Length);
@@ -90,53 +92,50 @@ public class DroidBoss : MonoBehaviour
                 }
                 break;
             case State.OffsetPhase:
-                wait += Time.deltaTime;
-                if(wait >= 5)
-                {
-                    //BossState = State.MoveToLevelPos;
-                    //StopAllCoroutines();
-                }
+
                
                 break;
             case State.MoveToLevelPos:
                 LookingAtPlayer = true;
-                if (transform.position.y > 13)
+                if (transform.parent.position.y < 105)
                 {
                     smoothpos = Vector3.Lerp(transform.parent.position,
                       transform.parent.position = new Vector3(transform.parent.position.x,
-                      transform.parent.position.y - .5f, transform.parent.position.z), speed * Time.deltaTime);
+                      transform.parent.position.y + 3f, transform.parent.position.z), speed * Time.deltaTime);
                 }
-                if (transform.position.z > 146)
+                if (transform.parent.position.y >= 105)
                 {
-                    smoothpos = Vector3.Lerp(transform.parent.position,
-                       transform.parent.position = new Vector3(transform.parent.position.x,
-                       transform.parent.position.y, transform.parent.position.z - Dir), speed * Time.deltaTime);
-                }
-                if (transform.position.z <= 146)
-                {
-                    BossState = State.ChooseDir;
-                    wait = 0;
-                    ShootDelay = StartDelay;
+                    transform.position = new Vector3(0, 105, 150);
+                    BossState = State.StartingMovePhase;
                 }
                 break;
             case State.MoveToOffsetPos:
                 LookingAtPlayer = true;
-                if (transform.position.z < 200)
-                {
-                    smoothpos = Vector3.Lerp(transform.parent.position,
-                       transform.parent.position = new Vector3(transform.parent.position.x,
-                       transform.parent.position.y, transform.parent.position.z + 1), speed * Time.deltaTime);
-                }
-                if (transform.position.y < 30)
+                if (transform.parent.position.y < 105)
                 {
                     smoothpos = Vector3.Lerp(transform.parent.position,
                       transform.parent.position = new Vector3(transform.parent.position.x,
-                      transform.parent.position.y + 1f, transform.parent.position.z), speed * Time.deltaTime);
+                      transform.parent.position.y + 3f, transform.parent.position.z), speed * Time.deltaTime);
                 }
-                if (transform.position.y >= 30)
+                if (transform.parent.position.y >= 105)
+                {
+                    transform.position = new Vector3(0, 105, 200);
+                    BossState = State.MoveToOffsetPosp2;
+                    AstrSpawner.SetActive(true);
+                }
+                break;
+            case State.MoveToOffsetPosp2:
+                LookingAtPlayer = true;
+                if (transform.parent.position.y > 30)
+                {
+                    smoothpos = Vector3.Lerp(transform.parent.position,
+                      transform.parent.position = new Vector3(transform.parent.position.x,
+                      transform.parent.position.y - 3f, transform.parent.position.z), speed * Time.deltaTime);
+                }
+                if (transform.parent.position.y <= 30)
                 {
                     BossState = State.OffsetPhase;
-                    StartCoroutine(shootBlackHole(4));
+                    StartCoroutine(shootBlackHole(6));
                 }
                 break;
             case State.OffScreenIdle:
@@ -199,11 +198,57 @@ public class DroidBoss : MonoBehaviour
         }
     }
 
+    void HealthThresholds()
+    {
+        if(ThresLevel == 0)
+        {
+            if (EHB.CurrentHealth <= 750)
+            {
+                StopAllCoroutines();
+                canShoot = false;
+                BossState = State.MoveToOffsetPos;
+                ThresLevel = 1;
+            }
+        }
+        else if(ThresLevel == 1)
+        {
+
+            if (EHB.CurrentHealth <= 500)
+            {
+                StopAllCoroutines();
+                canShoot = false;
+                BossState = State.MoveToOffsetPos;
+                ThresLevel = 2;
+            }
+        }
+        else if(ThresLevel == 2)
+        {
+            if (EHB.CurrentHealth <= 250)
+            {
+                StopAllCoroutines();
+                canShoot = false;
+                BossState = State.MoveToOffsetPos;
+                ThresLevel = 3;
+            }
+        }
+        else if(ThresLevel == 3)
+        {
+
+        }
+    }
+
+    public void BackToLevelPos()
+    {
+        StopAllCoroutines();
+        BossState = State.MoveToLevelPos;
+        AstrSpawner.SetActive(false);
+    }
+
     IEnumerator RandomDir()
     {
-        yield return new WaitForSeconds(Random.Range(5, 8));
+        yield return new WaitForSeconds(Random.Range(3, 8));
         float Randnum;
-        Randnum = Random.Range(0, 5);
+        Randnum = Random.Range(0, 4);
         if (Randnum == 0)
         {
             BossState = State.MoveRight;
@@ -229,17 +274,21 @@ public class DroidBoss : MonoBehaviour
 
     public IEnumerator SpreadShot()
     {
-        GameObject bulletprefab;
-        yield return new WaitForSeconds(.5f);
-        for (int i = 0; i < FourSpread.Length; i++)
+        if(BossState == State.MoveLeft || BossState == State.MoveRight)
         {
-            bulletprefab = Instantiate(bullet, FourSpread[i].transform.position, FourSpread[i].transform.rotation);
+            GameObject bulletprefab;
+            yield return new WaitForSeconds(.5f);
+            for (int i = 0; i < FourSpread.Length; i++)
+            {
+                bulletprefab = Instantiate(bullet, FourSpread[i].transform.position, FourSpread[i].transform.rotation);
+            }
+            yield return new WaitForSeconds(.5f);
+            for (int i = 0; i < ThreeSpread.Length; i++)
+            {
+                bulletprefab = Instantiate(bullet, ThreeSpread[i].transform.position, ThreeSpread[i].transform.rotation);
+            }
         }
-        yield return new WaitForSeconds(.5f);
-        for (int i = 0; i < ThreeSpread.Length; i++)
-        {
-            bulletprefab = Instantiate(bullet, ThreeSpread[i].transform.position, ThreeSpread[i].transform.rotation);
-        }
+        
     }
 
     IEnumerator shootBlackHole(float time)
@@ -252,7 +301,7 @@ public class DroidBoss : MonoBehaviour
         Grav.transform.GetChild(0).gameObject.SetActive(true);
         Grav.transform.GetChild(1).gameObject.SetActive(false);
         LookingAtPlayer = true;
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(4);
         StartCoroutine(shootBlackHole(2));
     }
 

@@ -127,6 +127,8 @@ MonoBehaviour:
   curvein: 0
   Player: {fileID: 0}
   target: {fileID: 0}
+  dist: 0
+  canFollow: 0
   BulletType: 0
 --- !u!108 &10825254
 Light:

@@ -8,7 +8,7 @@ public class GrowingBall : MonoBehaviour
     Vector3 size;
     public float finalSize;
     public float _delay;
-    public float _distance;
+    float _distance;
     public Transform Boss;
     public DroidBoss db;
     bool doOnce = true;
