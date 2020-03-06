@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class JR_WinCondition : MonoBehaviour
 {
+    PlayerHealth m_playerHealth;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_playerHealth = GameObject.FindObjectOfType<PlayerHealth>(); 
     }
 
     // Update is called once per frame
@@ -22,6 +24,10 @@ public class JR_WinCondition : MonoBehaviour
 
     private void OnDestroy()
     {
-        SceneManager.LoadScene("WinScene");
+        if(m_playerHealth.CurrentHealth > 0)
+        {
+            SceneManager.LoadScene("WinScene");
+
+        }
     }
 }
