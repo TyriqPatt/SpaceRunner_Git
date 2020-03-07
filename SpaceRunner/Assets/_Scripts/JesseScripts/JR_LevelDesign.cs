@@ -63,30 +63,25 @@ public class JR_LevelDesign : MonoBehaviour
             case 1:
                 m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
                 LevelOnePhases = 2;
-                print("Spawn One Enemy");
                 break;
             case 2:
                 m_enemySpawner.SpawnEnemies(2, 0, 0, 0);
                 LevelOnePhases = 3;
-                print("Spawn Two Enemies");
                 break;
             case 3:
                 m_enemySpawner.SpawnEnemies(3, 0, 0, 0);
                 LevelOnePhases = 4;
-                print("Spawn Three Enemies");
                 break;
             case 4:
                 inStartCases = false;
                 StartCoroutine(m_metorSpawner.Spawn(m_metorSpawner.FirstSpawnTime));
                 LevelOnePhases = 5;
                 StartCoroutine(WaitForAstroids());
-                print("Astroids");
                 break;
             case 5:
                 m_enemySpawner.SpawnEnemies(2, 0, 0, 0);
                 WavePhase = 1;
                 LevelOnePhases = 6;
-                print("First half of 20 phase");
                 break;
             case 6:
                 WavePhase = 0;
@@ -94,25 +89,21 @@ public class JR_LevelDesign : MonoBehaviour
                 StartCoroutine(m_metorSpawner.Spawn(m_metorSpawner.FirstSpawnTime));
                 LevelOnePhases = 7;
                 StartCoroutine(WaitForAstroids());
-                print("Astroids");
                 break;
             case 7:
                 m_enemySpawner.SpawnEnemies(2, 0, 0, 0);
                 WavePhase = 1;
                 LevelOnePhases = 8;
-                print("Second half of 20 phase");
                 break;
             case 8:
                 WavePhase = 0;
                 HowManyDroidsAdded = 0;
                 StartCoroutine(WaitForBoss());
                 LevelOnePhases = 9;
-                print("Warning Boss");
                 break;
             case 9:
                 
                 Instantiate(LastBoss, SpawnerLocation.position, SpawnerLocation.rotation);
-                print("NewEnemy");
                 break;
             default:
                 print("No LevelOnePhase Int");
@@ -168,5 +159,7 @@ public class JR_LevelDesign : MonoBehaviour
 
 
     }
+
+    
 
 }
