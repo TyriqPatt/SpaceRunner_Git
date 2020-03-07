@@ -59,7 +59,7 @@ public class JR_LevelFourDesign : MonoBehaviour
         switch (LevelOnePhases)
         {
             case 1:
-                m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
+                m_enemySpawner.SpawnEnemies(0, 0, 0, 1);
                 LevelOnePhases = 2;
                 print("Spawn One Enemy");
                 break;
