@@ -39,4 +39,15 @@ public class JR_StartMenu : MonoBehaviour
         SceneManager.LoadScene("Level_1");
 
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void OpenSettings()
+    {
+        buttonYesNo.SetActive(false); 
+
+    }
 }
