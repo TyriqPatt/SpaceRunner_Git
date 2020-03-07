@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 250
   RiseSpeed: 0
-  RotSpeed: 2
+  RotSpeed: 3
   PincerRotSpeed: 0
   Lifetime: 1.5
   Meteor: {fileID: 0}

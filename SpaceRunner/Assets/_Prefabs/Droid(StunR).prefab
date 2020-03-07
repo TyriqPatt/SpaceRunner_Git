@@ -53,13 +53,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374195643}
-  m_LocalRotation: {x: 0, y: 0.3420201, z: 0, w: 0.9396927}
+  m_LocalRotation: {x: 0, y: 0.30070576, z: 0, w: 0.953717}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7325745941671262241}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 40, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 35, z: 0}
 --- !u!1 &817540280
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,13 +313,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5777648697439306057}
-  m_LocalRotation: {x: 0, y: -0.3420201, z: 0, w: 0.9396927}
+  m_LocalRotation: {x: 0, y: -0.30070576, z: 0, w: 0.953717}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7325745941671262241}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: -40, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -35, z: 0}
 --- !u!1 &7323728251582012885
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,8 +471,6 @@ MonoBehaviour:
   speed: 8
   MaxAmmo: 1
   AltMaxAmmo: 3
-  smoothpos: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0, z: 0}
   hitplayer: 0
   Echo: {fileID: 660063063213641355, guid: 15ff5eaf5f988b147810d9be1a7204bf, type: 3}
   SeekerState: 0
@@ -505,7 +503,6 @@ MonoBehaviour:
   isTutorial: 0
   hit: 0
   hitTime: 2
-  shielded: 0
 --- !u!1 &7324526996933842999
 GameObject:
   m_ObjectHideFlags: 0
