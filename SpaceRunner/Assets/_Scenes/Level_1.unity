@@ -11616,7 +11616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715786690}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 7.2, y: 7, z: 135}
+  m_LocalPosition: {x: 7.2, y: 7, z: 126.4}
   m_LocalScale: {x: 0.05, y: 1, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
@@ -12379,16 +12379,6 @@ PrefabInstance:
       propertyPath: BarrageBG
       value: 
       objectReference: {fileID: 506091661}
-    - target: {fileID: 4560426748289386165, guid: 80aa0f9399189234caea08314aa24ddf,
-        type: 3}
-      propertyPath: HeavyCanonSlider
-      value: 
-      objectReference: {fileID: 374633269}
-    - target: {fileID: 4560426748289386165, guid: 80aa0f9399189234caea08314aa24ddf,
-        type: 3}
-      propertyPath: HeavyCanonGO
-      value: 
-      objectReference: {fileID: 374633268}
     - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
         type: 3}
       propertyPath: HealthSlider
@@ -12434,6 +12424,16 @@ PrefabInstance:
       propertyPath: MissileBar
       value: 
       objectReference: {fileID: 1544524939}
+    - target: {fileID: 4560426748289386165, guid: 80aa0f9399189234caea08314aa24ddf,
+        type: 3}
+      propertyPath: HeavyCanonSlider
+      value: 
+      objectReference: {fileID: 374633269}
+    - target: {fileID: 4560426748289386165, guid: 80aa0f9399189234caea08314aa24ddf,
+        type: 3}
+      propertyPath: HeavyCanonGO
+      value: 
+      objectReference: {fileID: 374633268}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80aa0f9399189234caea08314aa24ddf, type: 3}
 --- !u!1001 &4779334029480579960

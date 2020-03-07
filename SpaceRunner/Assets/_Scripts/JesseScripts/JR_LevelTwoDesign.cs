@@ -178,6 +178,4 @@ public class JR_LevelTwoDesign : MonoBehaviour
 
     }
 
-    
-
 }
