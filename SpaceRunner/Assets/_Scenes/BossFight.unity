@@ -22160,11 +22160,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DroidBoss
       objectReference: {fileID: 0}
-    - target: {fileID: 3652135523612392544, guid: ee51b6825a961f348a255d5288393d60,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1002530183, guid: ee51b6825a961f348a255d5288393d60, type: 3}
       propertyPath: Grav
       value: 
@@ -22432,16 +22427,6 @@ PrefabInstance:
       propertyPath: BarrageBG
       value: 
       objectReference: {fileID: 881538840}
-    - target: {fileID: 4560426748289386165, guid: 80aa0f9399189234caea08314aa24ddf,
-        type: 3}
-      propertyPath: HeavyCanonSlider
-      value: 
-      objectReference: {fileID: 881538850}
-    - target: {fileID: 4560426748289386165, guid: 80aa0f9399189234caea08314aa24ddf,
-        type: 3}
-      propertyPath: HeavyCanonGO
-      value: 
-      objectReference: {fileID: 881538849}
     - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
         type: 3}
       propertyPath: HealthSlider
@@ -22487,6 +22472,16 @@ PrefabInstance:
       propertyPath: MissileBar
       value: 
       objectReference: {fileID: 881538837}
+    - target: {fileID: 4560426748289386165, guid: 80aa0f9399189234caea08314aa24ddf,
+        type: 3}
+      propertyPath: HeavyCanonSlider
+      value: 
+      objectReference: {fileID: 881538850}
+    - target: {fileID: 4560426748289386165, guid: 80aa0f9399189234caea08314aa24ddf,
+        type: 3}
+      propertyPath: HeavyCanonGO
+      value: 
+      objectReference: {fileID: 881538849}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80aa0f9399189234caea08314aa24ddf, type: 3}
 --- !u!1001 &4597351236744632954
