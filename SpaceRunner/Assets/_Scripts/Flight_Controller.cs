@@ -32,6 +32,7 @@ public class Flight_Controller : MonoBehaviour
     public GameObject Missile;
     public Transform MissileSpawn;
     public PlayerHealth PH;
+    public Canons C;
 
     public bool isTutorial;
 
@@ -40,6 +41,8 @@ public class Flight_Controller : MonoBehaviour
     {
         PH = transform.GetChild(1).GetComponent<PlayerHealth>();
         Turret.SetActive(false);
+        C = GetComponent<Canons>();
+        C.enabled = true;
     }
 
     // Update is called once per frame

@@ -18,8 +18,12 @@ public class Asteroids : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, 0, speed);
-        
+        if(Time.timeScale != 0)
+        {
+            transform.Translate(0, 0, speed);
+
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)

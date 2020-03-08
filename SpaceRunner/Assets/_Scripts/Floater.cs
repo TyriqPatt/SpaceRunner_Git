@@ -46,46 +46,47 @@ public class Floater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsInGroup)
+        if(Time.timeScale != 0)
         {
-            if (Child == null)
+            if (!IsInGroup)
             {
-                Destroy(gameObject);
+                if (Child == null)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    Child.transform.Rotate(rot, rot2, rot3);
+                    //transform.Translate(0, 0, -speed);
+                    if (delay < 1.5f)
+                    {
+                        delay += Time.deltaTime;
+                        if (size.x <= finalSize && size.y <= finalSize && size.z <= finalSize)
+                        {
+                            size.x += Time.deltaTime * .5f;
+                            size.y += Time.deltaTime * .5f;
+                            size.z += Time.deltaTime * .5f;
+                            transform.localScale = size;
+                        }
+                    }
+                    if (delay >= 1.5f)
+                    {
+                        transform.Translate(0, 0, speed);
+                        //transform.parent = null;
+                    }
+                }
             }
             else
             {
-                Child.transform.Rotate(rot, rot2, rot3);
-                //transform.Translate(0, 0, -speed);
-                if (delay < 1.5f)
+                transform.Rotate(rot, rot2, rot3);
+                if (size.x <= finalSize && size.y <= finalSize && size.z <= finalSize)
                 {
-                    delay += Time.deltaTime;
-                    if (size.x <= finalSize && size.y <= finalSize && size.z <= finalSize)
-                    {
-                        size.x += Time.deltaTime * .5f;
-                        size.y += Time.deltaTime * .5f;
-                        size.z += Time.deltaTime * .5f;
-                        transform.localScale = size;
-                    }
-                }
-                if (delay >= 1.5f)
-                {
-                    transform.Translate(0, 0, speed);
-                    //transform.parent = null;
+                    size.x += Time.deltaTime * .5f;
+                    size.y += Time.deltaTime * .5f;
+                    size.z += Time.deltaTime * .5f;
+                    transform.localScale = size;
                 }
             }
-        }
-        else
-        {
-            transform.Rotate(rot, rot2, rot3);
-            if (size.x <= finalSize && size.y <= finalSize && size.z <= finalSize)
-            {
-                size.x += Time.deltaTime * .5f;
-                size.y += Time.deltaTime * .5f;
-                size.z += Time.deltaTime * .5f;
-                transform.localScale = size;
-            }
-        }
-
-        
+        } 
     }
 }
