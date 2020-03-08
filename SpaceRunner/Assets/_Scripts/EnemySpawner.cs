@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -19,6 +17,13 @@ public class EnemySpawner : MonoBehaviour
     public GameObject ThirdDroidObject;
     public GameObject FourthDroidObject;
 
+    public Transform SpawnPointOne;
+    public Transform SpawnPointTwo;
+    public Transform SpawnPointThree;
+    public Transform SpawnPointFour;
+    public Transform SpawnPointFive;
+
+    public int ranNum; 
 
     // Start is called before the first frame update
     void Start()
@@ -44,26 +49,107 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemies(int BasicDroid, int SecondDroid, int ThirdDroid, int FourthDroid)
     {
+        ranNum = Random.Range(0, 4);
+
         for(int BasicIndex = 0; BasicIndex < BasicDroid; BasicIndex++)
         {
-            Instantiate(BasicDroidObject, transform.position, transform.rotation);
+            if (ranNum == 0)
+            {
+                Instantiate(BasicDroidObject, SpawnPointOne.position, SpawnPointOne.rotation);
+            }
+            if (ranNum == 1)
+            {
+                Instantiate(BasicDroidObject, SpawnPointTwo.position, SpawnPointTwo.rotation);
+            }
+            if (ranNum == 2)
+            {
+                Instantiate(BasicDroidObject, SpawnPointThree.position, SpawnPointThree.rotation);
+            }
+            if (ranNum == 3)
+            {
+                Instantiate(BasicDroidObject, SpawnPointFour.position, SpawnPointFour.rotation);
+            }
+            if (ranNum == 4)
+            {
+                Instantiate(BasicDroidObject, SpawnPointFive.position, SpawnPointFive.rotation);
+            }
         }
 
         for (int SecondIndex = 0; SecondIndex < SecondDroid; SecondIndex++)
         {
-            Instantiate(SecondDroidObject, transform.position, transform.rotation);
+            if (ranNum == 0)
+            {
+                Instantiate(SecondDroidObject, SpawnPointOne.position, SpawnPointOne.rotation);
+            }
+            else if (ranNum == 1)
+            {
+                Instantiate(SecondDroidObject, SpawnPointTwo.position, SpawnPointTwo.rotation);
+            }
+            else if (ranNum == 2)
+            {
+                Instantiate(SecondDroidObject, SpawnPointThree.position, SpawnPointThree.rotation);
+            }
+            else if (ranNum == 3)
+            {
+                Instantiate(SecondDroidObject, SpawnPointFour.position, SpawnPointFour.rotation);
+            }
+            else if (ranNum == 4)
+            {
+                Instantiate(SecondDroidObject, SpawnPointFive.position, SpawnPointFive.rotation);
+            }
         }
 
         for (int ThirdIndex = 0; ThirdIndex < ThirdDroid; ThirdIndex++)
         {
-            Instantiate(ThirdDroidObject, transform.position, transform.rotation);
+            if (ranNum == 0)
+            {
+                Instantiate(ThirdDroidObject, SpawnPointOne.position, SpawnPointOne.rotation);
+            }
+            else if (ranNum == 1)
+            {
+                Instantiate(ThirdDroidObject, SpawnPointTwo.position, SpawnPointTwo.rotation);
+            }
+            else if (ranNum == 2)
+            {
+                Instantiate(ThirdDroidObject, SpawnPointThree.position, SpawnPointThree.rotation);
+            }
+            else if (ranNum == 3)
+            {
+                Instantiate(ThirdDroidObject, SpawnPointFour.position, SpawnPointFour.rotation);
+            }
+            else if (ranNum == 4)
+            {
+                Instantiate(ThirdDroidObject, SpawnPointFive.position, SpawnPointFive.rotation);
+            }
         }
 
         for (int FourthIndex = 0; FourthIndex < FourthDroid; FourthIndex++)
         {
-            Instantiate(FourthDroidObject, transform.position, transform.rotation);
+            if (ranNum == 0)
+            {
+                Instantiate(FourthDroidObject, SpawnPointOne.position, SpawnPointOne.rotation);
+            }
+            else if (ranNum == 1)
+            {
+                Instantiate(FourthDroidObject, SpawnPointTwo.position, SpawnPointTwo.rotation);
+            }
+            else if (ranNum == 2)
+            {
+                Instantiate(FourthDroidObject, SpawnPointThree.position, SpawnPointThree.rotation);
+            }
+            else if (ranNum == 3)
+            {
+                Instantiate(FourthDroidObject, SpawnPointFour.position, SpawnPointFour.rotation);
+            }
+            else if (ranNum == 4)
+            {
+                Instantiate(FourthDroidObject, SpawnPointFive.position, SpawnPointFive.rotation);
+            }
         }
 
 
     }
+
+
+   
 }
