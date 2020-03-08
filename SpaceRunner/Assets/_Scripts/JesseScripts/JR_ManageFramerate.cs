@@ -13,6 +13,6 @@ public class JR_ManageFramerate : MonoBehaviour
             QualitySettings.vSyncCount = 1;
         if (res.refreshRate == 120)
             QualitySettings.vSyncCount = 2;
-        print(QualitySettings.vSyncCount);
+       // print(QualitySettings.vSyncCount);
     }
 }

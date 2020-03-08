@@ -8,6 +8,8 @@ public class JR_StartMenu : MonoBehaviour
 
     //public GameObject buttonStart;
     public GameObject buttonYesNo;
+    public GameObject buttonSettings;
+
 
     //public GameObject DestroyObject;
     // Start is called before the first frame update
@@ -26,8 +28,8 @@ public class JR_StartMenu : MonoBehaviour
     public void StartGame()
     {
        // buttonStart.SetActive(false);
-        buttonYesNo.SetActive(true);  
-
+        buttonYesNo.SetActive(true);
+        buttonSettings.SetActive(false);
     }
 
     public void PlayTutorial()
@@ -42,12 +44,21 @@ public class JR_StartMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        buttonSettings.SetActive(false);
+        buttonYesNo.SetActive(false);
         Application.Quit();
     }
 
     public void OpenSettings()
     {
-        buttonYesNo.SetActive(false); 
+        buttonYesNo.SetActive(false);
+        buttonSettings.SetActive(true);
 
+    }
+
+    public void BackButton()
+    {
+        buttonSettings.SetActive(false);
+        buttonYesNo.SetActive(false);
     }
 }
