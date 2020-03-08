@@ -64,12 +64,12 @@ public class JR_LevelFourDesign : MonoBehaviour
                 print("Spawn One Enemy");
                 break;
             case 2:
-                m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
+                m_enemySpawner.SpawnEnemies(1, 1, 0, 1);
                 LevelOnePhases = 3;
                 print("Spawn Two Enemies");
                 break;
             case 3:
-                m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
+                m_enemySpawner.SpawnEnemies(0, 1, 1, 1);
                 LevelOnePhases = 4;
                 print("Spawn Three Enemies");
                 break;
@@ -81,7 +81,7 @@ public class JR_LevelFourDesign : MonoBehaviour
                 print("Astroids");
                 break;
             case 5:
-                m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
+                m_enemySpawner.SpawnEnemies(0, 0, 0, 1);
                 WavePhase = 1;
                 LevelOnePhases = 6;
                 print("First half of 20 phase");
@@ -95,7 +95,7 @@ public class JR_LevelFourDesign : MonoBehaviour
                 print("Astroids");
                 break;
             case 7:
-                m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
+                m_enemySpawner.SpawnEnemies(0, 0, 0, 1);
                 WavePhase = 1;
                 LevelOnePhases = 8;
                 print("Second half of 20 phase");
@@ -123,7 +123,7 @@ public class JR_LevelFourDesign : MonoBehaviour
     {
         int Ran;
 
-        if (HowManyDroidsAdded < 6)
+        if (HowManyDroidsAdded < 15)
         {
             if (enemiesInLevel.Length <= 2)
             {
@@ -136,7 +136,7 @@ public class JR_LevelFourDesign : MonoBehaviour
 
                     if (Ran == 0)
                     {
-                        m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
+                        m_enemySpawner.SpawnEnemies(0, 0, 0, 1);
 
                     }
                     else if (Ran > 0 || Ran < 6)
@@ -145,11 +145,11 @@ public class JR_LevelFourDesign : MonoBehaviour
                     }
                     else if (Ran == 6)
                     {
-                        m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
+                        m_enemySpawner.SpawnEnemies(0, 1, 0, 0);
                     }
                     else if (Ran == 7)
                     {
-                        m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
+                        m_enemySpawner.SpawnEnemies(0, 0, 1, 0);
                     }
                 }
 
