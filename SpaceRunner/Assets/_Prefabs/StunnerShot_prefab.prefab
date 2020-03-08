@@ -120,7 +120,7 @@ MonoBehaviour:
   PincerRotSpeed: 0
   Lifetime: 1.5
   Meteor: {fileID: 0}
-  W_impact: {fileID: 1600961877520376530, guid: 81e09e6fa0698a0498c3c67cf70a9948,
+  W_impact: {fileID: 4477939904511729841, guid: 4d36cb65e5ae48547918135718e07859,
     type: 3}
   FC: {fileID: 0}
   St: {fileID: 0}

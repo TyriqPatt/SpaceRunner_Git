@@ -48,8 +48,7 @@ MonoBehaviour:
   PincerRotSpeed: 0
   Lifetime: 10
   Meteor: {fileID: 0}
-  W_impact: {fileID: 5284295716280921424, guid: 37a38073e2b36f44aa69500d66e135b9,
-    type: 3}
+  W_impact: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
   FC: {fileID: 0}
   St: {fileID: 0}
   IsEnemy: 0
@@ -387,7 +386,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7395137040929257019, guid: 4ab581e06f3b88042b9154887d4c359e,
+    - target: {fileID: 6497473356898335292, guid: 4ab581e06f3b88042b9154887d4c359e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -402,7 +401,7 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e494807fe98891c4dba63bd86cc64aea, type: 2}
-    - target: {fileID: 6497473356898335292, guid: 4ab581e06f3b88042b9154887d4c359e,
+    - target: {fileID: -7395137040929257019, guid: 4ab581e06f3b88042b9154887d4c359e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
