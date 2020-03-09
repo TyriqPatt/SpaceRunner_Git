@@ -6101,12 +6101,12 @@ PrefabInstance:
     - target: {fileID: 1994962617721938773, guid: eb67ea2aca13fdb4ebfb6b8b59e633df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 45.69995
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1994962617721938773, guid: eb67ea2aca13fdb4ebfb6b8b59e633df,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -22.199997
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1994962617656762448, guid: eb67ea2aca13fdb4ebfb6b8b59e633df,
         type: 3}
@@ -17603,10 +17603,6 @@ PrefabInstance:
       propertyPath: HealthSlider
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1002530178, guid: ee51b6825a961f348a255d5288393d60, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6010943835275276641, guid: ee51b6825a961f348a255d5288393d60,
         type: 3}
       propertyPath: m_IsActive
@@ -17680,6 +17676,10 @@ PrefabInstance:
     - target: {fileID: 8205138209709704763, guid: ee51b6825a961f348a255d5288393d60,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002530178, guid: ee51b6825a961f348a255d5288393d60, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
