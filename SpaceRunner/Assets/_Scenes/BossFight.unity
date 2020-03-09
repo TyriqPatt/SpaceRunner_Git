@@ -22349,6 +22349,10 @@ PrefabInstance:
       value: DroidBoss
       objectReference: {fileID: 0}
     - target: {fileID: 1002530183, guid: ee51b6825a961f348a255d5288393d60, type: 3}
+      propertyPath: AimAssist.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002530183, guid: ee51b6825a961f348a255d5288393d60, type: 3}
       propertyPath: AstrSpawner
       value: 
       objectReference: {fileID: 807923678}
@@ -22368,6 +22372,22 @@ PrefabInstance:
       propertyPath: GravTarget.Array.data[2]
       value: 
       objectReference: {fileID: 1833459725}
+    - target: {fileID: 1002530183, guid: ee51b6825a961f348a255d5288393d60, type: 3}
+      propertyPath: RotSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002530183, guid: ee51b6825a961f348a255d5288393d60, type: 3}
+      propertyPath: isRotating
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002530183, guid: ee51b6825a961f348a255d5288393d60, type: 3}
+      propertyPath: AimAssist.Array.data[0]
+      value: 
+      objectReference: {fileID: 1990639152}
+    - target: {fileID: 1002530183, guid: ee51b6825a961f348a255d5288393d60, type: 3}
+      propertyPath: AimAssist.Array.data[1]
+      value: 
+      objectReference: {fileID: 464301558}
     - target: {fileID: 3652135523612392551, guid: ee51b6825a961f348a255d5288393d60,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22376,7 +22396,7 @@ PrefabInstance:
     - target: {fileID: 3652135523612392551, guid: ee51b6825a961f348a255d5288393d60,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 105
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3652135523612392551, guid: ee51b6825a961f348a255d5288393d60,
         type: 3}
@@ -22427,6 +22447,10 @@ PrefabInstance:
       propertyPath: HealthSlider
       value: 
       objectReference: {fileID: 71524802}
+    - target: {fileID: 1002530178, guid: ee51b6825a961f348a255d5288393d60, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6010943835275276641, guid: ee51b6825a961f348a255d5288393d60,
         type: 3}
       propertyPath: m_IsActive

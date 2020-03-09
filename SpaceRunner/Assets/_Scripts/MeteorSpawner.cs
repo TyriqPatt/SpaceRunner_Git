@@ -46,7 +46,7 @@ public class MeteorSpawner : MonoBehaviour
         {
             StartCoroutine(Spawn(6));
             
-            if(Waves == 3)
+            if(Waves == 5)
             {
                 DB.BackToLevelPos();
                 Waves = 0;

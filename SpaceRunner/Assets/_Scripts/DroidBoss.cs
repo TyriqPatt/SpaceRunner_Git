@@ -14,9 +14,11 @@ public class DroidBoss : MonoBehaviour
     public Transform[] GravTarget;
     public Transform[] FourSpread;
     public Transform[] ThreeSpread;
+    public Transform[] AimAssist;
     public float ShootDelay;
     public float StartDelay = 5;
     public float speed;
+    public float RotSpeed;
     public Vector3 smoothpos;
     float Dir = 5;
     EnemyHealthBar EHB;
@@ -30,6 +32,9 @@ public class DroidBoss : MonoBehaviour
     bool CanResetPos;
     float ThresLevel;
     float Round;
+    public bool isRotating;
+    public float timer;
+    public float randomRot;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +52,14 @@ public class DroidBoss : MonoBehaviour
     void LateUpdate()
     {
         BossStates();
-        FacingTarget();
+        if (!isRotating)
+        {
+            FacingTarget();
+        }
+        else
+        {
+            RotateBoss();
+        }
         HealthThresholds();
         if (!CanResetPos)
         {
@@ -79,7 +91,7 @@ public class DroidBoss : MonoBehaviour
         {
             case State.StartingMovePhase:
                 LookingAtPlayer = true;
-                if (transform.parent.position.y > 13)
+                if (transform.parent.position.y > 11)
                 {
                     CanResetPos = false;
                     smoothpos = Vector3.Lerp(transform.parent.position,
@@ -98,7 +110,7 @@ public class DroidBoss : MonoBehaviour
                         Droids[2].SetActive(true);
                     }
                 }
-                else if (transform.parent.position.y <= 13)
+                else if (transform.parent.position.y <= 11)
                 {
                     BossState = State.ChooseDir;
                     ShootDelay = StartDelay;
@@ -141,7 +153,6 @@ public class DroidBoss : MonoBehaviour
                 }
                 break;
             case State.MoveToOffsetPosp2:
-                LookingAtPlayer = true;
                 if (transform.parent.position.y > 30)
                 {
                     CanResetPos = false;
@@ -152,13 +163,14 @@ public class DroidBoss : MonoBehaviour
                 if (transform.parent.position.y <= 30)
                 {
                     BossState = State.OffsetPhase;
-                    StartCoroutine(shootBlackHole(3));
+                    StartCoroutine(shootBlackHole(2));
                 }
                 break;
             case State.OffScreenIdle:
 
                 break;
             case State.ChooseDir:
+                LookingAtPlayer = true;
                 Round += 1;
                 if(Round == 2)
                 {
@@ -190,7 +202,6 @@ public class DroidBoss : MonoBehaviour
                 }
                 break;
             case State.MoveRight:
-                transform.LookAt(player.transform);
                 if (transform.parent.position.x >= 50)
                 {
                     BossState = State.MoveLeft;
@@ -203,7 +214,6 @@ public class DroidBoss : MonoBehaviour
                 }
                 break;
             case State.MoveLeft:
-                transform.LookAt(player.transform);
                 if (transform.parent.position.x <= -50)
                 {
                     BossState = State.MoveRight;
@@ -233,6 +243,28 @@ public class DroidBoss : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(newDirection);
         }
     }
+
+    void RotateBoss()
+    {
+       
+        if (randomRot == 0)
+        {
+            Vector3 targetDirection = AimAssist[1].transform.position - transform.position;
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, RotSpeed * Time.deltaTime, 0.0f);
+            transform.rotation = Quaternion.LookRotation(newDirection);
+
+        }
+        else if (randomRot == 1)
+        {
+            Vector3 targetDirection = AimAssist[0].transform.position - transform.position;
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, RotSpeed * Time.deltaTime, 0.0f);
+            transform.rotation = Quaternion.LookRotation(newDirection);
+            
+        }
+        //transform.localEulerAngles = new Vector3(0, Mathf.PingPong(Time.time * 10, 50), 0);
+    }
+
+
 
     void HealthThresholds()
     {
@@ -298,6 +330,45 @@ public class DroidBoss : MonoBehaviour
 
     }
 
+    public IEnumerator RandomAttack()
+    {
+        if (BossState == State.MoveLeft || BossState == State.MoveRight)
+        {
+            yield return new WaitForSeconds(.5f);
+            float Randnum;
+            Randnum = Random.Range(0, 2);
+            if (Randnum == 0)
+            {
+                StartCoroutine(SpreadShot());
+            }
+            else if (Randnum == 1)
+            {
+                StartCoroutine(SpinShot());
+                StartCoroutine(rotswitch());
+            }
+
+        }
+    }
+
+    public IEnumerator rotswitch()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(1f);
+        if(randomRot == 0)
+        {
+            randomRot = 1;
+        }
+        else if (randomRot == 1)
+        {
+            randomRot = 0;
+        }
+        yield return new WaitForSeconds(1f);
+        canShoot = true;
+        BossState = State.ChooseDir;
+        isRotating = false;
+        StopAllCoroutines();
+    }
+
     IEnumerator shootOrbs()
     {
         GameObject bulletprefab;
@@ -324,7 +395,22 @@ public class DroidBoss : MonoBehaviour
                 bulletprefab = Instantiate(bullet, ThreeSpread[i].transform.position, ThreeSpread[i].transform.rotation);
             }
         }
+    }
+
+    public IEnumerator SpinShot()
+    {
         
+        GameObject bulletprefab;
+        BossState = State.OffScreenIdle;
+        yield return new WaitForSeconds(.2f);
+        //bulletprefab = Instantiate(bullet, ThreeSpread[0].transform.position, ThreeSpread[0].transform.rotation);
+        isRotating = true;
+        for (int i = 0; i < FourSpread.Length; i++)
+        {
+            bulletprefab = Instantiate(bullet, FourSpread[i].transform.position, FourSpread[i].transform.rotation);
+        }
+        StartCoroutine(SpinShot());
+
     }
 
     IEnumerator shootBlackHole(float time)

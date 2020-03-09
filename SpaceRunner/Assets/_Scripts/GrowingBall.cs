@@ -35,7 +35,8 @@ public class GrowingBall : MonoBehaviour
         {
             if (doOnce)
             {
-                StartCoroutine(db.SpreadShot());
+                StartCoroutine(db.RandomAttack());
+                db.randomRot = Random.Range(0, 1);
                 doOnce = false;
             }
         }
