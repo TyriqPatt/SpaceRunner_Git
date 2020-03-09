@@ -7,6 +7,7 @@ public class JR_WinSceneManager : MonoBehaviour
 {
     public Button m_nextButton;
     public Button m_quitButton;
+    public Button m_retryButton;
     private JR_RestLevel m_resetLevel;
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,8 @@ public class JR_WinSceneManager : MonoBehaviour
         m_resetLevel = GameObject.FindObjectOfType<JR_RestLevel>();
         m_nextButton.onClick.AddListener(m_nextButton_onClick);
         m_quitButton.onClick.AddListener(m_quitButton_onClick);
+        m_retryButton.onClick.AddListener(m_retryButton_OnClick);
+
     }
 
     // Update is called once per frame
@@ -30,5 +33,9 @@ public class JR_WinSceneManager : MonoBehaviour
     void m_quitButton_onClick()
     {
         Application.Quit();
+    }
+    void m_retryButton_OnClick()
+    {
+        m_resetLevel.ResetLevel(); 
     }
 }
