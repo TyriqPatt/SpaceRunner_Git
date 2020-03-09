@@ -23,8 +23,12 @@ public class JR_LevelManager : MonoBehaviour
     //Check which scene will be next
     public void CheckLevel()
     {
+        if(m_Level.Level == 0)
+        {
+            SceneManager.LoadScene("Level_1");
+        }
         //Determine if in level one
-        if(m_Level.Level == 1)
+        else if(m_Level.Level == 1)
         {
             SceneManager.LoadScene("Level_2");
         }

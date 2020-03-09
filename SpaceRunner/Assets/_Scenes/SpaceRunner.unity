@@ -5560,6 +5560,8 @@ GameObject:
   - component: {fileID: 541683953}
   - component: {fileID: 541683955}
   - component: {fileID: 541683956}
+  - component: {fileID: 541683958}
+  - component: {fileID: 541683957}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5635,6 +5637,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97de3c62c2e3c454fa59cbfd93a782b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &541683957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541683952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff11068594e63e04f9d000153a78d9a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &541683958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541683952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 512ced91b43bddc439c76825f458863d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level: 0
 --- !u!1 &572648107
 GameObject:
   m_ObjectHideFlags: 0
@@ -6101,7 +6128,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4560426748144268720}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91bd3e3514cc36b4383eb136dd8c859b, type: 3}
   m_Name: 
@@ -11762,6 +11789,12 @@ MonoBehaviour:
   SecondDroidObject: {fileID: 0}
   ThirdDroidObject: {fileID: 0}
   FourthDroidObject: {fileID: 0}
+  SpawnPointOne: {fileID: 0}
+  SpawnPointTwo: {fileID: 0}
+  SpawnPointThree: {fileID: 0}
+  SpawnPointFour: {fileID: 0}
+  SpawnPointFive: {fileID: 0}
+  ranNum: 0
 --- !u!4 &1715786692
 Transform:
   m_ObjectHideFlags: 0
@@ -12161,6 +12194,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994962617721938773, guid: eb67ea2aca13fdb4ebfb6b8b59e633df,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.7000122
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994962617721938773, guid: eb67ea2aca13fdb4ebfb6b8b59e633df,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5.799988
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb67ea2aca13fdb4ebfb6b8b59e633df, type: 3}
