@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 250
   RiseSpeed: 0
-  RotSpeed: 3
+  RotSpeed: 2
   PincerRotSpeed: 0
   Lifetime: 1.5
   Meteor: {fileID: 0}
@@ -227,6 +227,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4618094780620862271}
     m_Modifications:
+    - target: {fileID: 1344457166417818, guid: 0310b8628b5599c4295215fedba1a232, type: 3}
+      propertyPath: m_Name
+      value: Electricity
+      objectReference: {fileID: 0}
     - target: {fileID: 4792296990418494, guid: 0310b8628b5599c4295215fedba1a232, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -282,10 +286,6 @@ PrefabInstance:
     - target: {fileID: 4792296990418494, guid: 0310b8628b5599c4295215fedba1a232, type: 3}
       propertyPath: m_LocalScale.z
       value: 33.33335
-      objectReference: {fileID: 0}
-    - target: {fileID: 1344457166417818, guid: 0310b8628b5599c4295215fedba1a232, type: 3}
-      propertyPath: m_Name
-      value: Electricity
       objectReference: {fileID: 0}
     - target: {fileID: 198464213672787702, guid: 0310b8628b5599c4295215fedba1a232,
         type: 3}
