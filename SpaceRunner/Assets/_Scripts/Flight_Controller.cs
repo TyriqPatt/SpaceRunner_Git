@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class Flight_Controller : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class Flight_Controller : MonoBehaviour
     public Transform MissileSpawn;
     public PlayerHealth PH;
     public Canons C;
+    public AudioSource rollAudio;
 
     public bool isTutorial;
 
@@ -154,6 +156,7 @@ public class Flight_Controller : MonoBehaviour
                 //left roll
                 if (Input.GetKeyDown(KeyCode.LeftShift) && input < 0 && PH.CurRollCdwn == PH.MaxRollCdwn)
                 {
+                    rollAudio.Play(); 
                     StartCoroutine(RollTime());
                     States = 1;
                     StartCoroutine(Barrel_Roll());
@@ -163,6 +166,7 @@ public class Flight_Controller : MonoBehaviour
                 //right roll
                 if (Input.GetKeyDown(KeyCode.LeftShift) && input > 0 && PH.CurRollCdwn == PH.MaxRollCdwn)
                 {
+                    rollAudio.Play();
                     StartCoroutine(RollTime());
                     States = 2;
                     StartCoroutine(Barrel_Roll());
