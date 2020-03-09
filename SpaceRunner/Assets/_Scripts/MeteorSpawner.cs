@@ -31,6 +31,11 @@ public class MeteorSpawner : MonoBehaviour
         if (!ForBossFight)
         {
             WarningSign.SetActive(true);
+            
+        }
+        else
+        {
+            Waves += 1;
         }
         int astr = Random.Range(0, Meteors.Length);
         yield return new WaitForSeconds(_NextSpawn);
@@ -40,8 +45,8 @@ public class MeteorSpawner : MonoBehaviour
         if (ForBossFight)
         {
             StartCoroutine(Spawn(6));
-            Waves += 1;
-            if(Waves == 5)
+            
+            if(Waves == 3)
             {
                 DB.BackToLevelPos();
                 Waves = 0;

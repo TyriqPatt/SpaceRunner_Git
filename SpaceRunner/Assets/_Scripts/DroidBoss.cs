@@ -10,6 +10,7 @@ public class DroidBoss : MonoBehaviour
     public GameObject bullet;
     public GameObject AstrSpawner;
     public GameObject Grav;
+    public GameObject[] Droids;
     public Transform[] GravTarget;
     public Transform[] FourSpread;
     public Transform[] ThreeSpread;
@@ -26,7 +27,9 @@ public class DroidBoss : MonoBehaviour
     bool LookingAtPlayer;
     float wait;
     bool canShoot;
+    bool CanResetPos;
     float ThresLevel;
+    float Round;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +49,10 @@ public class DroidBoss : MonoBehaviour
         BossStates();
         FacingTarget();
         HealthThresholds();
-        transform.parent.position = smoothpos;
+        if (!CanResetPos)
+        {
+            transform.parent.position = smoothpos;
+        }
         if (canShoot)
         {
             if (ShootDelay > 0)
@@ -60,7 +66,6 @@ public class DroidBoss : MonoBehaviour
                 StartCoroutine(shootOrbs());
             }
         }
-        
         if (EHB.invulnerable)
         {
             GameObject temp = Instantiate(Echo, transform.position, Quaternion.identity);
@@ -76,16 +81,25 @@ public class DroidBoss : MonoBehaviour
                 LookingAtPlayer = true;
                 if (transform.parent.position.y > 13)
                 {
+                    CanResetPos = false;
                     smoothpos = Vector3.Lerp(transform.parent.position,
                         transform.parent.position = new Vector3(transform.parent.position.x,
                         transform.parent.position.y - Dir, transform.parent.position.z), speed * Time.deltaTime);
+                    if (Round == 0)
+                    {
+                        Droids[0].SetActive(true);
+                    }
+                    else if (Round == 2)
+                    {
+                        Droids[1].SetActive(true);
+                    }
+                    else if (Round == 3)
+                    {
+                        Droids[2].SetActive(true);
+                    }
                 }
                 else if (transform.parent.position.y <= 13)
                 {
-                    
-                    //RanGravTarget = Random.Range(0, GravTarget.Length);
-                    //transform.parent.position = new Vector3(transform.parent.position.x, 30, transform.parent.position.z);
-                    //StartCoroutine(shootBlackHole(1));
                     BossState = State.ChooseDir;
                     ShootDelay = StartDelay;
                     canShoot = true;
@@ -103,9 +117,10 @@ public class DroidBoss : MonoBehaviour
                       transform.parent.position = new Vector3(transform.parent.position.x,
                       transform.parent.position.y + 3f, transform.parent.position.z), speed * Time.deltaTime);
                 }
-                if (transform.parent.position.y >= 105)
+                else if (transform.parent.position.y >= 105)
                 {
-                    transform.position = new Vector3(0, 105, 150);
+                    transform.parent.position = new Vector3(0, 105, 150);
+                    CanResetPos = true;
                     BossState = State.StartingMovePhase;
                 }
                 break;
@@ -117,9 +132,10 @@ public class DroidBoss : MonoBehaviour
                       transform.parent.position = new Vector3(transform.parent.position.x,
                       transform.parent.position.y + 3f, transform.parent.position.z), speed * Time.deltaTime);
                 }
-                if (transform.parent.position.y >= 105)
+                else if (transform.parent.position.y >= 105)
                 {
-                    transform.position = new Vector3(0, 105, 200);
+                    transform.parent.position = new Vector3(0, 105, 200);
+                    CanResetPos = true;
                     BossState = State.MoveToOffsetPosp2;
                     AstrSpawner.SetActive(true);
                 }
@@ -128,6 +144,7 @@ public class DroidBoss : MonoBehaviour
                 LookingAtPlayer = true;
                 if (transform.parent.position.y > 30)
                 {
+                    CanResetPos = false;
                     smoothpos = Vector3.Lerp(transform.parent.position,
                       transform.parent.position = new Vector3(transform.parent.position.x,
                       transform.parent.position.y - 3f, transform.parent.position.z), speed * Time.deltaTime);
@@ -135,13 +152,32 @@ public class DroidBoss : MonoBehaviour
                 if (transform.parent.position.y <= 30)
                 {
                     BossState = State.OffsetPhase;
-                    StartCoroutine(shootBlackHole(6));
+                    StartCoroutine(shootBlackHole(3));
                 }
                 break;
             case State.OffScreenIdle:
 
                 break;
             case State.ChooseDir:
+                //Round += 1;
+                if(Round == 0)
+                {
+                    Droids[0].transform.parent = null;
+                    Droids[0].transform.position = new Vector3(Droids[0].transform.position.x, 7, 135);
+                    Droids[0].transform.GetChild(0).GetComponent<Seeker>().enabled = true;
+                }
+                else if (Round == 3)
+                {
+                    Droids[1].transform.parent = null;
+                    Droids[1].transform.position = new Vector3(Droids[1].transform.position.x, 7, 135);
+                    Droids[1].transform.GetChild(0).GetComponent<Stunner>().enabled = true;
+                }
+                else if (Round == 4)
+                {
+                    Droids[2].transform.parent = null;
+                    Droids[2].transform.position = new Vector3(Droids[2].transform.position.x, 7, 135);
+                    Droids[2].transform.GetChild(0).GetComponent<Shielder>().enabled = true;
+                }
                 float Randnum;
                 Randnum = Random.Range(0, 2);
                 if (Randnum == 0)

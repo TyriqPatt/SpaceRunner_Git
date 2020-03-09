@@ -4832,7 +4832,7 @@ MonoBehaviour:
   RiseSpeed: 0
   RotSpeed: 0
   PincerRotSpeed: 0
-  Lifetime: 10
+  Lifetime: 3
   Meteor: {fileID: 0}
   W_impact: {fileID: 9007925345466068429, guid: f64237de1e44ad9469c75839476ba7cb,
     type: 3}
