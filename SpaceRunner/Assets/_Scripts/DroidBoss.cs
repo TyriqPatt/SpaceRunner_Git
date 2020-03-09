@@ -85,7 +85,7 @@ public class DroidBoss : MonoBehaviour
                     smoothpos = Vector3.Lerp(transform.parent.position,
                         transform.parent.position = new Vector3(transform.parent.position.x,
                         transform.parent.position.y - Dir, transform.parent.position.z), speed * Time.deltaTime);
-                    if (Round == 0)
+                    if (Round == 1)
                     {
                         Droids[0].SetActive(true);
                     }
@@ -159,8 +159,8 @@ public class DroidBoss : MonoBehaviour
 
                 break;
             case State.ChooseDir:
-                //Round += 1;
-                if(Round == 0)
+                Round += 1;
+                if(Round == 2)
                 {
                     Droids[0].transform.parent = null;
                     Droids[0].transform.position = new Vector3(Droids[0].transform.position.x, 7, 135);
