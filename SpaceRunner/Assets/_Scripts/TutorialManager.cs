@@ -18,9 +18,10 @@ public class TutorialManager : MonoBehaviour
     public Canons C;
     float left = 0;
     float right = 0;
-    Asteroids A;
+    Asteroids AsteroidSpeed;
     public PlayerHealth PH;
     public JR_DontDestroyOnLoad m_DestroyScript;
+    bool DoMissilesOnce;
 
     // Start is called before the first frame update
     void Start()
@@ -53,8 +54,8 @@ public class TutorialManager : MonoBehaviour
                 MoveText.SetActive(false);
                 HealthText.SetActive(true);
                 GameObject Temp;
-                Temp = Instantiate(Tutorial_Asteroids, DmgBots.transform.position = new Vector3(T_Spawner.position.x, T_Spawner.position.y, T_Spawner.position.z + 400), T_Spawner.transform.rotation);
-                A = Temp.GetComponent<Asteroids>();
+                Temp = Instantiate(Tutorial_Asteroids, DmgBots.transform.position = new Vector3(T_Spawner.position.x, 0, T_Spawner.position.z + 400), T_Spawner.transform.rotation);
+                AsteroidSpeed = Temp.GetComponent<Asteroids>();
                 Destroy(Temp, 19);
                 TutorialState = State.TeachShoot;
                 break;
@@ -92,7 +93,7 @@ public class TutorialManager : MonoBehaviour
                 break;
             case State.SpawnBots:
                 AbilityTextThree.SetActive(false);
-                StartCoroutine(WaitToSpawnBots());
+                
                 break;
             case State.WaitForBots:
                 Enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -147,9 +148,10 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator WaitToSpawnBots()
     {
+        
         yield return new WaitForSeconds(0);
         GameObject TempBots;
-        TempBots = Instantiate(DmgBots, DmgBots.transform.position = new Vector3(T_Spawner.position.x, T_Spawner.position.y + 5, T_Spawner.position.z), T_Spawner.transform.rotation);
+        TempBots = Instantiate(DmgBots, T_Spawner.position, T_Spawner.transform.rotation);
         TempBots.GetComponent<GroupManager>().Tutorial = true;
         BotText.SetActive(true);
         TutorialState = State.WaitForBots;
@@ -160,7 +162,7 @@ public class TutorialManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Keypad2))
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(2);
 
             TutorialState = State.TeachAbilityThree;
 
@@ -171,9 +173,15 @@ public class TutorialManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Keypad3))
         {
-            yield return new WaitForSeconds(3);
-
-            TutorialState = State.SpawnBots; 
+            if (!DoMissilesOnce)
+            {
+                DoMissilesOnce = true;
+                yield return new WaitForSeconds(2);
+                StartCoroutine(WaitToSpawnBots());
+                TutorialState = State.SpawnBots;
+                
+            }
+            
 
         }
     }
