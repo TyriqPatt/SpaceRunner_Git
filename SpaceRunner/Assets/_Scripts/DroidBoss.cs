@@ -171,6 +171,7 @@ public class DroidBoss : MonoBehaviour
                 break;
             case State.ChooseDir:
                 LookingAtPlayer = true;
+                EHB.TurnOnHealthBar();
                 if(Round == 2)
                 {
                     if(Droids[0] != null)

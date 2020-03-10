@@ -31,6 +31,10 @@ public class EnemyHealthBar : MonoBehaviour {
         CurrentHealth = MaxHealth;
         //Sets slider in child object to healthslider
         HealthSlider = transform.GetChild(0).transform.GetChild(0).GetComponent<Slider>();
+        if (Boss)
+        {
+            transform.GetChild(0).transform.gameObject.SetActive(false);
+        }
         //Updates health bar to max health
         HealthSlider.value = CalculatedHealth();
         
@@ -147,6 +151,11 @@ public class EnemyHealthBar : MonoBehaviour {
 
             }
         }
+    }
+
+    public void TurnOnHealthBar()
+    {
+        transform.GetChild(0).transform.gameObject.SetActive(true);
     }
 
     IEnumerator Hit()
