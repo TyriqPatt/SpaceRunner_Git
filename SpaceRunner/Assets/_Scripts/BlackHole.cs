@@ -29,7 +29,7 @@ public class BlackHole : MonoBehaviour
                 transform.GetChild(1).gameObject.SetActive(true);
                 
             }
-            RaycastHit[] hits = Physics.SphereCastAll(transform.position, 75, Vector3.forward, 10, layer);
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, 85, Vector3.forward, 10, layer);
             if (hits.Length > 0)
             {
                 Asteriods = new GameObject[hits.Length];
@@ -53,6 +53,6 @@ public class BlackHole : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 75);
+        Gizmos.DrawWireSphere(transform.position, 85);
     }
 }

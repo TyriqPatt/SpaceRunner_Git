@@ -32,8 +32,7 @@ public class DroidBoss : MonoBehaviour
     bool CanResetPos;
     float ThresLevel;
     float Round;
-    public bool isRotating;
-    public float timer;
+    bool isRotating;
     public float randomRot;
 
     // Start is called before the first frame update
@@ -73,7 +72,7 @@ public class DroidBoss : MonoBehaviour
             }
             if (ShootDelay <= 0)
             {
-                StartDelay = 8;
+                StartDelay = 5;
                 ShootDelay = StartDelay;
                 StartCoroutine(shootOrbs());
             }
@@ -113,6 +112,7 @@ public class DroidBoss : MonoBehaviour
                 else if (transform.parent.position.y <= 11)
                 {
                     BossState = State.ChooseDir;
+                    Round += 1;
                     ShootDelay = StartDelay;
                     canShoot = true;
                 }
@@ -171,24 +171,32 @@ public class DroidBoss : MonoBehaviour
                 break;
             case State.ChooseDir:
                 LookingAtPlayer = true;
-                Round += 1;
                 if(Round == 2)
                 {
-                    Droids[0].transform.parent = null;
-                    Droids[0].transform.position = new Vector3(Droids[0].transform.position.x, 7, 135);
-                    Droids[0].transform.GetChild(0).GetComponent<Seeker>().enabled = true;
+                    if(Droids[0] != null)
+                    {
+                        Droids[0].transform.parent = null;
+                        Droids[0].transform.position = new Vector3(Droids[0].transform.position.x, 7, 135);
+                        Droids[0].transform.GetChild(0).GetComponent<Seeker>().enabled = true;
+                    }
                 }
                 else if (Round == 3)
                 {
-                    Droids[1].transform.parent = null;
-                    Droids[1].transform.position = new Vector3(Droids[1].transform.position.x, 7, 135);
-                    Droids[1].transform.GetChild(0).GetComponent<Stunner>().enabled = true;
+                    if (Droids[1] != null)
+                    {
+                        Droids[1].transform.parent = null;
+                        Droids[1].transform.position = new Vector3(Droids[1].transform.position.x, 7, 135);
+                        Droids[1].transform.GetChild(0).GetComponent<Stunner>().enabled = true;
+                    }
                 }
                 else if (Round == 4)
                 {
-                    Droids[2].transform.parent = null;
-                    Droids[2].transform.position = new Vector3(Droids[2].transform.position.x, 7, 135);
-                    Droids[2].transform.GetChild(0).GetComponent<Shielder>().enabled = true;
+                    if (Droids[2] != null)
+                    {
+                        Droids[2].transform.parent = null;
+                        Droids[2].transform.position = new Vector3(Droids[2].transform.position.x, 7, 135);
+                        Droids[2].transform.GetChild(0).GetComponent<Shielder>().enabled = true;
+                    }
                 }
                 float Randnum;
                 Randnum = Random.Range(0, 2);

@@ -202,7 +202,7 @@ public class Stunner : MonoBehaviour
 
     public IEnumerator Delay()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.9f);
         if (hitplayer)
         {
             StartCoroutine(AltFire());

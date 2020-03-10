@@ -30,10 +30,7 @@ public class EnemyHealthBar : MonoBehaviour {
         //Sets current health to max health
         CurrentHealth = MaxHealth;
         //Sets slider in child object to healthslider
-        if (!Boss)
-        {
-            HealthSlider = transform.GetChild(0).transform.GetChild(0).GetComponent<Slider>();
-        }
+        HealthSlider = transform.GetChild(0).transform.GetChild(0).GetComponent<Slider>();
         //Updates health bar to max health
         HealthSlider.value = CalculatedHealth();
         
@@ -88,7 +85,7 @@ public class EnemyHealthBar : MonoBehaviour {
         }
         GameObject tempObj;
         tempObj = Instantiate(Explode, transform.position, transform.rotation);
-        if (!isTutorial)
+        if (!isTutorial && !Boss)
         {
             int randSpawn = Random.Range(0, 5);
             int randPu = Random.Range(0, PickUps.Length);

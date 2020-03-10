@@ -30,7 +30,10 @@ public class GrowingBall : MonoBehaviour
             size.z += Time.deltaTime * growSpeed;
             transform.localScale = size;
         }
-        _distance = Vector3.Distance(Boss.transform.position, transform.position);
+        if(Boss != null)
+        {
+            _distance = Vector3.Distance(Boss.transform.position, transform.position);
+        }
         if(_distance >= 140)
         {
             if (doOnce)
