@@ -7,11 +7,11 @@ public class JR_LoseSceneManager : MonoBehaviour
 {
     public Button m_retryButton;
     public Button m_quitButton;
-    private JR_RestLevel m_resetLevel;
+    private JR_LevelManager m_levelManger;
     // Start is called before the first frame update
     void Start()
     {
-        m_resetLevel = GameObject.FindObjectOfType<JR_RestLevel>();
+        m_levelManger = GameObject.FindObjectOfType<JR_LevelManager>();
         m_retryButton.onClick.AddListener(m_retryButton_onClick);
         m_quitButton.onClick.AddListener(m_quitButton_onClick);
 
@@ -25,7 +25,7 @@ public class JR_LoseSceneManager : MonoBehaviour
 
     void m_retryButton_onClick()
     {
-        m_resetLevel.ResetLevel(); 
+        m_levelManger.RetryLevel();  
     }
 
     void m_quitButton_onClick()
