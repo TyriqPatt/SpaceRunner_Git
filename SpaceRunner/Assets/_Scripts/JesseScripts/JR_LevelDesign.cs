@@ -114,7 +114,7 @@ public class JR_LevelDesign : MonoBehaviour
 
     void WavePhaseFunction()
     {
-        if (HowManyDroidsAdded < 15)
+        if (HowManyDroidsAdded < 6)
         {
             if (enemiesInLevel.Length <= 2)
             {

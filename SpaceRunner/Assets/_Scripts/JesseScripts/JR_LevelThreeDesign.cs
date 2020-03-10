@@ -123,7 +123,7 @@ public class JR_LevelThreeDesign : MonoBehaviour
     {
         int Ran;
 
-        if (HowManyDroidsAdded < 15)
+        if (HowManyDroidsAdded < 6)
         {
             if (enemiesInLevel.Length <= 2)
             {

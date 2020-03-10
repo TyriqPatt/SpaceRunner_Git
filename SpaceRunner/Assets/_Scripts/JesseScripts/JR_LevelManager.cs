@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class JR_LevelManager : MonoBehaviour
 {
     //Find the level script to determine what level your in
-    private JR_Level m_Level;
+    public JR_Level m_Level;
     public int CurrentLevel; 
 
     // Start is called before the first frame update
@@ -39,31 +39,31 @@ public class JR_LevelManager : MonoBehaviour
             SceneManager.LoadScene("SpaceRunner");
         }
         //Determine if in level one
-        else if (CurrentLevel == 0)
+        if (CurrentLevel == 0)
         {
             SceneManager.LoadScene("Level_1");
         }
         //Determine if in level two
-        else if (CurrentLevel == 1)
+        if (CurrentLevel == 1)
         {
             SceneManager.LoadScene("Level_2");
         }
-        else if (m_Level.Level == 2)
+        if (CurrentLevel == 2)
         {
             SceneManager.LoadScene("Level_3");
         }
         //Determine if in level three
-        else if (CurrentLevel == 3)
+        if (CurrentLevel == 3)
         {
             SceneManager.LoadScene("Level_4");
         }
         //Determine if in level four
-        else if (CurrentLevel == 4)
+        if (CurrentLevel == 4)
         {
             SceneManager.LoadScene("BossFight");
         }
         //Determine if in level five
-        else if (CurrentLevel == 5)
+        if (CurrentLevel == 5)
         {
             SceneManager.LoadScene("Credits");
         }
@@ -77,35 +77,35 @@ public class JR_LevelManager : MonoBehaviour
             SceneManager.LoadScene("StartMenu");
         }
         //Determine if in level one
-        else if (CurrentLevel == 0)
+        if (CurrentLevel == 0)
         {
             SceneManager.LoadScene("SpaceRunner");
         }
         //Determine if in level two
-        else if (CurrentLevel == 1)
+        if (CurrentLevel == 1)
         {
             SceneManager.LoadScene("Level_1");
         }
-        else if (CurrentLevel == 2)
+        if (CurrentLevel == 2)
         {
             SceneManager.LoadScene("Level_2");
         }
         //Determine if in level three
-        else if (CurrentLevel == 3)
+        if (CurrentLevel == 3)
         {
             SceneManager.LoadScene("Level_3");
         }
         //Determine if in level four
-        else if (CurrentLevel == 4)
+        if (CurrentLevel == 4)
         {
             SceneManager.LoadScene("Level_4");
         }
         //Determine if in level five
-        else if (CurrentLevel == 5)
+        if (CurrentLevel == 5)
         {
             SceneManager.LoadScene("BossFight");
         }
-        else if (CurrentLevel == 6)
+        if (CurrentLevel == 6)
         {
             SceneManager.LoadScene("Credits");
         }
