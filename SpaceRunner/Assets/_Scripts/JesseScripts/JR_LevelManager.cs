@@ -32,7 +32,7 @@ public class JR_LevelManager : MonoBehaviour
     //Check which scene will be next
    
 
-    public void GoToNextLevel()
+  /*  public void GoToNextLevel()
     {
         if (CurrentLevel == -1)
         {
@@ -110,7 +110,7 @@ public class JR_LevelManager : MonoBehaviour
             SceneManager.LoadScene("Credits");
         }
 
-    }
+    }*/
 
 
 }
