@@ -5653,6 +5653,7 @@ GameObject:
   - component: {fileID: 572648110}
   - component: {fileID: 572648109}
   - component: {fileID: 572648108}
+  - component: {fileID: 572648112}
   m_Layer: 0
   m_Name: Plane (1)
   m_TagString: Untagged
@@ -5733,6 +5734,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
+--- !u!114 &572648112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572648107}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99aa0d5f45745634183abc2779427d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefualtColor: {r: 0, g: 0, b: 0, a: 0}
+  DefualtMat: {fileID: 0}
+  RedtMat: {fileID: 2100000, guid: 1751e28cee0c36d44822b8d32e32592f, type: 2}
+  IsHealth: 0
 --- !u!114 &602961249 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1994962617880473661, guid: eb67ea2aca13fdb4ebfb6b8b59e633df,
@@ -6508,12 +6525,12 @@ PrefabInstance:
     - target: {fileID: 1994962617721938773, guid: eb67ea2aca13fdb4ebfb6b8b59e633df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.7000122
+      value: 1.7000732
       objectReference: {fileID: 0}
     - target: {fileID: 1994962617721938773, guid: eb67ea2aca13fdb4ebfb6b8b59e633df,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 5.800003
+      value: 5.799988
       objectReference: {fileID: 0}
     - target: {fileID: 1994962617656762448, guid: eb67ea2aca13fdb4ebfb6b8b59e633df,
         type: 3}
@@ -6561,6 +6578,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1042583336 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 881538852, guid: eb67ea2aca13fdb4ebfb6b8b59e633df,
+    type: 3}
+  m_PrefabInstance: {fileID: 1042583330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99aa0d5f45745634183abc2779427d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1107151496
@@ -11594,6 +11623,7 @@ GameObject:
   - component: {fileID: 1358209941}
   - component: {fileID: 1358209940}
   - component: {fileID: 1358209939}
+  - component: {fileID: 1358209943}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -11674,6 +11704,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
+--- !u!114 &1358209943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358209938}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99aa0d5f45745634183abc2779427d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefualtColor: {r: 0, g: 0, b: 0, a: 0}
+  DefualtMat: {fileID: 0}
+  RedtMat: {fileID: 2100000, guid: 1751e28cee0c36d44822b8d32e32592f, type: 2}
+  IsHealth: 0
 --- !u!1 &1374207380
 GameObject:
   m_ObjectHideFlags: 0
@@ -12520,5 +12566,20 @@ PrefabInstance:
       propertyPath: DOT_DMG
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
+        type: 3}
+      propertyPath: LowHp.Array.data[0]
+      value: 
+      objectReference: {fileID: 1042583336}
+    - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
+        type: 3}
+      propertyPath: LowHp.Array.data[1]
+      value: 
+      objectReference: {fileID: 1358209943}
+    - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
+        type: 3}
+      propertyPath: LowHp.Array.data[2]
+      value: 
+      objectReference: {fileID: 572648112}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80aa0f9399189234caea08314aa24ddf, type: 3}

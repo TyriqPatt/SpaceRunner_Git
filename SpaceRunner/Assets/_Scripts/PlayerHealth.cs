@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject EnergyDet;
     public static float DmgMultiplier = 1;
     public bool StartCdwn;
-
+    public LowHealthIndicator[] LowHp;
     // Start is called before the first frame update
     void Start()
     {
@@ -99,6 +99,14 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+        if (CurrentHealth <= 25)
+        {
+            
+            for (int i = 0; i < LowHp.Length; i++)
+            {
+                LowHp[i].enabled = true;
+            }
+        }
     }
 
     public void Heal(float HealValue)
@@ -108,6 +116,14 @@ public class PlayerHealth : MonoBehaviour
         if (CurrentHealth >= MaxHealth)
         {
             CurrentHealth = MaxHealth;
+        }
+        if (CurrentHealth > 25)
+        {
+            
+            for (int i = 0; i < LowHp.Length; i++)
+            {
+                LowHp[i].enabled = false;
+            }
         }
     }
 
