@@ -15,11 +15,11 @@ public class LowHealthIndicator : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        source = GetComponent<AudioSource>();
         if (IsHealth)
         {
             DefualtColor = GetComponent<Image>().color;
             StartCoroutine(LowHealth());
+            source = GetComponent<AudioSource>();
         }
         else
         {
@@ -70,12 +70,12 @@ public class LowHealthIndicator : MonoBehaviour
         if (IsHealth)
         {
             GetComponent<Image>().color = DefualtColor;
+            source.Stop();
         }
         else
         {
             GetComponent<Renderer>().material = DefualtMat;
         }
-        source.Stop();
         StopAllCoroutines();
     }
 }
