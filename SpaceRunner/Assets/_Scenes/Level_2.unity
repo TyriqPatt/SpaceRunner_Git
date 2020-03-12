@@ -12533,16 +12533,6 @@ PrefabInstance:
       objectReference: {fileID: 1461647834}
     - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
         type: 3}
-      propertyPath: Gball_Dmg
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
-        type: 3}
-      propertyPath: DOT_DMG
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
-        type: 3}
       propertyPath: LowHp.Array.data[0]
       value: 
       objectReference: {fileID: 1461647847}

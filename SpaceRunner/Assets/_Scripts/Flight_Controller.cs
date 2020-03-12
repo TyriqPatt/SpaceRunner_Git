@@ -6,8 +6,6 @@ using UnityEngine.Audio;
 
 public class Flight_Controller : MonoBehaviour
 {
-
-  
     public float clampAngle = .5f;
     public float clamppos = 50f;
     public float rotspeed;

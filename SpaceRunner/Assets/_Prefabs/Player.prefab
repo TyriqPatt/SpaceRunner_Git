@@ -38419,7 +38419,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 261c622eb71e5aa498b5cda81d83f447, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
@@ -38917,7 +38917,7 @@ MonoBehaviour:
   Asteroid_DMG: 25
   Beam_DMG: 2
   Mine_Dmg: 20
-  Gball_Dmg: 0.3
+  Gball_Dmg: 0.15
   HealAmount: 10
   hitDet: {fileID: 4561031876939347179}
   healthDet: {fileID: 2058060696}
