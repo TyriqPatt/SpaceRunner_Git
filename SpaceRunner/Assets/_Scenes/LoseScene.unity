@@ -10080,87 +10080,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05a81c3d5091440058129444d28322f3, type: 3}
---- !u!1001 &622876986
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4779334029700949935, guid: c950efac8c5eb9c4b98ddf0b16aaf95a,
-        type: 3}
-      propertyPath: m_Name
-      value: DontDestroyOnLoad
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779334029700949922, guid: c950efac8c5eb9c4b98ddf0b16aaf95a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -20.66246
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779334029700949922, guid: c950efac8c5eb9c4b98ddf0b16aaf95a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.0360284
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779334029700949922, guid: c950efac8c5eb9c4b98ddf0b16aaf95a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 120.55135
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779334029700949922, guid: c950efac8c5eb9c4b98ddf0b16aaf95a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779334029700949922, guid: c950efac8c5eb9c4b98ddf0b16aaf95a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779334029700949922, guid: c950efac8c5eb9c4b98ddf0b16aaf95a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779334029700949922, guid: c950efac8c5eb9c4b98ddf0b16aaf95a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779334029700949922, guid: c950efac8c5eb9c4b98ddf0b16aaf95a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779334029700949922, guid: c950efac8c5eb9c4b98ddf0b16aaf95a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779334029700949922, guid: c950efac8c5eb9c4b98ddf0b16aaf95a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4779334029700949922, guid: c950efac8c5eb9c4b98ddf0b16aaf95a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c950efac8c5eb9c4b98ddf0b16aaf95a, type: 3}
---- !u!114 &622876987 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4779334029700949920, guid: c950efac8c5eb9c4b98ddf0b16aaf95a,
-    type: 3}
-  m_PrefabInstance: {fileID: 622876986}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbc160a668ebe8140b8244472286a443, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &780838169
 GameObject:
   m_ObjectHideFlags: 0
@@ -24986,10 +24905,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1664269169174470, guid: 5a073d16030e9bb4ab4bab71c3124066, type: 3}
-      propertyPath: m_Name
-      value: StarSparrow11
-      objectReference: {fileID: 0}
     - target: {fileID: 4465035140963908, guid: 5a073d16030e9bb4ab4bab71c3124066, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.86
@@ -25033,6 +24948,10 @@ PrefabInstance:
     - target: {fileID: 4465035140963908, guid: 5a073d16030e9bb4ab4bab71c3124066, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -15.000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664269169174470, guid: 5a073d16030e9bb4ab4bab71c3124066, type: 3}
+      propertyPath: m_Name
+      value: StarSparrow11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a073d16030e9bb4ab4bab71c3124066, type: 3}
@@ -35079,7 +34998,7 @@ PrefabInstance:
     - target: {fileID: 11400004, guid: 05a81c3d5091440058129444d28322f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 622876987}
+      objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 05a81c3d5091440058129444d28322f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResetLevel
@@ -35202,7 +35121,7 @@ PrefabInstance:
     - target: {fileID: 11400004, guid: 05a81c3d5091440058129444d28322f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 622876987}
+      objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 05a81c3d5091440058129444d28322f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuitGame
