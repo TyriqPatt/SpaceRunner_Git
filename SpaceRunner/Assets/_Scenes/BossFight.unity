@@ -17854,7 +17854,7 @@ PrefabInstance:
     - target: {fileID: 3652135523612392544, guid: ee51b6825a961f348a255d5288393d60,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1002530183, guid: ee51b6825a961f348a255d5288393d60, type: 3}
       propertyPath: AstrSpawner
@@ -17942,12 +17942,12 @@ PrefabInstance:
     - target: {fileID: 1892675472691298546, guid: ee51b6825a961f348a255d5288393d60,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1892675472691298546, guid: ee51b6825a961f348a255d5288393d60,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1892823096585280098, guid: ee51b6825a961f348a255d5288393d60,
         type: 3}
