@@ -27,6 +27,7 @@ public class Health : MonoBehaviour
         {
             CurMat = GetComponent<Renderer>().material;
         }
+        Explosion = transform.GetChild(1).gameObject;
     }
 
     // Update is called once per frame
@@ -55,6 +56,7 @@ public class Health : MonoBehaviour
         {
             DealDamage(Damage * PlayerHealth.DmgMultiplier);
             StartCoroutine(Hit());
+            Debug.Log(Damage + PlayerHealth.DmgMultiplier);
         }
         if (other.gameObject.tag == "EnemyLaser")
         {
@@ -104,9 +106,12 @@ public class Health : MonoBehaviour
             }
         }
         Destroy(gameObject);
-        GameObject tempObj;
-        tempObj = Instantiate(Explosion, transform.position, transform.rotation);
-        Destroy(tempObj, 2);
+        //GameObject tempObj;
+        //tempObj = Instantiate(Explosion, transform.position, transform.rotation);
+        //Destroy(tempObj, 2);
+        Explosion.transform.parent = null;
+        Explosion.SetActive(true);
+        Destroy(Explosion, 2);
     }
 
     IEnumerator Hit()
