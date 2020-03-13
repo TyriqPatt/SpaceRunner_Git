@@ -1114,6 +1114,16 @@ PrefabInstance:
       propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 75951034197560522, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75951034197560522, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 254505643452658938, guid: 66e9637c4a7993a4f92cfdaa2e3ddf4c,
         type: 3}
       propertyPath: m_Color.r

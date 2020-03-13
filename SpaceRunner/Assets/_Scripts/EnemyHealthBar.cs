@@ -30,7 +30,10 @@ public class EnemyHealthBar : MonoBehaviour {
         //Sets current health to max health
         CurrentHealth = MaxHealth;
         //Sets slider in child object to healthslider
-        HealthSlider = transform.GetChild(0).transform.GetChild(0).GetComponent<Slider>();
+        if (!Pillar)
+        {
+            HealthSlider = transform.GetChild(0).transform.GetChild(0).GetComponent<Slider>();
+        }
         if (Boss)
         {
             transform.GetChild(0).transform.gameObject.SetActive(false);
