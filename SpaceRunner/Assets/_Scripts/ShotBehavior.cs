@@ -18,7 +18,7 @@ public class ShotBehavior : MonoBehaviour {
     public Transform target;
     public float dist;
     public bool canFollow;
-    public enum State { Default, ShockWave, CurveShot, Missile, PincerMissile, GrowingBall }
+    public enum State { Default, ShockWave, CurveShot, Missile, PincerMissile, GrowingBall, DmgBotShot }
 
     public State BulletType;
 
@@ -112,6 +112,13 @@ public class ShotBehavior : MonoBehaviour {
                 }
 
                 transform.LookAt(Player);
+            }
+        }
+        if (BulletType == State.DmgBotShot)
+        {
+            if (transform.position.y >= 5)
+            {
+                transform.position -= transform.up * Time.deltaTime * RiseSpeed;
             }
         }
     }
