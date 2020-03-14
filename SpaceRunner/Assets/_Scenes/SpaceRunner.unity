@@ -12412,11 +12412,6 @@ PrefabInstance:
       propertyPath: BarrageBG
       value: 
       objectReference: {fileID: 1994962616906880562}
-    - target: {fileID: 4560426748289386164, guid: 80aa0f9399189234caea08314aa24ddf,
-        type: 3}
-      propertyPath: isTutorial
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4560426748289386165, guid: 80aa0f9399189234caea08314aa24ddf,
         type: 3}
       propertyPath: HeavyCanonSlider
@@ -12449,14 +12444,19 @@ PrefabInstance:
       objectReference: {fileID: 1994962617454593402}
     - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
         type: 3}
-      propertyPath: MissileSlider
-      value: 
-      objectReference: {fileID: 1994962618012326450}
-    - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
-        type: 3}
       propertyPath: Turret
       value: 
       objectReference: {fileID: 1994962617519233267}
+    - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
+        type: 3}
+      propertyPath: TurretBar
+      value: 
+      objectReference: {fileID: 1994962617628565842}
+    - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
+        type: 3}
+      propertyPath: MissileSlider
+      value: 
+      objectReference: {fileID: 1994962618012326450}
     - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
         type: 3}
       propertyPath: Missile
@@ -12469,9 +12469,9 @@ PrefabInstance:
       objectReference: {fileID: 1994962618012326452}
     - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
         type: 3}
-      propertyPath: TurretBar
+      propertyPath: LowHp.Array.data[0]
       value: 
-      objectReference: {fileID: 1994962617628565842}
+      objectReference: {fileID: 4306900359155599171}
     - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
         type: 3}
       propertyPath: LowHp.Array.data[1]
@@ -12482,16 +12482,6 @@ PrefabInstance:
       propertyPath: LowHp.Array.data[2]
       value: 
       objectReference: {fileID: 572648112}
-    - target: {fileID: 4560426748295420207, guid: 80aa0f9399189234caea08314aa24ddf,
-        type: 3}
-      propertyPath: LowHp.Array.data[0]
-      value: 
-      objectReference: {fileID: 4306900359155599171}
-    - target: {fileID: 7813986303702614566, guid: 80aa0f9399189234caea08314aa24ddf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80aa0f9399189234caea08314aa24ddf, type: 3}
 --- !u!1 &6341898076599285250 stripped

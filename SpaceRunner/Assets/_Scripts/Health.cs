@@ -110,6 +110,8 @@ public class Health : MonoBehaviour
         //Destroy(tempObj, 2);
         Explosion.transform.parent = null;
         Explosion.SetActive(true);
+        Explosion.GetComponentInChildren<AudioSource>().enabled = true;
+        Explosion.GetComponentInChildren<Move>().enabled = true;
         Destroy(Explosion, 2);
     }
 

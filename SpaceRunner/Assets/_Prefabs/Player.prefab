@@ -38420,7 +38420,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 261c622eb71e5aa498b5cda81d83f447, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -38578,7 +38578,7 @@ MonoBehaviour:
   PH: {fileID: 0}
   C: {fileID: 0}
   rollAudio: {fileID: 5393190783264985461}
-  isTutorial: 0
+  isTutorial: 1
 --- !u!114 &4560426748289386165
 MonoBehaviour:
   m_ObjectHideFlags: 0
