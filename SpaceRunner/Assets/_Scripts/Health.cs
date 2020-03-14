@@ -56,7 +56,6 @@ public class Health : MonoBehaviour
         {
             DealDamage(Damage * PlayerHealth.DmgMultiplier);
             StartCoroutine(Hit());
-            Debug.Log(Damage + PlayerHealth.DmgMultiplier);
         }
         if (other.gameObject.tag == "EnemyLaser")
         {
