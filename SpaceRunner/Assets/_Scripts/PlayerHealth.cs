@@ -104,10 +104,13 @@ public class PlayerHealth : MonoBehaviour
 
     public void DealDamage(float DamageValue)
     {
-        CurrentHealth -= DamageValue;
-        HealthSlider.value = CalculatedHealth();
-        StartCoroutine(Hit());
-        if (CurrentHealth <= 0)
+        if (CurrentHealth > 0)
+        {
+            CurrentHealth -= DamageValue;
+            HealthSlider.value = CalculatedHealth();
+            StartCoroutine(Hit());
+        }
+        else if (CurrentHealth <= 0)
         {
             Die();
         }
