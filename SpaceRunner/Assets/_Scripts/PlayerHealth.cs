@@ -66,7 +66,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            DealDamage(100);
+            Die();
         }
 
         if (CurRollCdwn <= MaxRollCdwn)
