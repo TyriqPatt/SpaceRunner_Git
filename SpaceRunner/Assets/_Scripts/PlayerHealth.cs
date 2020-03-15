@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerHealth : MonoBehaviour
@@ -42,6 +43,7 @@ public class PlayerHealth : MonoBehaviour
     Flight_Controller fc;
     public GameObject PlayerExplosions;
     public AudioSource thrusterExplosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -310,5 +312,12 @@ public class PlayerHealth : MonoBehaviour
     {
         Missile.SetActive(false);
         MissileBar.SetActive(false);
+    }
+
+    public IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(2.5f);
+        SceneManager.LoadScene("WinScene");
+
     }
 }
