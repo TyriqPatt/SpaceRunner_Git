@@ -344,7 +344,7 @@ public class DroidBoss : MonoBehaviour
         {
             yield return new WaitForSeconds(.5f);
             float Randnum;
-            Randnum = Random.Range(1, 2);
+            Randnum = Random.Range(0, 2);
             if (Randnum == 0)
             {
                 StartCoroutine(SpreadShot());
