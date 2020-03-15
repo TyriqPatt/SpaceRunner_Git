@@ -39,6 +39,9 @@ public class PlayerHealth : MonoBehaviour
     public static float DmgMultiplier = 1;
     public bool StartCdwn;
     public LowHealthIndicator[] LowHp;
+    Flight_Controller fc;
+    public GameObject PlayerExplosions;
+    public AudioSource thrusterExplosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,10 +56,17 @@ public class PlayerHealth : MonoBehaviour
 
         CurMissileCdwn = MaxMissileCdwn;
         MissileSlider.value = MissileCooldown();
+
+        fc = GetComponentInParent<Flight_Controller>();
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            DealDamage(100);
+        }
+
         if (CurRollCdwn <= MaxRollCdwn)
         {
             CurRollCdwn += Time.deltaTime;
@@ -99,7 +109,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
-        if (CurrentHealth <= 25)
+        else if (CurrentHealth <= 25)
         {
             
             for (int i = 0; i < LowHp.Length; i++)
@@ -130,6 +140,9 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         CurrentHealth = 0;
+        fc.States = 5;
+        PlayerExplosions.SetActive(true);
+        StartCoroutine(delayexplosion());
     }
 
     float CalculatedHealth()
@@ -158,29 +171,29 @@ public class PlayerHealth : MonoBehaviour
         {
             DealDamage(Laser_DMG);
         }
-        if (other.gameObject.tag == "Curvelaser")
+        else if (other.gameObject.tag == "Curvelaser")
         {
             DealDamage(Curve_DMG);
         }
-        if (other.gameObject.tag == "SpaceMine")
+        else if (other.gameObject.tag == "SpaceMine")
         {
             DealDamage(Mine_Dmg);
         }
-        if (other.gameObject.tag == "Stun")
+        else if (other.gameObject.tag == "Stun")
         {
             StartCoroutine(DOT(3));
         }
-        if (other.gameObject.tag == "Asteroid")
+        else if (other.gameObject.tag == "Asteroid")
         {
             DealDamage(Asteroid_DMG);
         }
-        if (other.gameObject.tag == "G_Ball")
+        else if (other.gameObject.tag == "G_Ball")
         {
             transform.parent.GetComponent<Flight_Controller>()._speed = .5f;
             transform.parent.GetComponent<Flight_Controller>()._RollSpeed = 4f;
             other.transform.parent.GetComponent<ShotBehavior>().speed = 20;
         }
-        if (other.gameObject.tag == "Pickup")
+        else if (other.gameObject.tag == "Pickup")
         {
             PowerUp PU = other.GetComponent<PowerUp>();
             if (PU.AttackPickUp)
@@ -208,8 +221,7 @@ public class PlayerHealth : MonoBehaviour
         {
             DealDamage(Beam_DMG);
         }
-
-        if (other.gameObject.tag == "G_Ball")
+        else if (other.gameObject.tag == "G_Ball")
         {
             DealDamage(Gball_Dmg);
         }
@@ -230,6 +242,18 @@ public class PlayerHealth : MonoBehaviour
         hitDet.SetActive(true);
         yield return new WaitForSeconds(.15f);
         hitDet.SetActive(false);
+
+    }
+
+    IEnumerator delayexplosion()
+    {
+        
+        yield return new WaitForSeconds(.2f);
+        thrusterExplosion.enabled = true;
+        thrusterExplosion.Play();
+        yield return new WaitForSeconds(.8f);
+        thrusterExplosion.enabled = true;
+        thrusterExplosion.Play();
 
     }
 

@@ -31,30 +31,33 @@ public class CameraFollow : MonoBehaviour
             StartCoroutine(campos());
         }
 
-        Vector3 desiredPostion = target.position + offset;
-        Vector3 smoothedposition = Vector3.Lerp(transform.position, desiredPostion, smoothspeed);
-        transform.position = smoothedposition;
-        if (Camlook)
+        if(fc.States != 5)
+        {
+            Vector3 desiredPostion = target.position + offset;
+            Vector3 smoothedposition = Vector3.Lerp(transform.position, desiredPostion, smoothspeed);
+            transform.position = smoothedposition;
+        }
+        if (Camlook && fc.States != 5)
         {
             transform.LookAt(target);
         }
 
-        if (ship.transform.position.x >= fc.clamppos && ship.transform.position.x > 0)
+        if (ship.transform.position.x >= fc.clamppos && ship.transform.position.x > 0 && fc.States != 5)
         {
             smoothspeed = .05f;
             //Debug.Log("Smoothright");
         }
-        else if (ship.transform.position.x < fc.clamppos && ship.transform.position.x > 0)
+        else if (ship.transform.position.x < fc.clamppos && ship.transform.position.x > 0 && fc.States != 5)
         {
             smoothspeed = EdgeSmoothing;
         }
 
-        if (ship.transform.position.x <= -fc.clamppos && ship.transform.position.x < 0)
+        if (ship.transform.position.x <= -fc.clamppos && ship.transform.position.x < 0 && fc.States != 5)
         {
             smoothspeed = .05f;
             //Debug.Log("smoothleft");
         }
-        else if (ship.transform.position.x > -fc.clamppos && ship.transform.position.x < 0)
+        else if (ship.transform.position.x > -fc.clamppos && ship.transform.position.x < 0 && fc.States != 5)
         {
             smoothspeed = EdgeSmoothing;
         }

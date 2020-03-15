@@ -52,38 +52,38 @@ public class Health : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (other.gameObject.tag == "Shootable")
+        else if (other.gameObject.tag == "Shootable")
         {
             DealDamage(Damage * PlayerHealth.DmgMultiplier);
             StartCoroutine(Hit());
         }
-        if (other.gameObject.tag == "EnemyLaser")
+        else if (other.gameObject.tag == "EnemyLaser")
         {
             DealDamage(Damage * PlayerHealth.DmgMultiplier);
             StartCoroutine(Hit());
         }
-        if (other.gameObject.tag == "TurretShot")
+        else if (other.gameObject.tag == "TurretShot")
         {
             DealDamage(Damage + 5 * PlayerHealth.DmgMultiplier);
             StartCoroutine(Hit());
         }
-        if (other.gameObject.tag == "Missile")
+        else if (other.gameObject.tag == "Missile")
         {
             DealDamage(Damage + 25);
             StartCoroutine(Hit());
         }
-        if (other.gameObject.tag == "Debris")
+        else if (other.gameObject.tag == "Debris")
         {
             DealDamage(Damage * PlayerHealth.DmgMultiplier);
             Die();
         }
-        if (other.gameObject.tag == "Player")
+        else if (other.gameObject.tag == "Player")
         {
             Hitplayer = true;
             Die();
             
         }
-        if (other.gameObject.tag == "Beam")
+        else if (other.gameObject.tag == "Beam")
         {
             Die();
         }

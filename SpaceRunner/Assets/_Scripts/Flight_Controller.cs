@@ -23,7 +23,7 @@ public class Flight_Controller : MonoBehaviour
     [HideInInspector] public bool isDisrupted;
     float Dashspeed = 10.0F;
     float Rollspeed = 11.0F;
-    [HideInInspector] public int States;
+    public int States;
     public Image RollBG;
     public Image AllyBG;
     public Image BarrageBG;
@@ -50,6 +50,18 @@ public class Flight_Controller : MonoBehaviour
     {
         switch (States)
         {
+            case 5:
+                //Dead
+                C.enabled = false;
+                isDisrupted = true;
+                Child.transform.Rotate(0.0f, 1f, -1 * 2);
+                transform.Translate(1 * .1f, -.2f, 0.0f);
+                if (Child.transform.rotation.z >= clampAngle)
+                {
+                    Child.transform.rotation = new Quaternion(0, 0, clampAngle, Child.transform.rotation.w);
+                }
+                break;
+
             case 4:
                 //Disrupt left
                 Child.transform.Rotate(0.0f, 0.0f, -1 * rotspeed);
@@ -133,12 +145,11 @@ public class Flight_Controller : MonoBehaviour
 
         Abilities();
         //Boundaries
-        if (transform.position.x >= clamppos)
+        if (transform.position.x >= clamppos && States != 5)
         {
             transform.position = new Vector3(clamppos, 5, 0);
         }
-
-        if (transform.position.x <= -clamppos)
+        if (transform.position.x <= -clamppos && States != 5)
         {
             transform.position = new Vector3(-clamppos, 5, 0);
         }

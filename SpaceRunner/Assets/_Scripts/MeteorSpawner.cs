@@ -57,12 +57,4 @@ public class MeteorSpawner : MonoBehaviour
             WarningSign.SetActive(false);
         }
     }
-
-    private void OnDisable()
-    {
-        if (!ForBossFight)
-        {
-            StartCoroutine(Spawn(2.5f));
-        }
-    }
 }
