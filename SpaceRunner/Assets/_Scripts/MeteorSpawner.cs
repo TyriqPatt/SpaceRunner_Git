@@ -62,7 +62,7 @@ public class MeteorSpawner : MonoBehaviour
     {
         if (!ForBossFight)
         {
-            StartCoroutine(Spawn(3));
+            StartCoroutine(Spawn(2.5f));
         }
     }
 }

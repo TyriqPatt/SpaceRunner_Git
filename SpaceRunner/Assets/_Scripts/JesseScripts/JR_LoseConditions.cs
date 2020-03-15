@@ -26,7 +26,7 @@ public class JR_LoseConditions : MonoBehaviour
 
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2.5f);
         SceneManager.LoadScene("LoseScene");
 
     }
