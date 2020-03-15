@@ -250,10 +250,13 @@ public class Flight_Controller : MonoBehaviour
         Thruster.SetActive(false);
         Electricity.SetActive(true);
         yield return new WaitForSeconds(DisruptLength);
-        States = 0;
-        isDisrupted = false;
-        Thruster.SetActive(true);
-        Electricity.SetActive(false);
+        if(States != 5)
+        {
+            States = 0;
+            isDisrupted = false;
+            Thruster.SetActive(true);
+            Electricity.SetActive(false);
+        }
     }
 
     IEnumerator RollTime()

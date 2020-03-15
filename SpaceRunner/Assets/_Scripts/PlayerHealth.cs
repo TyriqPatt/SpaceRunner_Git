@@ -43,6 +43,7 @@ public class PlayerHealth : MonoBehaviour
     Flight_Controller fc;
     public GameObject PlayerExplosions;
     public AudioSource thrusterExplosion;
+    bool DoOnce;
 
     // Start is called before the first frame update
     void Start()
@@ -66,7 +67,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            Die();
+            DealDamage(100);
         }
 
         if (CurRollCdwn <= MaxRollCdwn)
@@ -110,7 +111,7 @@ public class PlayerHealth : MonoBehaviour
             HealthSlider.value = CalculatedHealth();
             StartCoroutine(Hit());
         }
-        else if (CurrentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             Die();
         }
@@ -144,10 +145,15 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        CurrentHealth = 0;
-        fc.States = 5;
-        PlayerExplosions.SetActive(true);
-        StartCoroutine(delayexplosion());
+        if (!DoOnce)
+        {
+            CurrentHealth = 0;
+            fc.States = 5;
+            PlayerExplosions.SetActive(true);
+            StartCoroutine(delayexplosion());
+            DoOnce = true;
+        }
+        
     }
 
     float CalculatedHealth()
