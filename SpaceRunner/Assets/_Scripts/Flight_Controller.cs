@@ -236,19 +236,22 @@ public class Flight_Controller : MonoBehaviour
     //Disrupt enumerator, seeds players into disrupt state
     public IEnumerator Disrupted()
     {
-        float Randnum;
-        Randnum = Random.Range(0, 2);
-        if (Randnum == 0)
+        if(States != 5)
         {
-            States = 3;
+            float Randnum;
+            Randnum = Random.Range(0, 2);
+            if (Randnum == 0)
+            {
+                States = 3;
+            }
+            else if (Randnum == 1)
+            {
+                States = 4;
+            }
+            isDisrupted = true;
+            Thruster.SetActive(false);
+            Electricity.SetActive(true);
         }
-        else if (Randnum == 1)
-        {
-            States = 4;
-        }
-        isDisrupted = true;
-        Thruster.SetActive(false);
-        Electricity.SetActive(true);
         yield return new WaitForSeconds(DisruptLength);
         if(States != 5)
         {

@@ -32,7 +32,7 @@ public class DroidBoss : MonoBehaviour
     bool CanResetPos;
     float ThresLevel;
     float Round;
-    bool isRotating;
+    public bool isRotating;
     public float randomRot;
 
     // Start is called before the first frame update
@@ -284,6 +284,7 @@ public class DroidBoss : MonoBehaviour
                 StopAllCoroutines();
                 canShoot = false;
                 BossState = State.MoveToOffsetPos;
+                isRotating = false;
                 ThresLevel = 1;
             }
         }
@@ -295,6 +296,7 @@ public class DroidBoss : MonoBehaviour
                 StopAllCoroutines();
                 canShoot = false;
                 BossState = State.MoveToOffsetPos;
+                isRotating = false;
                 ThresLevel = 2;
             }
         }
@@ -305,12 +307,9 @@ public class DroidBoss : MonoBehaviour
                 StopAllCoroutines();
                 canShoot = false;
                 BossState = State.MoveToOffsetPos;
+                isRotating = false;
                 ThresLevel = 3;
             }
-        }
-        else if(ThresLevel == 3)
-        {
-
         }
     }
 
@@ -345,7 +344,7 @@ public class DroidBoss : MonoBehaviour
         {
             yield return new WaitForSeconds(.5f);
             float Randnum;
-            Randnum = Random.Range(0, 2);
+            Randnum = Random.Range(1, 2);
             if (Randnum == 0)
             {
                 StartCoroutine(SpreadShot());
