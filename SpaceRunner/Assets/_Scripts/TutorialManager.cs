@@ -67,6 +67,7 @@ public class TutorialManager : MonoBehaviour
             case State.WaitForAsteroids:
                 LastAsteriods = GameObject.FindGameObjectsWithTag("Asteroid");
                 float f = LastAsteriods.Length;
+
                 if (f == 0)
                 {
                     TutorialState = State.TeachAbility;
