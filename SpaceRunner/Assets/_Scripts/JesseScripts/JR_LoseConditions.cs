@@ -19,8 +19,15 @@ public class JR_LoseConditions : MonoBehaviour
     {
         if (m_playerHealth.CurrentHealth <= 0)
         {
-            SceneManager.LoadScene("LoseScene");
+            StartCoroutine(Delay()); 
         }
         
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("LoseScene");
+
     }
 }

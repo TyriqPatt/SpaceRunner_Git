@@ -17,7 +17,9 @@ public class JR_LevelDesign : MonoBehaviour
     private Transform SpawnerLocation;
 
     public GameObject WarningBoss;
-    public GameObject WarningEnemies; 
+    public GameObject WarningEnemies;
+
+    private bool start = false; 
    
 
     // Start is called before the first frame update
@@ -61,8 +63,13 @@ public class JR_LevelDesign : MonoBehaviour
         switch (LevelOnePhases)
         {
             case 1:
-                m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
-                LevelOnePhases = 2;
+                StartCoroutine(Delay());
+
+                if (start)
+                {
+                    m_enemySpawner.SpawnEnemies(1, 0, 0, 0);
+                    LevelOnePhases = 2;
+                }
                 break;
             case 2:
                 m_enemySpawner.SpawnEnemies(2, 0, 0, 0);
@@ -160,6 +167,13 @@ public class JR_LevelDesign : MonoBehaviour
 
     }
 
-    
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(3);
+
+        start = true; 
+    }
+
+
 
 }

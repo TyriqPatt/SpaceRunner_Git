@@ -17,7 +17,11 @@ public class JR_WinCondition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            StartCoroutine(Delay());
+
+        }
     }
 
     
@@ -26,8 +30,14 @@ public class JR_WinCondition : MonoBehaviour
     {
         if(m_playerHealth.CurrentHealth > 0)
         {
-            SceneManager.LoadScene("WinScene");
-
+            StartCoroutine(Delay()); 
         }
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("WinScene");
+
     }
 }
