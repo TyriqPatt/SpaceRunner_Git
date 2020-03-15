@@ -320,4 +320,9 @@ public class PlayerHealth : MonoBehaviour
         SceneManager.LoadScene("WinScene");
 
     }
+
+    public void CallDelayEnumerator()
+    {
+        StartCoroutine(Delay()); 
+    }
 }

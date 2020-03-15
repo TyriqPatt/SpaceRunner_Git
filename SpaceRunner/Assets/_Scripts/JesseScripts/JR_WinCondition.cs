@@ -26,7 +26,7 @@ public class JR_WinCondition : MonoBehaviour
     {
         if(m_playerHealth.CurrentHealth > 0)
         {
-            StartCoroutine(m_playerHealth.Delay());  
+            m_playerHealth.CallDelayEnumerator(); 
         }
     }
 
