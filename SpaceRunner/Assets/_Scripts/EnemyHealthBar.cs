@@ -95,9 +95,8 @@ public class EnemyHealthBar : MonoBehaviour {
         if (!isTutorial && !Boss)
         {
             int randSpawn = Random.Range(0, 5);
-            //int randPu = Random.Range(0, PickUps.Length);
-            int randPu = Random.Range(0, 1);
-            if (randSpawn <= 5)//1
+            int randPu = Random.Range(0, PickUps.Length);
+            if (randSpawn <= 1)
             {
                 Instantiate(PickUps[randPu], transform.position, transform.parent.rotation);
             }
