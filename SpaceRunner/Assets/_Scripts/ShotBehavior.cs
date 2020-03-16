@@ -69,13 +69,16 @@ public class ShotBehavior : MonoBehaviour {
         }
         else if (BulletType == State.CurveShot)
         {
-            if (curvein)
+            if(Time.timeScale != 0)
             {
-                transform.Rotate(0, RotSpeed, 0);
-            }
-            else
-            {
-                transform.Rotate(0, -RotSpeed, 0);
+                if (curvein)
+                {
+                    transform.Rotate(0, RotSpeed, 0);
+                }
+                else
+                {
+                    transform.Rotate(0, -RotSpeed, 0);
+                }
             }
         }
         else if (BulletType == State.PincerMissile)
