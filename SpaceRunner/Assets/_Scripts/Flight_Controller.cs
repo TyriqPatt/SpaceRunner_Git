@@ -33,8 +33,9 @@ public class Flight_Controller : MonoBehaviour
     public PlayerHealth PH;
     public Canons C;
     public AudioSource rollAudio;
-
-    public bool isTutorial;
+    float doubleTapTime = .2f;
+    float LastTapTimeR;
+    float LastTapTimeL;
 
     // Start is called before the first frame update
     void Start()
@@ -142,7 +143,7 @@ public class Flight_Controller : MonoBehaviour
                 break;
         }
 
-
+        DoubleTapRoll();
         Abilities();
         //Boundaries
         if (transform.position.x >= clamppos && States != 5)
@@ -155,6 +156,31 @@ public class Flight_Controller : MonoBehaviour
         }
     }
 
+    void DoubleTapRoll()
+    {
+        //left roll
+        if (Input.GetKeyDown(KeyCode.A) && PH.CurRollCdwn == PH.MaxRollCdwn)
+        {
+            float TimeSinceLastTap = Time.time - LastTapTimeL;
+            if (TimeSinceLastTap <= doubleTapTime)
+            {
+                RollLeft();
+            }
+            LastTapTimeL = Time.time;
+        }
+        //right roll
+        if (Input.GetKeyDown(KeyCode.D) && PH.CurRollCdwn == PH.MaxRollCdwn)
+        {
+            float TimeSinceLastTap = Time.time - LastTapTimeR;
+            if (TimeSinceLastTap <= doubleTapTime)
+            {
+                RollRight();
+            }
+            LastTapTimeR = Time.time;
+        }
+        
+    }
+
     void Abilities()
     {
         if(Time.timeScale != 0)
@@ -163,24 +189,14 @@ public class Flight_Controller : MonoBehaviour
             {
 
                 //left roll
-                if (Input.GetKeyDown(KeyCode.LeftShift) && input < 0 && PH.CurRollCdwn == PH.MaxRollCdwn)
+                if (input < 0 && Input.GetKeyDown(KeyCode.LeftShift) && PH.CurRollCdwn == PH.MaxRollCdwn)
                 {
-                    rollAudio.Play(); 
-                    StartCoroutine(RollTime());
-                    States = 1;
-                    StartCoroutine(Barrel_Roll());
-                    PH.CurRollCdwn -= PH.CurRollCdwn;
-                    PH.RollSlider.value = PH.RollCooldown();
+                    RollLeft();
                 }
                 //right roll
-                if (Input.GetKeyDown(KeyCode.LeftShift) && input > 0 && PH.CurRollCdwn == PH.MaxRollCdwn)
+                if (input > 0 && Input.GetKeyDown(KeyCode.LeftShift) && PH.CurRollCdwn == PH.MaxRollCdwn)
                 {
-                    rollAudio.Play();
-                    StartCoroutine(RollTime());
-                    States = 2;
-                    StartCoroutine(Barrel_Roll());
-                    PH.CurRollCdwn -= PH.CurRollCdwn;
-                    PH.RollSlider.value = PH.RollCooldown();
+                    RollRight();
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha2) && PH.CurTurretCdwn == PH.MaxTurretCdwn || Input.GetKeyDown(KeyCode.W) && PH.CurTurretCdwn == PH.MaxTurretCdwn)
@@ -200,7 +216,26 @@ public class Flight_Controller : MonoBehaviour
 
             }
         }
-        
+    }
+
+    void RollRight()
+    {
+        rollAudio.Play();
+        StartCoroutine(RollTime());
+        States = 2;
+        StartCoroutine(Barrel_Roll());
+        PH.CurRollCdwn -= PH.CurRollCdwn;
+        PH.RollSlider.value = PH.RollCooldown();
+    }
+
+    void RollLeft()
+    {
+        rollAudio.Play();
+        StartCoroutine(RollTime());
+        States = 1;
+        StartCoroutine(Barrel_Roll());
+        PH.CurRollCdwn -= PH.CurRollCdwn;
+        PH.RollSlider.value = PH.RollCooldown();
     }
 
     IEnumerator Missiles()
