@@ -336,7 +336,7 @@ MonoBehaviour:
   PickUps:
   - {fileID: 1442801782922368, guid: e97d38b861c7db64bb50d91030e08e7e, type: 3}
   - {fileID: 1222493453194062, guid: 18ea3fcca3d85ff4ebeadd11b726ed5c, type: 3}
-  isTutorial: 0
+  isTutorial: 1
   hit: 0
   hitTime: 2
 --- !u!114 &5781781274848023706

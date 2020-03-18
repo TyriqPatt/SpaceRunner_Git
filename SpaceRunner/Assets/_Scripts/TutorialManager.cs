@@ -12,7 +12,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject[] LastAsteriods;
     public GameObject[] Enemies;
     public Transform T_Spawner;
-    public enum State {StartState, TeachMove, Spawn_Asteriods, TeachShoot, WaitForAsteroids, TeachAbility, TeachAbilityTwo, TeachAbilityThree, SpawnBots, WaitForBots}
+    public enum State {StartState, TeachMove, Spawn_Asteriods, TeachShoot, WaitForAsteroids, TeachAbility, TeachAbilityTwo, TeachAbilityThree, SpawnBots, WaitForBots, WaitForWinScene}
     public State TutorialState;
     float input;
     public Canons C;
@@ -28,8 +28,6 @@ public class TutorialManager : MonoBehaviour
     {
         //C.enabled = false;
         StartCoroutine(Wait());
-        
-       
     }
 
     // Update is called once per frame
@@ -98,13 +96,17 @@ public class TutorialManager : MonoBehaviour
                 break;
             case State.WaitForBots:
                 Enemies = GameObject.FindGameObjectsWithTag("Enemy");
-                float fe = Enemies.Length;
-                if (fe == 0)
+                float lastenemies = Enemies.Length;
+                if (lastenemies == 0)
                 {
                     BotText.SetActive(false);
-                    SceneManager.LoadScene("WinScene"); 
+                    PH.CallDelayEnumerator();
+                    //SceneManager.LoadScene("WinScene"); 
                     //Complete Tutorial, Send to next level
                 }
+                break;
+            case State.WaitForWinScene:
+                
                 break;
         }
     }
